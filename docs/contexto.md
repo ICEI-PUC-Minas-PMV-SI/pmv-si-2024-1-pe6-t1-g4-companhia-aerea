@@ -51,7 +51,7 @@ Adicione informações sobre o público-alvo por meio de uma descrição textual
 
 A fim de compreender melhor o perfil dos clientes ideais que nosso sistema almeja, foi elaborado o buyer persona de cada um das categorias encontradas no público-alvo, como podemos observar nas imagens abaixo.
 
-<img src = "img/persona_01.png">
+<img src = "img/persona_001.png">
 
 <img src = "img/persona_02.png">
 
