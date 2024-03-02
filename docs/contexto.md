@@ -34,16 +34,14 @@ O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estat�
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+Através de pesquisas em literatura, benchmarking e em conhecimentos prévios adquiridos através de vivência na área, a equipe da UaiFly percebeu a amplitude do público-alvo que a empresa abrange. Este público varia desde jovens empreendedores até magnatas que valorizam a praticidade em suas viagens. Além disso, foram identificados outros perfis importantes, tais como universitários que estudam longe de suas cidades natais e desejam visitar suas famílias, assim como pais e mães que planejam viagens em família durante as férias. Ao longo deste documento, exploraremos detalhadamente cada um desses perfis, destacando suas necessidades e preferências específicas.
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+Para os jovens empreendedores, a UaiFly oferece flexibilidade e conveniência em suas viagens. Pois este públcio valoriza a eficiência e a praticidade na reserva de passagens, essenciais para sua vida dinâmica e em constante movimento.
+Já para o perfil do empresário prático e objetivo, a UaiFly proporciona agilidade e eficiência no processo de reserva de passagens. Como tendem a serem viajantes frequentes, valorizam cada momento de sua jornada e precisam de uma companhia aérea que compreenda sua necessidade de rapidez e praticidade.
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+Os universitários que estão em busca de oportunidades acadêmicas, encontram na UaiFly opções econômicas e acessíveis para suas viagens, pois este grupo valoriza a flexibilidade de datas e tarifas competitivas, essenciais para viabilizar suas aspirações acadêmicas e explorar novos horizontes.
+
+Para os pais e mães que desejam viajar com sua família, a UaiFly se destaca ao oferecer uma experiência especialmente projetada para atender às necessidades das crianças e facilitar a reserva de passagens para todos os membros da família. Este grupo de viajantes busca acima de tudo o conforto e a conveniência em suas jornadas, priorizando o bem-estar dos filhos e a praticidade durante todo o processo de viagem.
 
 # Especificações do Projeto
 
