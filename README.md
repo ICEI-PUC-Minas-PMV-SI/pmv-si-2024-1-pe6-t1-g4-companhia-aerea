@@ -6,7 +6,7 @@
 
 `SEMESTRE: 6º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto da companhia aérea Uaifly visa desenvolver uma aplicação distribuída baseada na web para atender às necessidades de um público diversificado. A Uaifly abrange desde jovens empreendedores até famílias que desejam viajar juntas durante as férias. Essa amplitude de público exige uma solução flexível e eficiente para a reserva de passagens aéreas.
 
 ## Integrantes
 
