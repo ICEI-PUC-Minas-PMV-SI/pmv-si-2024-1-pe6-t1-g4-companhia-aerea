@@ -19,7 +19,7 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
 
 Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
+
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
@@ -51,11 +51,11 @@ A fim de compreender melhor o perfil dos clientes ideais que nosso sistema almej
 
 <img src = "img/persona_001.png">
 
-<img src = "img/persona_02.png">
+<img src = "img/persona_002.png">
 
-<img src = "img/persona_03.png">
+<img src = "img/persona_003.png">
 
-<img src = "img/persona_04.png">
+<img src = "img/persona_004.png">
 
 
 ## Histórias de Usuários
