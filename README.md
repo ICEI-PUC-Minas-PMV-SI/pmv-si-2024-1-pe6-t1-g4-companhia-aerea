@@ -1,4 +1,4 @@
-# 🧀🛫 UaiFly  🏖️
+# 🧀 UaiFly 🛫
 
 `CURSO: Sistemas de Informação`
 
