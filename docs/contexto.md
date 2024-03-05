@@ -111,34 +111,33 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Catálogo de Serviços
 
-    Reserva de Voos:
-        Características: Este serviço permite aos usuários pesquisar e reservar voos para diferentes destinos.
-        Funcionalidades:
-            Pesquisa de voos por destino, data e preferências de classe.
-            Visualização de opções de voos disponíveis com detalhes sobre horários, companhias aéreas e preços.
-            Reserva de assentos e conclusão do processo de compra.
+1. **Reserva de Voos:**
+   - *Características:* Este serviço permite aos usuários pesquisar e reservar voos para diferentes destinos.
+   - *Funcionalidades:*
+     - Pesquisa de voos por destino, data e preferências de classe.
+     - Visualização de opções de voos disponíveis com detalhes sobre horários, companhias aéreas e preços.
+     - Reserva de assentos e conclusão do processo de compra.
 
-    Gerenciamento de Reservas:
-        Características: Este serviço permite aos usuários visualizar e gerenciar suas reservas de voos.
-        Funcionalidades:
-            Acesso ao histórico de reservas e detalhes dos voos agendados.
-            Possibilidade de fazer alterações nas reservas, como mudança de datas ou cancelamento.
-            Opções para adicionar serviços adicionais, como bagagem extra ou seleção de assentos preferenciais.
+2. **Gerenciamento de Reservas:**
+   - *Características:* Este serviço permite aos usuários visualizar e gerenciar suas reservas de voos.
+   - *Funcionalidades:*
+     - Acesso ao histórico de reservas e detalhes dos voos agendados.
+     - Possibilidade de fazer alterações nas reservas, como mudança de datas ou cancelamento.
+     - Opções para adicionar serviços adicionais, como bagagem extra ou seleção de assentos preferenciais.
 
-    Segurança de Dados:
-        Características: Este serviço garante a proteção dos dados pessoais e financeiros dos usuários.
-        Funcionalidades:
-            Implementação de medidas robustas de segurança, como criptografia de dados.
-            Monitoramento contínuo para identificar e mitigar possíveis vulnerabilidades.
-            Conformidade com regulamentações de privacidade de dados, como GDPR e LGPD.
+3. **Segurança de Dados:**
+   - *Características:* Este serviço garante a proteção dos dados pessoais e financeiros dos usuários.
+   - *Funcionalidades:*
+     - Implementação de medidas robustas de segurança, como criptografia de dados.
+     - Monitoramento contínuo para identificar e mitigar possíveis vulnerabilidades.
+     - Conformidade com regulamentações de privacidade de dados, como GDPR e LGPD.
 
-    Interface Usuário-Amigável:
-        Características: Este serviço oferece uma interface intuitiva e fácil de usar para os usuários.
-        Funcionalidades:
-            Design responsivo para garantir uma experiência consistente em diferentes dispositivos e tamanhos de tela.
-            Navegação simplificada e organização lógica das informações.
-            Inclusão de recursos de acessibilidade para atender a diversos públicos.
-
+4. **Interface Usuário-Amigável:**
+   - *Características:* Este serviço oferece uma interface intuitiva e fácil de usar para os usuários.
+   - *Funcionalidades:*
+     - Design responsivo para garantir uma experiência consistente em diferentes dispositivos e tamanhos de tela.
+     - Navegação simplificada e organização lógica das informações.
+     - Inclusão de recursos de acessibilidade para atender a diversos públicos.
 
 # Gerenciamento de Projeto
 
