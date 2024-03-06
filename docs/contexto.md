@@ -4,16 +4,18 @@ Este projeto aborda os desafios enfrentados pela companhia aérea Uaifly ao aten
 
 ## Problema
 A Uaifly enfrenta o desafio de atender a uma ampla diversidade de perfis de passageiros, que incluem estudantes, funcionários públicos, engenheiros de software e empresários. Cada perfil possui necessidades específicas, desde opções econômicas e flexibilidade de datas até eficiência, escalabilidade e integração tecnológica. 
+
 Além disso, a aplicação deve ser escalável para lidar com picos de demanda, garantir a segurança dos dados dos passageiros e a confiabilidade do sistema, e eficientemente integrar-se com outros sistemas de check-in, gestão de voos e pagamento. 
+
 Em resumo, o problema central consiste em desenvolver uma aplicação distribuída que seja flexível, segura e eficiente, proporcionando uma melhor experiência de viagem para os passageiros da Uaifly.
 
 
 ## Objetivos
 
-Objetivo Geral: 
+### Objetivo Geral: 
 Desenvolver um software abrangente e eficiente que atenda à diversidade de perfis de passageiros da Uaifly, visando aprimorar a experiência de viagem por meio da solução dos desafios apresentados, conforme detalhado no problema.
 
-Objetivos Específicos:
+### Objetivos Específicos:
 a. Personalização de Opções de Viagem:
 Desenvolver funcionalidades específicas para cada perfil de passageiro (estudantes, funcionários públicos, engenheiros de software e empresários), proporcionando opções personalizadas que atendam às suas necessidades, tais como pacotes econômicos, flexibilidade de datas, conforto e integração tecnológica.
 
