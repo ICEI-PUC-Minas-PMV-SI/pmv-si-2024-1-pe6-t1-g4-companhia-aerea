@@ -1,36 +1,33 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+Este projeto aborda os desafios enfrentados pela companhia aérea Uaifly ao atender a uma ampla gama de perfis de passageiros. A meta é desenvolver uma aplicação que seja flexível, segura e eficiente, visando aprimorar a experiência de viagem oferecida. Os objetivos específicos incluem personalizar opções de viagem, implementar um sistema distribuído com integrações estratégicas, validar cupons de descontos e fortalecer a segurança da informação. Essas metas visam atender às expectativas diversificadas dos passageiros, oferecendo uma jornada de viagem personalizada e confiável. O público-alvo deste projeto são os clientes da Uaifly, buscando proporcionar uma experiência única e eficiente.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
+A Uaifly enfrenta o desafio de atender a uma ampla diversidade de perfis de passageiros, que incluem estudantes, funcionários públicos, engenheiros de software e empresários. Cada perfil possui necessidades específicas, desde opções econômicas e flexibilidade de datas até eficiência, escalabilidade e integração tecnológica. 
+Além disso, a aplicação deve ser escalável para lidar com picos de demanda, garantir a segurança dos dados dos passageiros e a confiabilidade do sistema, e eficientemente integrar-se com outros sistemas de check-in, gestão de voos e pagamento. 
+Em resumo, o problema central consiste em desenvolver uma aplicação distribuída que seja flexível, segura e eficiente, proporcionando uma melhor experiência de viagem para os passageiros da Uaifly.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
-
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+Objetivo Geral: 
+Desenvolver um software abrangente e eficiente que atenda à diversidade de perfis de passageiros da Uaifly, visando aprimorar a experiência de viagem por meio da solução dos desafios apresentados, conforme detalhado no problema.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+Objetivos Específicos:
+a. Personalização de Opções de Viagem:
+Desenvolver funcionalidades específicas para cada perfil de passageiro (estudantes, funcionários públicos, engenheiros de software e empresários), proporcionando opções personalizadas que atendam às suas necessidades, tais como pacotes econômicos, flexibilidade de datas, conforto e integração tecnológica.
 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+b. Implementação de Sistema Distribuído e Integrações:
+Desenvolver uma arquitetura de sistema distribuído, incluindo integrações com serviços como Google Maps, previsão do tempo e outras APIs relevantes. Isso visa proporcionar informações em tempo real e otimizar a experiência do usuário durante o planejamento e a execução da viagem.
+
+c. Validação de Cupons de Descontos e Integração com Parceiros:
+Implementar um sistema de validação de cupons de descontos para hotéis, passeios e outros pacotes, promovendo ofertas personalizadas aos passageiros. Estabelecer integrações eficientes com parceiros para garantir a aplicação efetiva dos descontos e proporcionar benefícios adicionais aos clientes da Uaifly.
+Estes objetivos específicos visam concentrar a prática investigativa na personalização das soluções oferecidas aos passageiros, na implementação de um sistema distribuído com integrações essenciais e na validação de cupons de descontos, contribuindo para uma experiência de viagem mais completa e alinhada com as necessidades diversificadas do público-alvo da Uaifly.
+
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+A decisão de desenvolver uma aplicação para atender às diversas necessidades dos passageiros da Uaifly é motivada pela busca de uma experiência de viagem mais personalizada, eficiente e segura. Os objetivos específicos, como a personalização de opções de viagem, a implementação de um sistema distribuído com integrações estratégicas e a validação de cupons de descontos, são escolhas fundamentadas na diversidade do público-alvo. A ênfase na segurança da informação e confiabilidade visa construir a confiança dos passageiros, garantindo uma experiência de viagem alinhada com as expectativas variadas dos clientes.
 
 ## Público-Alvo
 
