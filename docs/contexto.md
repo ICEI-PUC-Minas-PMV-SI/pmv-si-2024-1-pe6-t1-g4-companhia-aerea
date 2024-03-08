@@ -140,29 +140,56 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Gerenciamento de Projeto
 
-De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
+Gerenciamento de Recursos para Desenvolvimento da Aplicação
 
-## Gerenciamento de Tempo
+Abaixo estão alguns aspectos essenciais do gerenciamento de recursos:
 
-Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
+1. Equipe de Desenvolvimento:
+   - Assegurar uma equipe qualificada em C#, React, Flutter, e experiência em integrações REST API.
+   - Implementar metodologias ágeis, como Scrum, para otimizar a colaboração e a entrega.
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
+2. Infraestrutura de Desenvolvimento:
+   - Prover ambientes de desenvolvimento configurados adequadamente para C#, React e Flutter.
+   - Utilizar ferramentas de controle de versão, como Git, para gerenciar o código fonte de forma eficiente.
 
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
+3. Integração Contínua e Implantação Contínua (CI/CD):
+   - Implementar pipelines CI/CD para automação de testes, compilação e deploy.
+   - Utilizar plataformas como Azure DevOps para integração contínua e Azure para deploy.
 
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+4. Recursos Cloud:
+   - Gerenciar cuidadosamente os recursos na plataforma Azure para garantir escalabilidade conforme a demanda.
+   - Monitorar e otimizar o uso de recursos cloud para evitar custos desnecessários.
 
-## Gerenciamento de Equipe
+5. Banco de Dados:
+   - Configurar e gerenciar o banco de dados (PostgreSQL ou MariaDB) para garantir desempenho e segurança.
+   - Implementar backups regulares e procedimentos de recuperação para proteger dados críticos.
 
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
+6. Segurança e Conformidade:
+   - Adotar práticas de segurança, como autenticação multi-fator e criptografia, no desenvolvimento em C#.
+   - Garantir conformidade com regulamentações de privacidade e segurança no setor de viagens.
 
-![Simple Project Timeline](img/02-project-timeline.png)
+7. Documentação:
+   - Manter documentação detalhada do código, arquitetura e procedimentos de deploy para facilitar a manutenção futura.
+   - Documentar as integrações e APIs para melhorar a colaboração entre equipes.
+
+Ao gerenciar esses recursos de forma eficaz, garantimos um processo de desenvolvimento com entregas consistentes e uma aplicação que atende às expectativas de eficiência, segurança e experiência do usuário.
 
 # Arquitetura da Solução
 
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
+Desenvolvimento de Aplicação Inspirada na Plataforma VoeAzul: Um Monolito Eficiente Integrando C#, React e Flutter
 
-![Arquitetura da Solução](img/02-mob-arch.png)
+Este projeto será um monolito, com o backend implementado em C#, o frontend em React, e a versão mobile em Flutter. Além disso, a escolha estratégica da plataforma Azure para deploy, Firebase para push notification, e a opção flexível entre PostgreSQL e MariaDB como banco de dados, reflete nossa busca por uma solução robusta e escalável.
+
+A indústria de viagens tem passado por uma transformação digital significativa e neste contexto, a aplicação que será desenvolvida se inspirou na plataforma VoeAzul, buscando proporcionar uma experiência única e inovadora para os usuários interessados em viagens aéreas.
+
+A escolha de um monolito para a arquitetura da aplicação é motivada pela simplicidade de desenvolvimento, manutenção e escalabilidade, especialmente em projetos de médio porte. O backend em C# foi escolhido devido à sua forte tipagem, performance eficiente e boas funcionalidades de segurança. Enquanto o frontend em React proporcionará uma interface web amigável e responsiva. A versão mobile, construída em Flutter, assegura uma experiência consistente em diversas plataformas, simplificando o desenvolvimento e reduzindo custos de manutenção. A arquitetura da nossa aplicação fará o uso de REST API para facilitar a comunicação eficiente entre os diferentes componentes do sistema. A escolha da REST API baseia-se em sua simplicidade e flexibilidade. Essa abordagem permite uma interação  entre o frontend em React, o aplicativo mobile em Flutter e o backend em C#
+
+O uso da plataforma Azure para o deploy oferece uma infraestrutura confiável e escalável. Com a flexibilidade para dimensionar recursos de acordo com a demanda, garantimos uma performance estável mesmo em períodos de pico. A integração do Firebase para push notifications contribuirá para uma comunicação eficaz com os usuários, mantendo-os informados sobre atualizações de voos, promoções e outras informações relevantes.
+
+A escolha entre PostgreSQL e MariaDB como sistema de gerenciamento de banco de dados (SGBD) dependerá das necessidades específicas do projeto e das preferências da equipe de desenvolvimento. Os dois sistemas são robustos, confiáveis e possuem um bom  suporte para a escalabilidade, sendo capazes de lidar com grandes volumes de dados. A decisão será tomada considerando fatores como a complexidade das consultas, requisitos de integridade referencial e experiência da equipe.
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/62914189/222c62ad-75bc-464e-a9dc-3c81a0ff32ea)
+
 
 ## Tecnologias Utilizadas
 
