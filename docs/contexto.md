@@ -110,33 +110,53 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Catálogo de Serviços
 
-1. **Reserva de Voos:**
-   - *Características:* Este serviço permite aos usuários pesquisar e reservar voos para diferentes destinos.
-   - *Funcionalidades:*
-     - Pesquisa de voos por destino, data e preferências de classe.
-     - Visualização de opções de voos disponíveis com detalhes sobre horários, companhias aéreas e preços.
-     - Reserva de assentos e conclusão do processo de compra de forma intuitiva e eficiente.
+### Reserva de Voos:
+- **Características:** Este serviço permite aos usuários pesquisar e reservar voos para diferentes destinos.
+- **Funcionalidades:**
+    - Pesquisa de voos por destino, data e preferências de classe.
+    - Visualização de opções de voos disponíveis com detalhes sobre horários, companhias aéreas e preços.
+    - Reserva de assentos e conclusão do processo de compra de forma intuitiva e eficiente.
 
-2. **Gerenciamento de Reservas:**
-   - *Características:* Este serviço permite aos usuários visualizar e gerenciar suas reservas de voos.
-   - *Funcionalidades:*
-     - Acesso ao histórico de reservas e detalhes dos voos agendados.
-     - Possibilidade de fazer alterações nas reservas, como mudança de datas ou cancelamento, de maneira simples e rápida.
-     - Opções para adicionar serviços adicionais, como bagagem extra ou seleção de assentos preferenciais, com facilidade.
+### Gerenciamento de Reservas:
+- **Características:** Este serviço permite aos usuários visualizar e gerenciar suas reservas de voos.
+- **Funcionalidades:**
+    - Acesso ao histórico de reservas e detalhes dos voos agendados.
+    - Possibilidade de fazer alterações nas reservas, como mudança de datas ou cancelamento, de maneira simples e rápida.
+    - Opções para adicionar serviços adicionais, como bagagem extra ou seleção de assentos preferenciais, com facilidade.
 
-3. **Segurança de Dados:**
-   - *Características:* Este serviço garante a proteção dos dados pessoais e financeiros dos usuários.
-   - *Funcionalidades:*
-     - Implementação de medidas robustas de segurança, como criptografia de dados, para proteger informações sensíveis.
-     - Monitoramento contínuo para identificar e mitigar possíveis vulnerabilidades, garantindo a integridade dos dados.
-     - Conformidade com regulamentações de privacidade de dados, como GDPR e LGPD, para assegurar a privacidade dos usuários.
+### Segurança de Dados:
+- **Características:** Este serviço garanta a proteção dos dados pessoais e financeiros dos usuários.
+- **Funcionalidades:**
+    - Implementação de medidas robustas de segurança, como criptografia de dados, para proteger informações sensíveis.
+    - Monitoramento contínuo para identificar e mitigar possíveis vulnerabilidades, garantindo a integridade dos dados.
+    - Conformidade com regulamentações de privacidade de dados, como GDPR e LGPD, para assegurar a privacidade dos usuários.
 
-4. **Interface Usuário-Amigável:**
-   - *Características:* Este serviço oferece uma interface intuitiva e fácil de usar para os usuários.
-   - *Funcionalidades:*
-     - Design responsivo para garantir uma experiência consistente em diferentes dispositivos e tamanhos de tela, proporcionando comodidade aos usuários.
-     - Navegação simplificada e organização lógica das informações, facilitando a busca e a realização de tarefas.
-     - Inclusão de recursos de acessibilidade para atender a diversos públicos, promovendo a inclusão e a igualdade de acesso à plataforma.
+### Interface Usuário-Amigável:
+- **Características:** Este serviço oferece uma interface intuitiva e fácil de usar para os usuários.
+- **Funcionalidades:**
+    - Design responsivo para garantir uma experiência consistente em diferentes dispositivos e tamanhos de tela, proporcionando comodidade aos usuários.
+    - Navegação simplificada e organização lógica das informações, facilitando a busca e a realização de tarefas.
+    - Inclusão de recursos de acessibilidade para atender a diversos públicos, promovendo a inclusão e a igualdade de acesso à plataforma.
+
+### Serviço de Personalização de Opções de Viagem:
+- **Características:** Este serviço permite aos usuários personalizar suas preferências de viagem com base em seus perfis específicos, como estudantes, funcionários públicos, engenheiros de software e empresários.
+- **Funcionalidades:**
+    - Proporcionar opções personalizadas que atendam às necessidades de cada perfil de passageiro, como pacotes econômicos, flexibilidade de datas, conforto e integração tecnológica.
+
+### Validação de Cupons de Descontos e Integração com Parceiros:
+- **Características:** Este serviço permite validar cupons de descontos para hotéis, passeios e outros pacotes, promovendo ofertas personalizadas aos passageiros.
+- **Funcionalidades:**
+    - Implementar um sistema de validação de cupons de descontos para hotéis, passeios e outros pacotes, promovendo ofertas personalizadas aos passageiros.
+
+### Recursos de Acessibilidade na Interface do Usuário:
+- **Características:** Este serviço oferece recursos de acessibilidade na interface do usuário para atender a diversos públicos, como pessoas com deficiência visual ou motora.
+- **Funcionalidades:**
+    - Garantir que todos os usuários, independentemente de suas necessidades especiais, possam utilizar a aplicação com facilidade, proporcionando uma experiência inclusiva.
+
+### Envio de Notificações de Confirmação e Lembretes:
+- **Características:** Este serviço envia notificações de confirmação de reserva e lembretes de viagens marcadas.
+- **Funcionalidades:**
+    - Manter os usuários informados sobre o status de suas reservas e lembrá-los de seus voos agendados, contribuindo para uma experiência de viagem mais organizada e sem contratempos.
 
 # Gerenciamento de Projeto
 
