@@ -115,28 +115,28 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
    - *Funcionalidades:*
      - Pesquisa de voos por destino, data e preferências de classe.
      - Visualização de opções de voos disponíveis com detalhes sobre horários, companhias aéreas e preços.
-     - Reserva de assentos e conclusão do processo de compra.
+     - Reserva de assentos e conclusão do processo de compra de forma intuitiva e eficiente.
 
 2. **Gerenciamento de Reservas:**
    - *Características:* Este serviço permite aos usuários visualizar e gerenciar suas reservas de voos.
    - *Funcionalidades:*
      - Acesso ao histórico de reservas e detalhes dos voos agendados.
-     - Possibilidade de fazer alterações nas reservas, como mudança de datas ou cancelamento.
-     - Opções para adicionar serviços adicionais, como bagagem extra ou seleção de assentos preferenciais.
+     - Possibilidade de fazer alterações nas reservas, como mudança de datas ou cancelamento, de maneira simples e rápida.
+     - Opções para adicionar serviços adicionais, como bagagem extra ou seleção de assentos preferenciais, com facilidade.
 
 3. **Segurança de Dados:**
    - *Características:* Este serviço garante a proteção dos dados pessoais e financeiros dos usuários.
    - *Funcionalidades:*
-     - Implementação de medidas robustas de segurança, como criptografia de dados.
-     - Monitoramento contínuo para identificar e mitigar possíveis vulnerabilidades.
-     - Conformidade com regulamentações de privacidade de dados, como GDPR e LGPD.
+     - Implementação de medidas robustas de segurança, como criptografia de dados, para proteger informações sensíveis.
+     - Monitoramento contínuo para identificar e mitigar possíveis vulnerabilidades, garantindo a integridade dos dados.
+     - Conformidade com regulamentações de privacidade de dados, como GDPR e LGPD, para assegurar a privacidade dos usuários.
 
 4. **Interface Usuário-Amigável:**
    - *Características:* Este serviço oferece uma interface intuitiva e fácil de usar para os usuários.
    - *Funcionalidades:*
-     - Design responsivo para garantir uma experiência consistente em diferentes dispositivos e tamanhos de tela.
-     - Navegação simplificada e organização lógica das informações.
-     - Inclusão de recursos de acessibilidade para atender a diversos públicos.
+     - Design responsivo para garantir uma experiência consistente em diferentes dispositivos e tamanhos de tela, proporcionando comodidade aos usuários.
+     - Navegação simplificada e organização lógica das informações, facilitando a busca e a realização de tarefas.
+     - Inclusão de recursos de acessibilidade para atender a diversos públicos, promovendo a inclusão e a igualdade de acesso à plataforma.
 
 # Gerenciamento de Projeto
 
