@@ -213,9 +213,20 @@ A escolha entre PostgreSQL e MariaDB como sistema de gerenciamento de banco de d
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+Este projeto utiliza uma variedade de tecnologias para garantir sua funcionalidade, segurança e escalabilidade. O backend é implementado em C#, enquanto o frontend é desenvolvido em React. A versão mobile é construída com Flutter. O Azure é utilizado para o deploy da aplicação web, enquanto o Firebase fornece recursos de push notification. O banco de dados escolhido é o MariaDB.
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+A escolha de cada tecnologia foi feita com base em sua capacidade de atender às necessidades específicas do projeto. C#, por exemplo, é uma linguagem robusta e escalável, ideal para o backend. React é uma biblioteca popular para desenvolvimento de interfaces web modernas e responsivas. Flutter permite a criação de aplicações mobile multiplataforma com um único código-fonte. O Azure oferece um ambiente seguro e escalável para o deploy da aplicação web. O Firebase é uma plataforma de backend como serviço (BaaS) que fornece recursos de push notification de forma fácil e eficiente. O MariaDB é um banco de dados confiável e de alto desempenho.
+
+A combinação de todas essas tecnologias garante que o projeto seja completo, funcional e atenda às expectativas dos usuários.
+
+| Tecnologia | Aplicação |
+|---|---|
+| C# | Implementação do Backend |
+| React | Implementação do Frontend |
+| Flutter | Implementação da versão mobile |
+| Azure | Deploy da aplicação web |
+| Firebase | Implementação do Push notification |
+| MariaDB | Banco de Dados |
 
 ## Hospedagem
 
