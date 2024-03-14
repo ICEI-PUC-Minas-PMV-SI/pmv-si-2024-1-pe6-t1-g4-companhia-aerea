@@ -230,11 +230,8 @@ A combinação de todas essas tecnologias garante que o projeto seja completo, f
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+Após a finalização do desenvolvimento, a plataforma será hospedada na nuvem Azure, garantindo confiabilidade, escalabilidade e segurança. A infraestrutura flexível da Azure permite que os recursos sejam dimensionados de acordo com a demanda, assegurando performance estável mesmo em períodos de pico.
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+A plataforma será acessível através de um website e de aplicativos mobile para iOS e Android. Os usuários poderão criar contas, pesquisar voos, comprar bilhetes e gerenciar suas reservas.
+
+A equipe de desenvolvimento está comprometida em fornecer uma plataforma robusta, confiável e fácil de usar para os usuários. A plataforma será constantemente aprimorada com base no feedback dos usuários e nas últimas tecnologias disponíveis.
