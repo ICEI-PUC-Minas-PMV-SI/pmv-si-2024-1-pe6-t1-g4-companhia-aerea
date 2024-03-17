@@ -208,7 +208,7 @@ O uso da plataforma Azure para o deploy oferece uma infraestrutura confiável e 
 
 A escolha entre PostgreSQL e MariaDB como sistema de gerenciamento de banco de dados (SGBD) dependerá das necessidades específicas do projeto e das preferências da equipe de desenvolvimento. Os dois sistemas são robustos, confiáveis e possuem um bom  suporte para a escalabilidade, sendo capazes de lidar com grandes volumes de dados. A decisão será tomada considerando fatores como a complexidade das consultas, requisitos de integridade referencial e experiência da equipe.
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/62914189/222c62ad-75bc-464e-a9dc-3c81a0ff32ea)
+<img src = "img/arquitetura-base.png">
 
 
 ## Tecnologias Utilizadas
