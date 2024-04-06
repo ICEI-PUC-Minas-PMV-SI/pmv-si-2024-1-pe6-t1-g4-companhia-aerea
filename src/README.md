@@ -3,7 +3,7 @@ O arquivo global.json define a versão em que o SDK vai compilar o projeto, esta
 
 # Arquitetura da Api
 
-![Arquitetura da Api](https://prnt.sc/eWNIzNHrOi5V)
+[Arquitetura da Api](https://prnt.sc/eWNIzNHrOi5V)
 
 
 # Comandos básicos CLI
