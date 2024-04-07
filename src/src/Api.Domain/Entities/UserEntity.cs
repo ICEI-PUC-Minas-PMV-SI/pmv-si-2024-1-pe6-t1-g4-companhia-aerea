@@ -10,11 +10,11 @@ namespace Api.Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public DateTime DateBirth { get; set; }
-        public Status Status { get; set; }
+        public UserStatus Status { get; set; }
         public TypeUser TypeUser { get; set; }
     }
 
-    public enum Status
+    public enum UserStatus
     {
         Active = 1,
         Inactive = 2,
