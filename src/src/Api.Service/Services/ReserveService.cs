@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Services
+namespace Api.Service.Services
 {
     public class ReserveService : IReserveService
     {
