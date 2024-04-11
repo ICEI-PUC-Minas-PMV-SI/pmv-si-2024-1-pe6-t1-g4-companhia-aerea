@@ -12,6 +12,8 @@ namespace Domain.Dtos.ReserveAggregate
     {
         [Required(ErrorMessage ="O campo código da reserva é obrigatório!")]
         public string ReserveCode { get; set; }
+        [Required(ErrorMessage ="O campo status da reserva é obrigatório")]
+        public string ReserveStatus {  get; set; }
         [Required(ErrorMessage = "O campo bagagem extra é obrigatório!")]
         public bool ExtraLuggage { get; set; }
         [Required(ErrorMessage = "O campo de cliente é obrigatório!")]
