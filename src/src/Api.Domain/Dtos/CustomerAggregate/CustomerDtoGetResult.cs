@@ -16,7 +16,6 @@ namespace Domain.Dtos.CustomerAggregate
         public DateTime DateBirth { get; set; }
         public Guid NationalityId { get; set; }
         public Guid AddressId { get; set; }
-        public Guid UserId { get; set; }
         public Guid PhoneId { get; set; }
         public Guid? CareerId { get; set; }
     }

@@ -12,7 +12,6 @@ namespace Api.Domain.Dtos.UserAggregate
         public string LastName { get; set; }
         public string Email { get; set; }
         public string DateBirth { get; set; }
-        public string Password { get; set; }
         public DateTime CreateAt { get; set; }
     }
 }
