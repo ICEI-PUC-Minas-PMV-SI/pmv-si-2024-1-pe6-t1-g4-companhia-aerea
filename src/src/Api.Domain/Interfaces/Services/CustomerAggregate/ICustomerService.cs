@@ -10,8 +10,8 @@ namespace Api.Domain.Interfaces.Services.CustomerAggregate
     {
         Task<CustomerDto> Get(Guid id);
         Task<IEnumerable<CustomerDto>> GetAll();
-        Task<CustomerDtoCreateResult> Post(CustomerDtoCreate customer);
-        Task<CustomerDtoUpdateResult> Put(CustomerDtoUpdate customer);
+        Task<CustomerDtoCreateResult> Post(CustomerDtoCreate customer, Guid userId);
+        Task<CustomerDtoUpdateResult> Put(CustomerDtoUpdate customer, Guid userId);
         Task<bool> Delete(Guid id);
     }
 }

@@ -29,17 +29,16 @@ namespace Api.Domain.Dtos.CustomerAggregate
         public string DateBirth { get; set; }
 
         [Required(ErrorMessage = "Nascionalidade é um campo obrigatório")]
-        [StringLength(200, ErrorMessage = "Nascionalidade deve ter no máximo {1} caracteres.")]
         public Guid NationalityId { get; set; }
         public Guid? CareerId { get; set; }
 
         [Required(ErrorMessage = "Código do País é um campo obrigatório")]
         [StringLength(3, ErrorMessage = "Código do País deve ter no máximo {1} caracteres.")]
-        public string PhoneCountryCode { get; set; }
+        public string CountryCode { get; set; }
 
         [Required(ErrorMessage = "DDD é um campo obrigatório")]
         [StringLength(3, ErrorMessage = "DDD deve ter no máximo {1} caracteres.")]
-        public string PhoneDDD { get; set; }
+        public string DDD { get; set; }
 
         [Required(ErrorMessage = "Número do Telefone é um campo obrigatório")]
         [StringLength(20, ErrorMessage = "Número do Telefone deve ter no máximo {1} caracteres.")]

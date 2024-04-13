@@ -92,6 +92,7 @@ namespace Api.Service.Services
             });
 
             var token = handler.WriteToken(securityToken);
+            var teste = handler.ReadToken(token);
             return token;
         }
 
@@ -114,6 +115,11 @@ namespace Api.Service.Services
         {
             if (user != null && !string.IsNullOrWhiteSpace(user.Email) && !string.IsNullOrWhiteSpace(user.Password)) return true;
             return false;
+        }
+
+        public async Task<UserEntity> FindByLogin(string email)
+        {
+            return await _repository.FindByLogin(email);
         }
     }
 }

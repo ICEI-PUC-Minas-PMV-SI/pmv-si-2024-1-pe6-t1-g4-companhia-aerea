@@ -19,8 +19,8 @@ namespace Api.Domain.Dtos.CustomerAggregate
         public Guid PhoneId { get; set; }
         public Guid? CareerId { get; set; }
 
-        public string PhoneCountryCode { get; set; }
-        public string PhoneDDD { get; set; }
+        public string CountryCode { get; set; }
+        public string DDD { get; set; }
         public string PhoneNumber { get; set; }
         public int TypePhone { get; set; }
 
@@ -33,6 +33,9 @@ namespace Api.Domain.Dtos.CustomerAggregate
         public string Number { get; set; }
         public string Complement { get; set; }
 
+        public CustomerDtoCreateResult()
+        {
 
+        }
     }
 }
