@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Api.Domain.Dtos.CustomerAggregate;
 using Api.Domain.Interfaces.Services.CustomerAggregate;
 using Api.Domain.Interfaces.Services.UserAggregate;
+using application.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +14,9 @@ namespace Api.Application.Controllers
 {
 
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [Authorize("Bearer")]
-    public class CustomersController : ControllerBase
+    public class CustomersController : CustomController
     {
 
         public ICustomerService _service { get; set; }
@@ -26,7 +27,7 @@ namespace Api.Application.Controllers
             _loginService = loginService;
         }
 
-        [HttpGet]
+        [HttpGet("getallcustomers")]
         public async Task<ActionResult> GetAllCustomers()
         {
             if (!ModelState.IsValid)
@@ -44,9 +45,11 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        [Route("{id}", Name = "GetCustomer")]
+        [Route("{id}", Name = "getcustomer")]
         public async Task<ActionResult> GetCustomer(Guid id)
         {
+            var session = GetSessionData();
+            var email = GetSessionData().Email;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -71,10 +74,11 @@ namespace Api.Application.Controllers
             }
             try
             {
-                var jwtToken = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-                var handler = new JwtSecurityTokenHandler();
-                var token = handler.ReadToken(jwtToken) as JwtSecurityToken;
-                var email = token.Claims.FirstOrDefault(i => i.Type == "name").Value.ToString();
+                //var jwtToken = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+                //var handler = new JwtSecurityTokenHandler();
+                //var token = handler.ReadToken(jwtToken) as JwtSecurityToken;
+                //var email = token.Claims.FirstOrDefault(i => i.Type == "name").Value.ToString();
+                var email = GetSessionData().Email;
 
                 var baseUser = await _loginService.FindByLogin(email);
                 if (baseUser != null)
@@ -142,10 +146,11 @@ namespace Api.Application.Controllers
         }
 
 
-        [HttpGet]
-        [Route("{id}", Name = "getaddress")]
+        [HttpGet("getaddress")]
         public async Task<ActionResult> GetAddress(Guid id)
         {
+            var sessionData = GetSessionData();
+            var email = GetSessionData().Email;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -161,8 +166,7 @@ namespace Api.Application.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("{id}", Name = "getcareer")]
+        [HttpGet("getcareer")]
         public async Task<ActionResult> GetCareer(Guid id)
         {
             if (!ModelState.IsValid)
@@ -180,8 +184,7 @@ namespace Api.Application.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("{id}", Name = "getnationality")]
+        [HttpGet("getnationality")]
         public async Task<ActionResult> GetNationality(Guid id)
         {
             if (!ModelState.IsValid)
@@ -199,8 +202,7 @@ namespace Api.Application.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("{id}", Name = "getphone")]
+        [HttpGet("getphone")]
         public async Task<ActionResult> GetPhone(Guid id)
         {
             if (!ModelState.IsValid)
@@ -218,7 +220,7 @@ namespace Api.Application.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("getallnationality")]
         public async Task<ActionResult> GetAllNationality()
         {
             if (!ModelState.IsValid)
@@ -235,7 +237,7 @@ namespace Api.Application.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("getallcareer")]
         public async Task<ActionResult> GetAllCareer()
         {
             if (!ModelState.IsValid)

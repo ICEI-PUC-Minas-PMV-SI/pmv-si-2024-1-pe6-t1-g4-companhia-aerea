@@ -12,6 +12,7 @@ using Api.Domain.Repository;
 using Api.Domain.Security;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Api.Service.Services
 {
@@ -57,11 +58,14 @@ namespace Api.Service.Services
                         {
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
+                            new Claim(ClaimTypes.Email, user.Email),
+                            new Claim(ClaimTypes.Name, $"{baseUser.FirstName} {baseUser.LastName}"),
+                            new Claim(ClaimTypes.Role, baseUser.TypeUser.ToString()),
                         }
                     );
 
                     DateTime createDate = DateTime.UtcNow;
-                    DateTime expirationDate = createDate + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
+                    DateTime expirationDate = createDate.AddDays(7);
 
                     var handler = new JwtSecurityTokenHandler();
                     string token = CreateToken(identity, createDate, expirationDate, handler);
@@ -92,7 +96,6 @@ namespace Api.Service.Services
             });
 
             var token = handler.WriteToken(securityToken);
-            var teste = handler.ReadToken(token);
             return token;
         }
 
