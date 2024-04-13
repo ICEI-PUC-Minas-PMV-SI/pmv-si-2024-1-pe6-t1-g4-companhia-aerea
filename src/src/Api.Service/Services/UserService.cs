@@ -45,7 +45,7 @@ namespace Api.Service.Services
             model.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
 
             var entity = _mapper.Map<UserEntity>(model);
-            entity.Status = Status.Active;
+            entity.Status = UserStatus.Active;
             entity.TypeUser = TypeUser.Regular;
 
             var result = await _repository.InsertAsync(entity);
@@ -62,7 +62,7 @@ namespace Api.Service.Services
                 model.Password = string.IsNullOrWhiteSpace(user.Password) ? userDb.Password : BCrypt.Net.BCrypt.HashPassword(model.Password);
 
                 var entity = _mapper.Map<UserEntity>(model);
-                entity.Status = Status.Active;
+                entity.Status = UserStatus.Active;
                 entity.TypeUser = TypeUser.Regular;
 
 
