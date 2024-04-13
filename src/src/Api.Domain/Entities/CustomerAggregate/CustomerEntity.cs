@@ -16,6 +16,13 @@ namespace Api.Domain.Entities.CustomerAggregate
         public Guid PhoneId { get; set; }
         public Guid? CareerId { get; set; }
 
+
+        // Propriedades de navegação
+        public AddressEntity Address { get; set; }
+        public NationalityEntity Nationality { get; set; }
+        public CareerEntity Career { get; set; }
+        public PhoneEntity Phone { get; set; }
+
         public CustomerEntity()
         {
 

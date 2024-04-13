@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Api.Domain.Dtos.CustomerAggregate;
 using Api.Domain.Entities.CustomerAggregate;
 using AutoMapper;
+using Domain.Dtos.CustomerAggregate;
 
 namespace Api.CrossCutting.Mappings.CustomerAggregate
 {
@@ -31,6 +32,19 @@ namespace Api.CrossCutting.Mappings.CustomerAggregate
                .ReverseMap();
 
             CreateMap<CustomerDtoUpdateResult, PhoneEntity>()
+               .ReverseMap();
+
+
+            CreateMap<AddressDto, AddressEntity>()
+               .ReverseMap();
+
+            CreateMap<CareerDto, CareerEntity>()
+               .ReverseMap();
+
+            CreateMap<NationalityDto, NationalityEntity>()
+               .ReverseMap();
+
+            CreateMap<PhoneDto, PhoneEntity>()
                .ReverseMap();
 
         }

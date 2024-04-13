@@ -8,6 +8,8 @@ using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services.CustomerAggregate;
 using Api.Domain.Repository;
 using AutoMapper;
+using Domain.Dtos.CustomerAggregate;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Service.Services
 {
@@ -29,15 +31,49 @@ namespace Api.Service.Services
         {
             var entity = await _repository.SelectByIdAsync(id);
             var customerDto = _mapper.Map<CustomerDto>(entity);
-            //Pegar os valores das outras tabelas
 
             return customerDto;
         }
 
-        public async Task<IEnumerable<CustomerDto>> GetAll()
+        public async Task<IEnumerable<CustomerDtoSearchResult>> GetAll()
         {
             var listEntity = await _repository.SelectAllAsync();
-            return _mapper.Map<IEnumerable<CustomerDto>>(listEntity);
+            var result = new List<CustomerDtoSearchResult>();
+
+            foreach (var customer in listEntity)
+            {
+                var customerDto = await ConvertToCustomerDtoSearchResult(customer);
+                result.Add(customerDto);
+            }
+
+            //var result = await Task.WhenAll(listEntity.Select(async customer =>
+            //{
+            //    var customerDto = await ConvertToCustomerDtoSearchResult(customer);
+            //    return customerDto;
+            //}));
+
+            //var resultList = result.ToList();
+
+            return result;
+        }
+
+        private async Task<CustomerDtoSearchResult> ConvertToCustomerDtoSearchResult(CustomerEntity customer)
+        {
+            var nationalityEntity = await _repository.GetNationalityById(customer.NationalityId);
+            var careerEntity = customer.CareerId.HasValue ? await _repository.GetCareerById(customer.CareerId.Value) : null;
+
+            return new CustomerDtoSearchResult
+            {
+                Id = customer.Id,
+                FullName = $"{customer.FirstName} {customer.LastName}",
+                Email = customer.Email,
+                Document = customer.Document,
+                DateBirth = customer.DateBirth,
+                NationalityId = customer.NationalityId,
+                CareerId = customer.CareerId,
+                NationalityDescription = nationalityEntity.Description,
+                CareerDescription = careerEntity != null ? careerEntity.Description : ""
+            };
         }
 
         public async Task<CustomerDtoCreateResult> Post(CustomerDtoCreate customer, Guid userId)
@@ -203,6 +239,43 @@ namespace Api.Service.Services
                 CreatedAt = DateTime.UtcNow
             };
             return await _repository.InsertAddressAsync(addressEntity);
+        }
+
+        public async Task<AddressDto> GetAddress(Guid id)
+        {
+            var addressDb = await _repository.GetAddressById(id);
+            return _mapper.Map<AddressDto>(addressDb);
+
+        }
+
+        public async Task<CareerDto> GetCareer(Guid id)
+        {
+            var careerDb = await _repository.GetCareerById(id);
+            return _mapper.Map<CareerDto>(careerDb);
+        }
+
+        public async Task<NationalityDto> GetNationality(Guid id)
+        {
+            var nationalityDb = await _repository.GetNationalityById(id);
+            return _mapper.Map<NationalityDto>(nationalityDb);
+        }
+
+        public async Task<PhoneDto> GetPhone(Guid id)
+        {
+            var phoneDb = await _repository.GetPhoneById(id);
+            return _mapper.Map<PhoneDto>(phoneDb);
+        }
+
+        public async Task<IEnumerable<CareerDto>> GetAllCareer()
+        {
+            var listEntity = await _repository.GetAllCareer();
+            return _mapper.Map<IEnumerable<CareerDto>>(listEntity);
+        }
+
+        public async Task<IEnumerable<NationalityDto>> GetAllNationality()
+        {
+            var listEntity = await _repository.GetAllNationality();
+            return _mapper.Map<IEnumerable<NationalityDto>>(listEntity);
         }
     }
 }

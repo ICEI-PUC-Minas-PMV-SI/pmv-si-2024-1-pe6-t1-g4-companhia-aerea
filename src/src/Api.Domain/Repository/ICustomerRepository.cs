@@ -9,15 +9,16 @@ namespace Api.Domain.Repository
 {
     public interface ICustomerRepository : IRepository<CustomerEntity>
     {
-        Task<IEnumerable<NationalityEntity>> GetAllNationality();
-        Task<IEnumerable<CareerEntity>> GetAllCareer();
         Task<AddressEntity> InsertAddressAsync(AddressEntity address);
         Task<PhoneEntity> InsertPhoneAsync(PhoneEntity phone);
-
-        Task<AddressEntity> GetAddressById(Guid id);
-        Task<PhoneEntity> GetPhoneById(Guid id);
-
         Task<AddressEntity> UpdateAddress(AddressEntity address);
         Task<PhoneEntity> UpdatePhone(PhoneEntity phone);
+        Task<AddressEntity> GetAddressById(Guid id);
+        Task<CareerEntity> GetCareerById(Guid id);
+        Task<NationalityEntity> GetNationalityById(Guid id);
+        Task<PhoneEntity> GetPhoneById(Guid id);
+        Task<IEnumerable<NationalityEntity>> GetAllNationality();
+        Task<IEnumerable<CareerEntity>> GetAllCareer();
+
     }
 }
