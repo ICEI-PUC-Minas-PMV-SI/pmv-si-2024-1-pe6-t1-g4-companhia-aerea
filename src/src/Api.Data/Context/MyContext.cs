@@ -2,7 +2,10 @@ using Api.Data.Mapping;
 using Api.Data.Mapping.CustomerAggregate;
 using Api.Domain.Entities;
 using Api.Domain.Entities.CustomerAggregate;
+using Data.Seeds.CustomerAggregates;
+using Data.Seeds.UserAggregate;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Api.Data
 {
@@ -36,7 +39,18 @@ namespace Api.Data
 
 
 
-            //Podemos tb configurar para popular o banco com dados fakes
+            //Cria os Mocks no banco de dados - Tem que apagar o BDD e gerar as migrations novamente
+
+            //User
+            UsersSeeds.Users(modelBuilder);
+
+            //CustomerAggregate - O Customer foi o ultimo pos ele depende das outras tabelas
+            AddressesSeeds.Addresses(modelBuilder);
+            CareersSeeds.Careers(modelBuilder);
+            NationalitiesSeeds.Nationalities(modelBuilder);
+            PhonesSeeds.Phones(modelBuilder);
+            CustomersSeeds.Customers(modelBuilder);
+
         }
     }
 }
