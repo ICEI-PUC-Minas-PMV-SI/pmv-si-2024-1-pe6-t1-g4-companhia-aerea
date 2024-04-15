@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrossCutting.Mappings.ReserveAggregate
+namespace Api.CrossCutting.Mappings.ReserveAggregate
 {
-    public class ModelToEntityProfile:Profile
+    public class ReserveModelToEntityProfile:Profile
     {
-        public ModelToEntityProfile() { 
+        public ReserveModelToEntityProfile() { 
             CreateMap<ReserveEntity,ReserveModel>().ReverseMap();
         }
     }

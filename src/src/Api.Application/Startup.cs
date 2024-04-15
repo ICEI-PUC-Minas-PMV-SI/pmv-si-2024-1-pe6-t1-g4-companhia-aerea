@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Api.CrossCutting.DependencyInjection;
 using Api.CrossCutting.Mappings.UserAggregate;
+using Api.CrossCutting.Mappings.ReserveAggregate;
 using Api.Data;
 using Api.Domain.Security;
 using AutoMapper;
@@ -44,6 +45,9 @@ namespace application
                 cfg.AddProfile(new DtoToModelProfile());
                 cfg.AddProfile(new EntityToDtoProfile());
                 cfg.AddProfile(new ModelToEntityProfile());
+                cfg.AddProfile(new ReserveDtoToModelProfile());
+                cfg.AddProfile(new ReserveEntityToDtoProfile());
+                cfg.AddProfile(new ReserveModelToEntityProfile());
             });
 
             IMapper mapper = config.CreateMapper();

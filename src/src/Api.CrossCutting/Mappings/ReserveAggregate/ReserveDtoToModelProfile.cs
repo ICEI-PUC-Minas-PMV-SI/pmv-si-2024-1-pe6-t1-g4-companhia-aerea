@@ -7,11 +7,11 @@ using AutoMapper;
 using Domain.Dtos.ReserveAggregate;
 using Domain.Models.ReserveAggregate;
 
-namespace CrossCutting.Mappings.ReserveAggregate
+namespace Api.CrossCutting.Mappings.ReserveAggregate
 {
-    public class DtoToModelProfile:Profile
+    public class ReserveDtoToModelProfile:Profile
     {
-        public DtoToModelProfile()
+        public ReserveDtoToModelProfile()
         {
             CreateMap<ReserveModel,ReserveDto>().ReverseMap();
             CreateMap<ReserveModel, ReserveDtoCreate>().ReverseMap();

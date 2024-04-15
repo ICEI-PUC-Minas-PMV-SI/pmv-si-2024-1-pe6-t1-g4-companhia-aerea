@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrossCutting.Mappings.ReserveAggregate
+namespace Api.CrossCutting.Mappings.ReserveAggregate
 {
-    public class EntityToDtoProfile:Profile
+    public class ReserveEntityToDtoProfile:Profile
     {
-        public EntityToDtoProfile()
+        public ReserveEntityToDtoProfile()
         {
             CreateMap<ReserveDto,ReserveEntity>().ReverseMap();
             CreateMap<ReserveDtoCreateResult, ReserveEntity>().ReverseMap();
