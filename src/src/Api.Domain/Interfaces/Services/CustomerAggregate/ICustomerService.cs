@@ -23,4 +23,5 @@ namespace Api.Domain.Interfaces.Services.CustomerAggregate
         Task<IEnumerable<NationalityDto>> GetAllNationality();
 
     }
+
 }

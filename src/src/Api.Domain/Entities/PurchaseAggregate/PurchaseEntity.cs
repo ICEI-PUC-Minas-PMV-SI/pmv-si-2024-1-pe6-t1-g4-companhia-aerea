@@ -11,6 +11,7 @@ namespace Domain.Entities.PaymentAggregate
     {
         public Guid UserId { get; set; }
         public Guid PaymentId { get; set; }
+        public Guid? OfferId { get; set; }
         public StatusPurchase Status { get; set; }
 
     }

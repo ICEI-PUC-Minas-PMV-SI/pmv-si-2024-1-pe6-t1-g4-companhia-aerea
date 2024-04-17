@@ -2,8 +2,10 @@ using Api.Data.Mapping;
 using Api.Data.Mapping.CustomerAggregate;
 using Api.Domain.Entities;
 using Api.Domain.Entities.CustomerAggregate;
+using Data.Mapping.PurchaseAggregate;
 using Data.Seeds.CustomerAggregates;
 using Data.Seeds.UserAggregate;
+using Domain.Entities.PurchaseAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -20,6 +22,9 @@ namespace Api.Data
         public DbSet<NationalityEntity> Nationalities { get; set; }
         public DbSet<PhoneEntity> Phones { get; set; }
 
+        //PurchaseAggregate
+        public DbSet<OffersEntity> Offers { get; set; }
+
 
 
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
@@ -35,6 +40,11 @@ namespace Api.Data
             modelBuilder.Entity<CareerEntity>(new CareerMap().Configure);
             modelBuilder.Entity<NationalityEntity>(new NationalityMap().Configure);
             modelBuilder.Entity<PhoneEntity>(new PhoneMap().Configure);
+
+            //Purchase Aggregate
+            modelBuilder.Entity<OffersEntity>(new OfferMap().Configure);
+
+
 
 
 

@@ -1,15 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.CustomerAggregate;
 using Api.Domain.Entities.CustomerAggregate;
-using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services.CustomerAggregate;
 using Api.Domain.Repository;
 using AutoMapper;
 using Domain.Dtos.CustomerAggregate;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.Service.Services
 {
