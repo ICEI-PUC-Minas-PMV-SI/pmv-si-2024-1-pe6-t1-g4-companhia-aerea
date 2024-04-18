@@ -1,20 +1,20 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title:
+title: UaiFly 
 authors:
-  - family-names:
+  - family-names:Ana Letícia Novaes da Cruz Ramos
     given-names:
-  - family-names:
+  - family-names:Eduardo Amaral dos Passos
     given-names:
-  - family-names:
+  - family-names:Geovanni Henrique Cadorin
     given-names:
-  - family-names:
+  - family-names:Mariana Rodrigues de Lima
     given-names:
-  - family-names:
+  - family-names:Markus Antonio Machel
     given-names:
-  - family-names:
+  - family-names:Moisés Otávio Menezes Meireles
     given-names:
-  - family-names:
+  - family-names:Thiago Augusto Cardoso e Silva
     given-names:
   - name-suffix: Professor XXXX
     affiliation: PUC Minas
