@@ -1,11 +1,11 @@
-﻿using Api.Domain.Dtos.CustomerAggregate;
+﻿using Domain.Dtos.FlightAggregate;
 using Domain.Interfaces.Services.FlightAggregate;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Service.Services;
 using System.Net;
 using System.Threading.Tasks;
 using System;
-using Domain.Dtos.FlightAggregate;
 using Api.Domain.Interfaces.Services.UserAggregate;
 
 namespace application.Controllers
@@ -13,17 +13,18 @@ namespace application.Controllers
     [ApiController]
     [Route("api/v1/[controller]")]
     [Authorize("Bearer")]
-    public class FlightController : CustomController
+    public class IataController : CustomController
     {
-        public IFlightService _flightService { get; set; }
+        public IIataService _iataService { get; set; }
         public ILoginService _loginService { get; set; }
-        public FlightController(IFlightService flightService, ILoginService loginService)
+        public IataController(IIataService iataService, ILoginService loginService)
         {
-            _flightService = flightService;
+            _iataService = iataService;
             _loginService = loginService;
         }
-        [HttpGet("getallflights")]
-        public async Task<ActionResult> GetAllFlights()
+
+        [HttpGet("getalliata")]
+        public async Task<ActionResult> GetAllIata()
         {
             if (!ModelState.IsValid)
             {
@@ -31,7 +32,7 @@ namespace application.Controllers
             }
             try
             {
-                return Ok(await _flightService.GetAll());
+                return Ok(await _iataService.GetAll());
             }
             catch (ArgumentException e)
             {
@@ -40,18 +41,16 @@ namespace application.Controllers
         }
 
         [HttpGet]
-        [Route("{id}", Name = "getflight")]
-        public async Task<ActionResult> GetFlight(Guid id)
+        [Route("{id}", Name = "getIata")]
+        public async Task<ActionResult> GetIata(Guid id)
         {
-            var session = GetSessionData();
-            var email = GetSessionData().Email;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                var result = await _flightService.Get(id);
+                var result = await _iataService.Get(id);
                 return Ok(result);
             }
             catch (ArgumentException e)
@@ -61,7 +60,7 @@ namespace application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] FlightDtoCreate flight)
+        public async Task<ActionResult> Create([FromBody] IataDtoCreate flight)
         {
             if (!ModelState.IsValid)
             {
@@ -74,10 +73,10 @@ namespace application.Controllers
                 var baseUser = await _loginService.FindByLogin(email);
                 if (baseUser != null)
                 {
-                    var result = await _flightService.Post(flight);
+                    var result = await _iataService.Post(flight);
                     if (result != null)
                     {
-                        return Created(new Uri(Url.Link("GetFlight", new { id = result.Id })), result);
+                        return Created(new Uri(Url.Link("GetIata", new { id = result.Id })), result);
                     }
                     else
                     {
@@ -94,7 +93,7 @@ namespace application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] FlightDtoUpdate flight)
+        public async Task<ActionResult> Update([FromBody] IataDtoUpdate flight)
         {
             if (!ModelState.IsValid)
             {
@@ -102,7 +101,7 @@ namespace application.Controllers
             }
             try
             {
-                var result = await _flightService.Put(flight);
+                var result = await _iataService.Put(flight);
                 if (result != null)
                 {
                     return Ok(result);

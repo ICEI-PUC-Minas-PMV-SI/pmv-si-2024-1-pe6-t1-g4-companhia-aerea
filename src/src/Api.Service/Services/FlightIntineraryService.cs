@@ -1,5 +1,8 @@
-﻿using Domain.Dtos.FlightAggregate;
+﻿using AutoMapper;
+using Domain.Dtos.FlightAggregate;
+using Domain.Entities;
 using Domain.Interfaces.Services.FlightAggregate;
+using Domain.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +13,90 @@ namespace Service.Services
 {
     public class FlightIntineraryService : IFlightIntineraryService
     {
-        public Task<FlightIntineraryDto> Get(Guid id)
+        private IFlightIntineraryRepository _flightIntineraryRepository;
+        private readonly IMapper _mapper;
+        public FlightIntineraryService(IFlightIntineraryRepository flightIntineraryRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _flightIntineraryRepository = flightIntineraryRepository;
+            _mapper = mapper;
+        }
+        public async Task<FlightIntineraryDto> Get(Guid id)
+        {
+            var entity = await _flightIntineraryRepository.GetFlightIntineraryById(id);
+            var flightIntDto = _mapper.Map<FlightIntineraryDto>(entity);
+
+            return flightIntDto;
         }
 
-        public Task<List<FlightIntineraryDto>> GetAll()
+        public async Task<List<FlightIntineraryDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var entity = await _flightIntineraryRepository.GetAll();
+            var flightIntDto = _mapper.Map<List<FlightIntineraryDto>>(entity);
+
+            return flightIntDto;
         }
 
-        public Task<FlightIntineraryDtoCreateResult> Post(FlightIntineraryDtoCreate flightIntinerary)
+        public async Task<FlightIntineraryDtoCreateResult> Post(FlightIntineraryDtoCreate flightIntinerary)
         {
-            throw new NotImplementedException();
+            var flightIntEntity = new FlightIntineraryEntity()
+            {
+                Description = flightIntinerary.Description,
+                Available = flightIntinerary.Available,
+                LeaveDate = flightIntinerary.LeaveDate,
+                ArriveDate = flightIntinerary.ArriveDate,
+                LeaveIATAId = flightIntinerary.LeaveIATAId,
+                ArriveIATAId = flightIntinerary.ArriveIATAId,
+            };
+
+            var result = await _flightIntineraryRepository.InsertFlightIntinerary(flightIntEntity);
+            var flightIntDto = new FlightIntineraryDtoCreateResult()
+            {
+                Id = result.Id,
+                Description = result.Description,
+                Available = result.Available,
+                LeaveDate = result.LeaveDate,
+                ArriveDate = result.ArriveDate,
+                LeaveIATAId = result.LeaveIATAId,
+                ArriveIATAId = result.ArriveIATAId,
+            };
+
+            return flightIntDto;
         }
 
-        public Task<FlightIntineraryDtoUpdateResult> Put(FlightIntineraryDtoUpdate flightIntinerary)
+        public async Task<FlightIntineraryDtoUpdateResult> Put(FlightIntineraryDtoUpdate flightIntinerary)
         {
-            throw new NotImplementedException();
+            var flightIntDb = await _flightIntineraryRepository.GetFlightIntineraryById(flightIntinerary.Id);
+
+            if (flightIntDb != null)
+            {
+                var flightIntEntity = new FlightIntineraryEntity()
+                {
+                    Id = flightIntDb.Id,
+                    Description = flightIntDb.Description,
+                    Available = flightIntDb.Available,
+                    LeaveDate = flightIntDb.LeaveDate,
+                    ArriveDate = flightIntDb.ArriveDate,
+                    LeaveIATAId = flightIntDb.LeaveIATAId,
+                    ArriveIATAId = flightIntDb.ArriveIATAId
+                };
+
+                var result = await _flightIntineraryRepository.UpdateFlightIntinerary(flightIntEntity);
+
+                var resultUpd = new FlightIntineraryDtoUpdateResult()
+                {
+                    Id = result.Id,
+                    Description = result.Description,
+                    Available = result.Available,
+                    LeaveDate = result.LeaveDate,
+                    ArriveDate = result.ArriveDate,
+                    LeaveIATAId = result.LeaveIATAId,
+                    ArriveIATAId = result.ArriveIATAId
+                };
+
+                return resultUpd;
+            }
+
+            return null;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Api.Domain.Interfaces;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public interface IFlightRepository
+    public interface IFlightRepository : IRepository<FlightEntity>
     {
         Task<FlightEntity> InsertFlight(FlightEntity entity);
         Task<FlightEntity> UpdateFlight(FlightEntity entity);

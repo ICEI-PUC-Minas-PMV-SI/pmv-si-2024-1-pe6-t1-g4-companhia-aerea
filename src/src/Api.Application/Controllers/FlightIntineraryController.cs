@@ -1,11 +1,11 @@
-﻿using Api.Domain.Dtos.CustomerAggregate;
+﻿using Domain.Dtos.FlightAggregate;
 using Domain.Interfaces.Services.FlightAggregate;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Service.Services;
 using System.Net;
 using System.Threading.Tasks;
 using System;
-using Domain.Dtos.FlightAggregate;
+using Microsoft.AspNetCore.Authorization;
 using Api.Domain.Interfaces.Services.UserAggregate;
 
 namespace application.Controllers
@@ -13,17 +13,17 @@ namespace application.Controllers
     [ApiController]
     [Route("api/v1/[controller]")]
     [Authorize("Bearer")]
-    public class FlightController : CustomController
+    public class FlightIntineraryController : CustomController
     {
-        public IFlightService _flightService { get; set; }
+        public IFlightIntineraryService _flightIntineraryService { get; set; }
         public ILoginService _loginService { get; set; }
-        public FlightController(IFlightService flightService, ILoginService loginService)
+        public FlightIntineraryController(IFlightIntineraryService flightIntineraryService, ILoginService loginService)
         {
-            _flightService = flightService;
+            _flightIntineraryService = flightIntineraryService;
             _loginService = loginService;
         }
-        [HttpGet("getallflights")]
-        public async Task<ActionResult> GetAllFlights()
+        [HttpGet("getallintinerary")]
+        public async Task<ActionResult> GetAllIntinerary()
         {
             if (!ModelState.IsValid)
             {
@@ -31,7 +31,7 @@ namespace application.Controllers
             }
             try
             {
-                return Ok(await _flightService.GetAll());
+                return Ok(await _flightIntineraryService.GetAll());
             }
             catch (ArgumentException e)
             {
@@ -40,8 +40,8 @@ namespace application.Controllers
         }
 
         [HttpGet]
-        [Route("{id}", Name = "getflight")]
-        public async Task<ActionResult> GetFlight(Guid id)
+        [Route("{id}", Name = "getflightintinerary")]
+        public async Task<ActionResult> GetFlightIntinerary(Guid id)
         {
             var session = GetSessionData();
             var email = GetSessionData().Email;
@@ -51,7 +51,7 @@ namespace application.Controllers
             }
             try
             {
-                var result = await _flightService.Get(id);
+                var result = await _flightIntineraryService.Get(id);
                 return Ok(result);
             }
             catch (ArgumentException e)
@@ -61,7 +61,7 @@ namespace application.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] FlightDtoCreate flight)
+        public async Task<ActionResult> Create([FromBody] FlightIntineraryDtoCreate flight)
         {
             if (!ModelState.IsValid)
             {
@@ -74,10 +74,10 @@ namespace application.Controllers
                 var baseUser = await _loginService.FindByLogin(email);
                 if (baseUser != null)
                 {
-                    var result = await _flightService.Post(flight);
+                    var result = await _flightIntineraryService.Post(flight);
                     if (result != null)
                     {
-                        return Created(new Uri(Url.Link("GetFlight", new { id = result.Id })), result);
+                        return Created(new Uri(Url.Link("GetFlightIntinerary", new { id = result.Id })), result);
                     }
                     else
                     {
@@ -94,7 +94,7 @@ namespace application.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] FlightDtoUpdate flight)
+        public async Task<ActionResult> Update([FromBody] FlightIntineraryDtoUpdate flight)
         {
             if (!ModelState.IsValid)
             {
@@ -102,7 +102,7 @@ namespace application.Controllers
             }
             try
             {
-                var result = await _flightService.Put(flight);
+                var result = await _flightIntineraryService.Put(flight);
                 if (result != null)
                 {
                     return Ok(result);

@@ -1,5 +1,8 @@
-﻿using Domain.Dtos.FlightAggregate;
+﻿using AutoMapper;
+using Domain.Dtos.FlightAggregate;
+using Domain.Entities;
 using Domain.Interfaces.Services.FlightAggregate;
+using Domain.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +13,28 @@ namespace Service.Services
 {
     public class FlightService : IFlightService
     {
-        public Task<FlightDto> Get(Guid id)
+        private IFlightRepository _flightRepository;
+        private readonly IMapper _mapper;
+        public FlightService(IFlightRepository flightRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _flightRepository = flightRepository;
+            _mapper = mapper;
         }
 
-        public Task<List<FlightDto>> GetAll()
+        public async Task<FlightDto> Get(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _flightRepository.GetFlightById(id);
+            var flightDto = _mapper.Map<FlightDto>(entity);
+
+            return flightDto;
+        }
+
+        public async Task<List<FlightDto>> GetAll()
+        {
+            var entity = await _flightRepository.GetAll();
+            var flightDto = _mapper.Map<List<FlightDto>>(entity);
+
+            return flightDto;
         }
 
         public Task<List<FlightDto>> GetFlightsByDate(DateTime date)
@@ -30,14 +47,53 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public Task<FlightDtoCreateResult> Post(FlightDtoCreate flight)
+        public async Task<FlightDtoCreateResult> Post(FlightDtoCreate flight)
         {
-            throw new NotImplementedException();
+            var flightEntity = new FlightEntity()
+            {
+                FlightCode = flight.FlightCode,
+                FlightIntineraryId = flight.FlightIntineraryId,
+                SeatsAvailableId = flight.SeatsAvailableId,
+                FlightStatusId = flight.FlightStatusId,
+            };
+
+            var result = await _flightRepository.InsertAsync(flightEntity);
+            var flightResult = new FlightDtoCreateResult()
+            {
+                Id = result.Id,
+                FlightCode = result.FlightCode,
+                FlightIntineraryId = result.FlightIntineraryId,
+                FlightStatusId = result.FlightStatusId,
+                SeatsAvailableId = result.SeatsAvailableId,
+            };
+
+            return flightResult;
         }
 
-        public Task<FlightDtoUpdateResult> Put(FlightDtoUpdate flight)
+        public async Task<FlightDtoUpdateResult> Put(FlightDtoUpdate flight)
         {
-            throw new NotImplementedException();
+            var flightDb = await _flightRepository.GetFlightById(flight.Id);
+
+            if (flightDb != null)
+            {
+                var flightEntity = new FlightEntity()
+                {
+                    FlightCode = flightDb.FlightCode,
+                    FlightIntineraryId = flightDb.FlightIntineraryId,
+                    SeatsAvailableId = flightDb.SeatsAvailableId,
+                    FlightStatusId = flightDb.FlightStatusId,
+                };
+
+                var result = await _flightRepository.UpdateAsync(flightEntity);
+
+                var resultUpdate = new FlightDtoUpdateResult()
+                {
+                    FlightStatusId = result.FlightStatusId
+                };
+
+                return resultUpdate;
+            }
+            return null;
         }
     }
 }
