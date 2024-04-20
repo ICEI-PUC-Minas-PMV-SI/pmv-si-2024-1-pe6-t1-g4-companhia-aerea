@@ -1,29 +1,27 @@
-cff-version: 1.0.1
-message: Please cite this software using these metadata.
-title:
+cff-version: 1.2.0
+message: "Please cite this software using these metadata."
+title: "UaiFly"
 authors:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - name-suffix: Professor XXXX
-    affiliation: PUC Minas
-    family-names:
-    given-names:
+  - family-names: "da Cruz Ramos"
+    given-names:"Ana Letícia Novaes"
+  - family-names: "dos Passos"
+    given-names:"Eduardo Amaral"
+  - family-names: "Cadorin"
+    given-names:"Geovanni Henrique"
+  - family-names: "de Lima"
+    given-names:"Mariana Rodrigues"
+  - family-names: "Machel"
+    given-names:"Markus Antonio"
+  - family-names: "Menezes Meireles"
+    given-names:"Moisés Otávio"
+  - family-names: "Cardoso e Silva"
+    given-names:"Thiago Augusto"
+  - name-suffix: "Professor XXXX"
+    affiliation: "PUC Minas"
 keywords:
   -
   -
-repository-code:
+url:"https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/tree/main/src/src"
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2023-06-30
