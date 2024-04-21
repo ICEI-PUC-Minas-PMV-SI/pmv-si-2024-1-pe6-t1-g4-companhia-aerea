@@ -5,6 +5,7 @@ using Api.Domain.Entities.CustomerAggregate;
 using Data.Mapping.PurchaseAggregate;
 using Data.Seeds.CustomerAggregates;
 using Data.Seeds.UserAggregate;
+using Domain.Entities.PaymentAggregate;
 using Domain.Entities.PurchaseAggregate;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,6 +25,7 @@ namespace Api.Data
 
         //PurchaseAggregate
         public DbSet<OffersEntity> Offers { get; set; }
+        public DbSet<PaymentEntity> Payments { get; set; }
 
 
 
@@ -43,6 +45,7 @@ namespace Api.Data
 
             //Purchase Aggregate
             modelBuilder.Entity<OffersEntity>(new OfferMap().Configure);
+            modelBuilder.Entity<PaymentEntity>(new PaymentMap().Configure);
 
 
 

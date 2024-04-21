@@ -4,6 +4,7 @@ using Api.Domain.Repository;
 using AutoMapper;
 using Domain.Dtos.CustomerAggregate;
 using Domain.Dtos.PurchaseAggregate;
+using Domain.Entities.PaymentAggregate;
 using Domain.Entities.PurchaseAggregate;
 using Domain.Repository;
 using System;
@@ -87,6 +88,73 @@ namespace Service.Services
                 Discount = offer.Discount,
                 CreatedAt = offer.CreatedAt.Value,
             };
+        }
+
+        public async Task<PaymentDtoCreateResult> CreatePayment(PaymentDtoCreate payment, Guid userId)
+        {
+            var paymentEntity = new PaymentEntity()
+            {
+                Id = Guid.NewGuid(),
+                OfferId = payment.OfferId,
+                PaymentCode = PaymentEntity.GeneratePaymentCode(),
+                CreatedAt = DateTime.UtcNow,
+            };
+            var paymentDb = await _repository.InsertPaymentAsync(paymentEntity, userId);
+
+            var paymentResult = new PaymentDtoCreateResult()
+            {
+                Id = paymentDb.Id,
+                OfferId = paymentDb.OfferId,
+                PaymentCode = paymentDb.PaymentCode,
+                TypePayment = (int)paymentDb.TypePayment,
+                SubTotal = paymentDb.SubTotal,
+                Total = paymentDb.Total,
+                CreatedAt = DateTime.UtcNow,
+            };
+            return paymentResult;
+        }
+
+        public async Task<PaymentDtoGetResult> GetPayment(Guid id)
+        {
+            var paymentDb = await _repository.GetPaymentById(id);
+
+            return new PaymentDtoGetResult()
+            {
+                Id = paymentDb.Id,
+                OfferId = paymentDb.OfferId,
+                PaymentCode = paymentDb.PaymentCode,
+                TypePayment = (int)paymentDb.TypePayment,
+                SubTotal = paymentDb.SubTotal,
+                Total = paymentDb.Total,
+                CreatedAt = paymentDb.CreatedAt.Value,
+            };
+        }
+
+        public async Task<IEnumerable<PaymentDtoSearchResult>> GetAllPayment()
+        {
+            var listEntity = await _repository.GetAllPayment();
+            var listDto = new List<PaymentDtoSearchResult>();
+
+            foreach (var payment in listEntity)
+            {
+                var dto = new PaymentDtoSearchResult()
+                {
+                    Id = payment.Id,
+                    OfferId = payment.OfferId,
+                    PaymentCode = payment.PaymentCode,
+                    TypePayment = (int)payment.TypePayment,
+                    SubTotal = payment.SubTotal,
+                    Total = payment.Total
+                };
+                listDto.Add(dto);
+            }
+
+            return listDto;
+        }
+
+        public Task<bool> DeletePayment(Guid id)
+        {
+            throw new InvalidOperationException("Something went wrong on the server.");
         }
     }
 }
