@@ -25,19 +25,45 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 
 [Diagrama ou descrição do fluxo de dados na aplicação.]
 
+## Requisitos
+
+As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. Para determinar a prioridade de requisitos, aplicar uma técnica de priorização de requisitos e detalhar como a técnica foi aplicada.
+
 ## Requisitos Funcionais
 
-[Liste os principais requisitos funcionais da aplicação.]
+|ID    | Descrição do Requisito  | Prioridade |
+|------|-----------------------------------------|----|
+|RF-001| Permitir que os usuários criem contas para acessar a aplicação. | ALTA | 
+|RF-002| Permitir que o usuário reserve passagens aéreas   | ALTA |
+|RF-003| Permitir que os usuários busquem voos com base em critérios como origem, destino, data e preferências.   | ALTA |
+|RF-004| Permitir que os usuários visualizem e editem suas reservas existentes, incluindo alterações de voo e cancelamentos.   | ALTA |
+|RF-005| Mostrar informações detalhadas sobre os voos disponíveis, incluindo horários, companhias aéreas, preços e escalas.   | ALTA |
+|RF-006| Enviar notificações de confirmação de reserva para os usuários após a conclusão bem-sucedida da reserva.   | MÉDIA |
+|RF-007| Enviar notificações de lembretes de viagens marcardas.   | MÉDIA |
 
 ## Requisitos Não Funcionais
 
-[Liste os principais requisitos não funcionais da aplicação, como desempenho, segurança, escalabilidade, etc.]
+|ID     | Descrição do Requisito  |Prioridade |
+|-------|-------------------------|----|
+|RNF-001| Garantir tempos de resposta rápidos durante a busca de voos e processo de reserva, mesmo em horários de pico, garantindo desempenho. | ALTA | 
+|RNF-002| Proteger os dados pessoais e financeiros dos usuários com medidas de segurança robustas, como criptografita assegurando confidenciabilidade e integridade  |  ALTA | 
+|RNF-003|  Projetar o sistema para lidar com um grande volume de usuários simultâneos, especialmente durante períodos de alta demanda gatantindo escalabilidade |  ALTA | 
+|RNF-004| Projetar o sistema com código limpo e modular para facilitar a manutenção e futuras atualizações para melhor manutenibilidade |  MÉDIA | 
+|RNF-005| Assegurar alta disponibilidade do sistema, minimizando tempo de inatividade não planejado, reforçando sua confiabilidadde |  MÉDIA |
 
 ## Tecnologias Utilizadas
 
-Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs Web. A tecnologia certa para o seu projeto dependerá dos seus objetivos, dos seus clientes e dos recursos que a API deve fornecer.
+Foi desenvolvida uma api REST utilizando a linguagem C# e o framework Asp.net core. Para armazenamento foi utilizado o banco de dados relacional MySql. Para push notification foi utilizado o Firebase. Por fim, para hospedar a api foi escolhido a plataforma de nuvem Azure através do seu serviços de aplicativos. Lista das tecnologias:
 
-[Lista das tecnologias principais que serão utilizadas no projeto.]
+| Tecnologia | Aplicação |
+|---|---|
+| C# | Implementação do Backend |
+| Asp.net core | Framework |
+| MySql | Banco de Dados |
+| Firebase | Implementação do Push notification |
+| Azure | Deploy da web api |
+
+
 
 ## API Endpoints
 
@@ -95,4 +121,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+As seguintes referências foram utilizadas para elaboração da Api:
+https://medium.com/beelabacademy/domain-driven-design-vs-arquitetura-em-camadas-d01455698ec5
+https://medium.com/beelabacademy/implementando-na-pr%C3%A1tica-rest-api-com-conceitos-de-ddd-net-core-sql-no-docker-ioc-2cb3a2e7c649
+https://medium.com/beelabacademy/implementando-na-pr%C3%A1tica-rest-api-com-conceitos-de-ddd-net-2160291a44b7

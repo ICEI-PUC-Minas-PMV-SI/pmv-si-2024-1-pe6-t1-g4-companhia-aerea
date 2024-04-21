@@ -8,6 +8,7 @@ using Api.CrossCutting.Mappings.ReserveAggregate;
 using Api.Data;
 using Api.Domain.Security;
 using AutoMapper;
+using CrossCutting.Mappings.FlightAggregate;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -48,6 +49,9 @@ namespace application
                 cfg.AddProfile(new ReserveDtoToModelProfile());
                 cfg.AddProfile(new ReserveEntityToDtoProfile());
                 cfg.AddProfile(new ReserveModelToEntityProfile());
+                cfg.AddProfile(new FlightDtoToModelProfile());
+                cfg.AddProfile(new FlightEntityToDtoProfile());
+                cfg.AddProfile(new FlightModelToEntityProfile());
             });
 
             IMapper mapper = config.CreateMapper();
@@ -149,7 +153,18 @@ namespace application
                 endpoints.MapControllers();
             });
 
-            if (Environment.GetEnvironmentVariable("MIGRATION").ToLower() == "APPLY".ToLower())
+            // if (Environment.GetEnvironmentVariable("MIGRATION").ToLower() == "APPLY".ToLower())
+            // {
+            //     using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //     {
+            //         using (var context = service.ServiceProvider.GetService<MyContext>())
+            //         {
+            //             context.Database.Migrate();
+            //         }
+            //     }
+            // }
+
+            if ("APPLY".ToLower() == "APPLY".ToLower())
             {
                 using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
