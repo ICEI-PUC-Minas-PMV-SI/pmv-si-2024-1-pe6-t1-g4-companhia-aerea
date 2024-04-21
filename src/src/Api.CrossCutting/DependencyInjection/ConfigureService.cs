@@ -2,9 +2,11 @@ using System;
 using Api.Service.Services;
 using Api.Domain.Interfaces.Services.UserAggregate;
 using Microsoft.Extensions.DependencyInjection;
+using Api.Domain.Interfaces.Services.ReserveAggregate;
 using Api.Domain.Interfaces.Services.CustomerAggregate;
 using Domain.Interfaces.Services.FlightAggregate;
 using Service.Services;
+
 
 namespace Api.CrossCutting.DependencyInjection
 {
@@ -14,10 +16,12 @@ namespace Api.CrossCutting.DependencyInjection
         {
             serviceCollection.AddTransient<IUserService, UserService>();
             serviceCollection.AddTransient<ILoginService, LoginService>();
+            serviceCollection.AddTransient<IReserveService, ReserveService>();
             serviceCollection.AddTransient<ICustomerService, CustomerService>();
             serviceCollection.AddTransient<IFlightService, FlightService>();
             serviceCollection.AddTransient<IFlightIntineraryService, FlightIntineraryService>();
             serviceCollection.AddTransient<IIataService, IataService>();
+
         }
     }
 }
