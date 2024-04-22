@@ -21,6 +21,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
             serviceCollection.AddScoped<ICustomerRepository, CustomerImplementation>();
             serviceCollection.AddScoped<IPurchaseRepository, PurchaseImplementation>();
+            serviceCollection.AddScoped<IFlightRepository, FlightImplementation>();
 
             var dbConnectionString = configuration["MySQLConnection:MySQLConnectionString"];
 
