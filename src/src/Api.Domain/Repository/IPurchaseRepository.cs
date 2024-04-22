@@ -23,8 +23,8 @@ namespace Domain.Repository
         Task<IEnumerable<PaymentEntity>> GetAllPayment();
 
         //Purchase
-        //Task<PurchaseEntity> GetpurchaseById(Guid id);
-        //Task<IEnumerable<PurchaseEntity>> GetAllPurchase();
+        Task<PurchaseEntity> GetpurchaseById(Guid id);
+        Task<IEnumerable<PurchaseEntity>> GetAllPurchase();
 
 
     }

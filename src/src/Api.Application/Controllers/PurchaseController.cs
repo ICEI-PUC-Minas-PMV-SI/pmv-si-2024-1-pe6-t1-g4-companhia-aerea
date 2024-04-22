@@ -29,153 +29,190 @@ namespace Api.Application.Controllers
             _loginService = loginService;
         }
 
-        //[HttpGet("getalloffers")]
-        //public async Task<ActionResult> GetAllOffers()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
-        //    }
-        //    try
-        //    {
-        //        return Ok(await _service.GetAllOffers());
-        //    }
-        //    catch (ArgumentException e)
-        //    {
-        //        return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-        //    }
-        //}
+        [HttpGet("getalloffers")]
+        public async Task<ActionResult> GetAllOffers()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
+            }
+            try
+            {
+                return Ok(await _service.GetAllOffers());
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
 
-        //[HttpGet("getoffer")]
-        //[Route("{id}", Name = "getoffer")]
-        //public async Task<ActionResult> GetOffer(Guid id)
-        //{
-        //    var session = GetSessionData();
-        //    var email = GetSessionData().Email;
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    try
-        //    {
-        //        var result = await _service.GetOffer(id);
-        //        return Ok(result);
-        //    }
-        //    catch (ArgumentException e)
-        //    {
-        //        return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-        //    }
-        //}
+        [HttpGet]
+        [Route("{id}", Name = "getoffer")]
+        public async Task<ActionResult> GetOffer(Guid id)
+        {
+            var session = GetSessionData();
+            var email = GetSessionData().Email;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var result = await _service.GetOffer(id);
+                return Ok(result);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
 
-        //[HttpPost("Create")]
-        //public async Task<ActionResult> Create([FromBody] OffersDtoCreate offer)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    try
-        //    {
-                
-               
-        //        var email = GetSessionData().Email;
-
-        //        var baseUser = await _loginService.FindByLogin(email);
-        //        if (baseUser != null)
-        //        {
-        //            var result = await _service.CreateOffer(offer);
-        //            if (result != null)
-        //            {
-        //                return Created(new Uri(Url.Link("getoffer", new { id = result.Id })), result);
-        //            }
-        //            else
-        //            {
-        //                return BadRequest();
-        //            }
-        //        }
-        //        return BadRequest();
-
-        //    }
-        //    catch (ArgumentException e)
-        //    {
-        //        return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-        //    }
-        //}
+        [HttpPost("create/offer")]
+        public async Task<ActionResult> Create([FromBody] OffersDtoCreate offer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
 
 
-        //[HttpGet("getallpayments")]
-        //public async Task<ActionResult> GetAllPayments()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
-        //    }
-        //    try
-        //    {
-        //        return Ok(await _service.GetAllPayment());
-        //    }
-        //    catch (ArgumentException e)
-        //    {
-        //        return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-        //    }
-        //}
+                var email = GetSessionData().Email;
 
-        //[HttpGet("getpayment")]
-        //[Route("{id}", Name = "getpayment")]
-        //public async Task<ActionResult> GetPayment(Guid id)
-        //{
-        //    var session = GetSessionData();
-        //    var email = GetSessionData().Email;
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    try
-        //    {
-        //        var result = await _service.GetPayment(id);
-        //        return Ok(result);
-        //    }
-        //    catch (ArgumentException e)
-        //    {
-        //        return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-        //    }
-        //}
+                var baseUser = await _loginService.FindByLogin(email);
+                if (baseUser != null)
+                {
+                    var result = await _service.CreateOffer(offer);
+                    if (result != null)
+                    {
+                        return Created(new Uri(Url.Link("getoffer", new { id = result.Id })), result);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                return BadRequest();
+
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
 
 
-        //[HttpPost("createpayment")]
-        //public async Task<ActionResult> CreatePayment([FromBody] PaymentDtoCreate payment)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    try
-        //    {
+        [HttpGet("getallpayments")]
+        public async Task<ActionResult> GetAllPayments()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
+            }
+            try
+            {
+                return Ok(await _service.GetAllPayment());
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpGet("getpayment")]
+        public async Task<ActionResult> GetPayment([FromQuery] Guid id)
+        {
+            var session = GetSessionData();
+            var email = GetSessionData().Email;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var result = await _service.GetPayment(id);
+                return Ok(result);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
 
 
-        //        var email = GetSessionData().Email;
+        [HttpPost("createpayment")]
+        public async Task<ActionResult> CreatePayment([FromBody] PaymentDtoCreate payment)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
 
-        //        var baseUser = await _loginService.FindByLogin(email);
-        //        if (baseUser != null)
-        //        {
-        //            var result = await _service.CreatePayment(payment, baseUser.Id);
-        //            if (result != null)
-        //            {
-        //                return Created(new Uri(Url.Link("getpayment", new { id = result.Id })), result);
-        //            }
-        //            else
-        //            {
-        //                return BadRequest();
-        //            }
-        //        }
-        //        return BadRequest();
 
-        //    }
-        //    catch (ArgumentException e)
-        //    {
-        //        return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-        //    }
-        //}
+                var email = GetSessionData().Email;
+
+                var baseUser = await _loginService.FindByLogin(email);
+                if (baseUser != null)
+                {
+                    var result = await _service.CreatePayment(payment, baseUser.Id);
+                    if (result != null)
+                    {
+                        return Created(new Uri(Url.Link("getpayment", new { id = result.Id })), result);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                return BadRequest();
+
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+
+        [HttpGet("getallpurchase")]
+        public async Task<ActionResult> GetAllPurchase()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
+            }
+            try
+            {
+                return Ok(await _service.GetAllPurchase());
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpGet("getpurchase")]
+        public async Task<ActionResult> GetPurchase([FromQuery] Guid id)
+        {
+            var session = GetSessionData();
+            var email = GetSessionData().Email;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var result = await _service.GetPurchase(id);
+                return Ok(result);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
 
 
 

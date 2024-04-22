@@ -1,19 +1,18 @@
-﻿using Domain.Entities.PaymentAggregate;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Dtos.PurchaseAggregate
+namespace Domain.Dtos.FlightAggregate
 {
-    public class PurchaseDtoResult
+    public class FlightDto
     {
         public Guid Id { get; set; }
+        public string FlightCode { get; set; }
+        public Guid FlightIntineraryId { get; set; }
+        public Guid SeatsAvailableId { get; set; }
         public Guid UserId { get; set; }
-        public Guid PaymentId { get; set; }
-        public StatusPurchase Status { get; set; }
-
         public DateTime CreatedAt { get; set; }
     }
 }

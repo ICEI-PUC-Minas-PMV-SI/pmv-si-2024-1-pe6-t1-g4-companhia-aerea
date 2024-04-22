@@ -48,6 +48,18 @@ namespace Data.Implementations
             }
         }
 
+        public async Task<IEnumerable<PurchaseEntity>> GetAllPurchase()
+        {
+            try
+            {
+                return await _dbPurchase.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<OffersEntity> GetOfferById(Guid id)
         {
             return await _dbOffer.SingleOrDefaultAsync(p => p.Id.Equals(id));
@@ -56,6 +68,11 @@ namespace Data.Implementations
         public async Task<PaymentEntity> GetPaymentById(Guid id)
         {
             return await _dbPayment.SingleOrDefaultAsync(p => p.Id.Equals(id));
+        }
+
+        public async Task<PurchaseEntity> GetpurchaseById(Guid id)
+        {
+            return await _dbPurchase.SingleOrDefaultAsync(p => p.Id.Equals(id));
         }
 
         public async Task<OffersEntity> InsertOfferAsync(OffersEntity offer)

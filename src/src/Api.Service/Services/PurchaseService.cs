@@ -156,5 +156,38 @@ namespace Service.Services
         {
             throw new InvalidOperationException("Something went wrong on the server.");
         }
+
+        public async Task<PurchaseDtoResult> GetPurchase(Guid id)
+        {
+            var purchaseDb = await _repository.GetpurchaseById(id);
+
+            return new PurchaseDtoResult()
+            {
+                Id = purchaseDb.Id,
+                UserId = purchaseDb.UserId,
+                PaymentId = purchaseDb.Id,
+                CreatedAt = purchaseDb.CreatedAt.Value,
+            };
+        }
+
+        public async Task<IEnumerable<PurchaseDtoResult>> GetAllPurchase()
+        {
+            var listEntity = await _repository.GetAllPurchase();
+            var listDto = new List<PurchaseDtoResult>();
+
+            foreach (var purchase in listEntity)
+            {
+                var dto = new PurchaseDtoResult()
+                {
+                    Id = purchase.Id,
+                    UserId = purchase.UserId,
+                    PaymentId = purchase.PaymentId,
+                    CreatedAt = purchase.CreatedAt.Value,
+                };
+                listDto.Add(dto);
+            }
+
+            return listDto;
+        }
     }
 }

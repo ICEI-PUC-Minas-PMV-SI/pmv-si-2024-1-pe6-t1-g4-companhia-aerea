@@ -24,8 +24,8 @@ namespace Api.Domain.Interfaces.Services.PurchaseAggregate
 
 
         //Purchase
-        //Task<PurchaseDtoResult> GetPurchase(Guid id);
-        //Task<IEnumerable<PurchaseDtoResult>> GetAllPurchase();
+        Task<PurchaseDtoResult> GetPurchase(Guid id);
+        Task<IEnumerable<PurchaseDtoResult>> GetAllPurchase();
 
     }
 }
