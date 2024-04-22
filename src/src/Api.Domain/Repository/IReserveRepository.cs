@@ -14,6 +14,6 @@ namespace Domain.Repository
     public interface IReserveRepository:IRepository<ReserveEntity>
     {
        
-        public Task<ReserveEntity> GetReserveByCustomer(Guid id);
+        public Task<IEnumerable<ReserveEntity>> GetReserveByCustomer(Guid id);
     }
 }

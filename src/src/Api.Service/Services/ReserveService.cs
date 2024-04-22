@@ -69,10 +69,10 @@ namespace Api.Service.Services
             return _mapper.Map<ReserveDtoUpdateResult>(result);
         }
 
-        public async Task<ReserveDto> GetReserveByCustomer(Guid customerId)
+        public async Task<IEnumerable<ReserveDto>> GetReserveByCustomer(Guid customerId)
         {
-            var entity =  await _reserveRepository.GetReserveByCustomer(customerId);
-            var result = _mapper.Map<ReserveDto>(entity);
+            var entityList =  await _reserveRepository.GetReserveByCustomer(customerId);
+            var result = _mapper.Map<IEnumerable<ReserveDto>>(entityList);
             return result;
 
         }

@@ -17,6 +17,6 @@ namespace Api.Domain.Interfaces.Services.ReserveAggregate
         Task<ReserveDtoUpdateResult> Put(ReserveDtoUpdate reserve);
         Task<bool> Delete(Guid id);
 
-        Task<ReserveDto> GetReserveByCustomer(Guid customerId);
+        Task<IEnumerable<ReserveDto>> GetReserveByCustomer(Guid customerId);
     }
 }

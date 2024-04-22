@@ -19,9 +19,9 @@ namespace Data.Implementations
         {
            _dataset = context.Set<ReserveEntity>(); 
         }
-        public async Task<ReserveEntity> GetReserveByCustomer(Guid id)
+        public async Task<IEnumerable<ReserveEntity>> GetReserveByCustomer(Guid id)
         {
-            return await _dataset.FirstOrDefaultAsync(x => x.CustomerId == id);
+            return await _dataset.Where(r=>r.CustomerId == id).ToListAsync();
         }
     }
 }
