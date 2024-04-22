@@ -4,6 +4,7 @@ using Api.Domain.Interfaces.Services.ReserveAggregate;
 using AutoMapper;
 using Domain.Dtos.ReserveAggregate;
 using Domain.Models.ReserveAggregate;
+using Domain.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,11 @@ namespace Api.Service.Services
     public class ReserveService : IReserveService
     {
         private  IRepository<ReserveEntity> _repository;
+        private IReserveRepository _reserveRepository;
         private readonly IMapper _mapper;
+        
 
-        public ReserveService(IRepository<ReserveEntity> repository, IMapper mapper)
+        public ReserveService(IRepository<ReserveEntity> repository,IReserveRepository reserveRepository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -64,6 +67,14 @@ namespace Api.Service.Services
             var result = await _repository.InsertAsync(entity);
 
             return _mapper.Map<ReserveDtoUpdateResult>(result);
+        }
+
+        public async Task<ReserveDto> GetReserveByCustomer(Guid customerId)
+        {
+            var entity =  await _reserveRepository.GetReserveByCustomer(customerId);
+            var result = _mapper.Map<ReserveDto>(entity);
+            return result;
+
         }
     }
 }

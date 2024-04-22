@@ -23,6 +23,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<IFlightRepository, FlightImplementation>();
             serviceCollection.AddScoped<IFlightIntineraryRepository, FlightIntineraryImplementation>();
             serviceCollection.AddScoped<IIataRepository, IataImplementation>();
+            serviceCollection.AddScoped<IReserveRepository, ReserveImplementation>();
 
             serviceCollection.AddDbContext<MyContext>(
                 options => options.UseMySql(
