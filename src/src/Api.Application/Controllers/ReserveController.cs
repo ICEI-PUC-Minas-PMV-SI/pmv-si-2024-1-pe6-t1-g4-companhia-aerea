@@ -55,6 +55,26 @@ namespace Api.Application.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("{id}", Name = "GetByCustomer")]
+        public async Task<ActionResult> GetReserveByCustomer(Guid id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var result = await _service.GetReserveByCustomer(id);
+                return Ok(result);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+
         [HttpPost]
         public async Task<ActionResult> Create([FromBody] ReserveDtoCreate reserve)
         {
