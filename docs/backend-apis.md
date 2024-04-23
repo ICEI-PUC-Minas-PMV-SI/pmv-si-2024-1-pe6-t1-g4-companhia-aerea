@@ -15,7 +15,10 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 
 ## Arquitetura
 
-[Descrição da arquitetura das APIs, incluindo os componentes e suas interações.]
+A Api é caracterizada por utilizar um design monolítico com serviços. Nesse estilo há três componentes fundamentais: interface com o usuário, serviços e um banco de dados. Os serviços são acessados por meio de uma API(Interface de Programação de aplicações), do tipo REST(Representational State Transfer). O banco de dados é único e compartilhado com todos os serviços criados. Os dados são acessados através de transações com propriedades ACID(Atomicidade,Consistência, Durabilidade e isolamento).
+
+<img src="img/arquitetura-api.png">
+
 
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
@@ -23,7 +26,9 @@ O primeiro passo é definir os objetivos da sua API. O que você espera alcança
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+O fluxo de dados da Api se deu da seguinte forma, com cada camada com sua própria responsabilidade:
+
+<img src="img/fluxo_dados.png">
 
 ## Requisitos
 
