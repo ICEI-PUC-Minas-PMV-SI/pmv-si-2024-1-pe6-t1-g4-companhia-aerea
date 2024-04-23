@@ -8,7 +8,7 @@ A Uaifly está desenvolvendo uma aplicação web para reservas de passagens aér
 
 #### Customers API: 
 <strong> Objetivo: </strong> Fornecer funcionalidades para manipulação do cadastro de clientes. <br>
-<strong> Público-Alvo: </strong> Esta API é destinada tanto para uso interno da empresa quanto para clientes externos, como aplicativos de parceiros ou sistemas de terceiros. <br>
+Destinada tanto para uso interno da empresa quanto para clientes externos, como aplicativos de parceiros ou sistemas de terceiros. <br>
 <strong> Recursos Esperados: </strong> <br>
 * Exclusão de clientes: Permitir a exclusão de registros de clientes do sistema. <br>
 * Inclusão de clientes: Possibilitar a inclusão de novos clientes no banco de dados. <br>
@@ -16,14 +16,14 @@ A Uaifly está desenvolvendo uma aplicação web para reservas de passagens aér
 
 #### Login API:
 <strong> Objetivo: </strong> Realizar o processo de autenticação e autorização de usuários. <br>
-<strong> Público-Alvo: </strong> Destinada a todos os usuários do sistema, sejam clientes externos ou internos da empresa. <br>
+Destinada a todos os usuários do sistema, sejam clientes externos ou internos da empresa. <br>
 <strong> Recursos Esperados: </strong> 
 * Autenticação de usuários: Verificar as credenciais de login (usuário/senha) e gerar um token de acesso válido. <br>
 * Autorização de acesso: Controlar o acesso a recursos específicos com base nas permissões do usuário.
 
 #### Users API: 
 <strong> Objetivo: </strong> Gerenciar o cadastro e as informações dos usuários do sistema. <br>
-<strong> Público-Alvo: </strong> Usuários internos da empresa, como administradores e equipes de suporte. <br>
+Destinada a usuários internos da empresa, como administradores e equipes de suporte. <br>
 <strong> Recursos Esperados: </strong> 
 * Cadastro de usuários: Permitir a criação de novos usuários no sistema, especificando seus dados básicos, funções e permissões. <br>
 * Gerenciamento de usuários: Oferecer funcionalidades para atualização, exclusão e listagem de usuários cadastrados.
@@ -102,7 +102,7 @@ Existem muitas tecnologias diferentes que podem ser usadas para desenvolver APIs
 
 Para abranger todos os requisitos, tanto funcionais quanto não funcionais, foram conduzidos testes manuais utilizando a ferramenta Postman, seguindo os cenários de teste definidos no Qase. Estes cenários foram redigidos conforme o formato do Gherkin, garantindo uma abordagem estruturada e compreensível.
 
-Os testes delineados no Qase abrangem diferentes tipos, incluindo testes funcionais para validação das funcionalidades e testes de integração para verificar a interação entre os componentes do sistema. Essa abordagem abrangente visa assegurar a qualidade e a robustez do software em todos os aspectos importantes.
+Os testes mapeados no Qase abrangem diferentes tipos, incluindo testes funcionais para validação das funcionalidades e testes de integração para verificar a interação entre os componentes do sistema. Essa abordagem abrangente visa assegurar a qualidade e a robustez do software em todos os aspectos importantes.
 
 
 
