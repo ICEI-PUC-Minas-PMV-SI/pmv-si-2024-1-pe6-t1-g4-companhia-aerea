@@ -4,8 +4,6 @@ A Uaifly está desenvolvendo uma aplicação web para reservas de passagens aér
 
 ## Objetivos da API
 
-### Objetivos da API
-
 #### Customers API: 
 <strong> Objetivo: </strong> Fornecer funcionalidades para manipulação do cadastro de clientes. <br>
 Destinada tanto para uso interno da empresa quanto para clientes externos, como aplicativos de parceiros ou sistemas de terceiros. <br>
