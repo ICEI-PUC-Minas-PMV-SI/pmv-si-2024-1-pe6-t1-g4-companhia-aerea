@@ -35,7 +35,7 @@ namespace Data.Mapping
 
             builder.Property(x => x.FlightId).IsRequired();
 
-            builder.HasOne<FlightEntity>().WithMany().HasForeignKey(x => x.FlightId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne<FlightEntity>().WithOne().HasForeignKey("ReserveEntity","FlightId").OnDelete(DeleteBehavior.NoAction);
 
         }
     }
