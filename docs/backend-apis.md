@@ -35,7 +35,8 @@ A Api é caracterizada por utilizar um design monolítico com serviços. Nesse e
 
 
 ## Modelagem da Aplicação
-[Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
+
+<img src="img/relacionamento-classes.png">
 
 
 ## Fluxo de Dados
@@ -43,6 +44,8 @@ A Api é caracterizada por utilizar um design monolítico com serviços. Nesse e
 O fluxo de dados da Api se deu da seguinte forma, com cada camada com sua própria responsabilidade:
 
 <img src="img/fluxo_dados.png">
+
+<img src="img/fluxo-dados-02.png">
 
 ## Requisitos
 
