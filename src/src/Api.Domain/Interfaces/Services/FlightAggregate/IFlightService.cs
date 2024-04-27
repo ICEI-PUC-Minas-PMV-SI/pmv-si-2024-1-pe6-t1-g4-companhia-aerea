@@ -1,4 +1,4 @@
-﻿using Domain.Dtos.FlightAggregate;
+using Domain.Dtos.PurchaseAggregate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +9,27 @@ namespace Domain.Interfaces.Services.FlightAggregate
 {
     public interface IFlightService
     {
-        Task<FlightDto> Get(Guid id);
-        Task<List<FlightDto>> GetAll();
-        Task<List<FlightDto>> GetFlightsByDate(DateTime date);
-        Task<FlightDto> GetFlightsByDate(DateOnly dateOnly);
-        Task<FlightDtoCreateResult> Post(FlightDtoCreate flight);
-        Task<FlightDtoUpdateResult> Put(FlightDtoUpdate flight);
+
+        //Flight
+        Task<FlightDto> CreateFlight(FlightDtoCreate flight, Guid userId);
+        Task<FlightDto> GetFlight(Guid id);
+        Task<IEnumerable<FlightDto>> GetAllFlight();
+
+        //FlightIntinerary
+        Task<FlightIntineraryDto> CreateFlightIntinerary(FlightIntineraryDtoCreate flight);
+        Task<FlightIntineraryDto> GetFlightIntinerary(Guid id);
+        Task<IEnumerable<FlightIntineraryDto>> GetAllFlightIntinerary();
+
+
+        //Reserve
+        Task<ReserveDto> CreateReserve(ReserveDtoCreate reserve);
+        Task<ReserveDto> GetReserve(Guid id);
+        Task<IEnumerable<ReserveDto>> GetAllReserve();
+
+        //SeatsAvailable
+        Task<SeatsAvailableDto> CreateSeatsAvailable(SeatsAvailableDtoCreate seats);
+        Task<SeatsAvailableDto> GetSeatsAvailable(Guid id);
+        Task<IEnumerable<SeatsAvailableDto>> GetAllSeatsAvailable();
+
     }
 }

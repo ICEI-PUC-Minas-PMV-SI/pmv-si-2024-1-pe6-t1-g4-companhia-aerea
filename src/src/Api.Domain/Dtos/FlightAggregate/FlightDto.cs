@@ -12,8 +12,8 @@ namespace Domain.Dtos.FlightAggregate
         public string FlightCode { get; set; }
         public Guid FlightIntineraryId { get; set; }
         public Guid SeatsAvailableId { get; set; }
-        public int FlightStatusId { get; set; }
+        public Guid UserId { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+
     }
 }

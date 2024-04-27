@@ -9,17 +9,20 @@ namespace Domain.Dtos.FlightAggregate
 {
     public class FlightIntineraryDtoCreate
     {
-        [Required(ErrorMessage = "Descricao é um campo obrigatório")]
+        [Required(ErrorMessage = "Descrição é um campo obrigatório")]
+        [StringLength(100, ErrorMessage = "Descrição deve ter no máximo {1} caracteres.")]
         public string Description { get; set; }
-        [Required(ErrorMessage = "Disponivel é um campo obrigatório")]
-        public bool Available { get; set; }
-        [Required(ErrorMessage = "Horario de partida é um campo obrigatório")]
+
+        [Required(ErrorMessage = "Data de partida é um campo obrigatório")]
         public DateTime LeaveDate { get; set; }
-        [Required(ErrorMessage = "Horario de chegada é um campo obrigatório")]
+
+        [Required(ErrorMessage = "Data de chegada é um campo obrigatório")]
         public DateTime ArriveDate { get; set; }
-        [Required(ErrorMessage = "Aeroporto de partida é um campo obrigatório")]
-        public int LeaveIATAId { get; set; }
-        [Required(ErrorMessage = "Aeroporto de chegada é um campo obrigatório")]
-        public int ArriveIATAId { get; set; }
+
+        [Required(ErrorMessage = "Local de partida é um campo obrigatório")]
+        public Guid LeaveIATAId { get; set; }
+
+        [Required(ErrorMessage = "Local de chegada é um campo obrigatório")]
+        public Guid ArriveIATAId { get; set; }
     }
 }

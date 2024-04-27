@@ -16,6 +16,9 @@ namespace Api.CrossCutting.Mappings.CustomerAggregate
             CreateMap<CustomerDto, CustomerEntity>()
                .ReverseMap();
 
+            CreateMap<CustomerDtoGetResult, CustomerEntity>()
+              .ReverseMap();
+
             CreateMap<CustomerDtoCreateResult, CustomerEntity>()
                .ReverseMap();
 
