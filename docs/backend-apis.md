@@ -1,16 +1,30 @@
 # APIs e Web Services
 
-O planejamento de uma aplicação de APIS Web é uma etapa fundamental para o sucesso do projeto. Ao planejar adequadamente, você pode evitar muitos problemas e garantir que a sua API seja segura, escalável e eficiente.
-
-Aqui estão algumas etapas importantes que devem ser consideradas no planejamento de uma aplicação de APIS Web.
-
-[Inclua uma breve descrição do projeto.]
+A Uaifly está desenvolvendo uma aplicação web para reservas de passagens aéreas, visando atender um público variado. Para garantir uma experiência robusta, a empresa adota uma arquitetura com ampla utilização de APIs e Web Services. Esses recursos são cruciais para integrar sistemas, realizar operações como pesquisa e reserva de voos, e garantir uma interação eficiente entre os módulos da aplicação. Com essa abordagem, a Uaifly busca oferecer uma plataforma escalável, segura e altamente integrada para seus clientes, independentemente de suas necessidades de viagem.
 
 ## Objetivos da API
 
-O primeiro passo é definir os objetivos da sua API. O que você espera alcançar com ela? Você quer que ela seja usada por clientes externos ou apenas por aplicações internas? Quais são os recursos que a API deve fornecer?
+#### Customers API: 
+<strong> Objetivo: </strong> Fornecer funcionalidades para manipulação do cadastro de clientes. <br>
+Destinada tanto para uso interno da empresa quanto para clientes externos, como aplicativos de parceiros ou sistemas de terceiros. <br>
+<strong> Recursos Esperados: </strong> <br>
+* Exclusão de clientes: Permitir a exclusão de registros de clientes do sistema. <br>
+* Inclusão de clientes: Possibilitar a inclusão de novos clientes no banco de dados. <br>
+* Atualização de cadastros: Permitir a atualização de informações dos clientes, como endereço, telefone, e-mail, etc.
 
-[Inclua os objetivos da sua api.]
+#### Login API:
+<strong> Objetivo: </strong> Realizar o processo de autenticação e autorização de usuários. <br>
+Destinada a todos os usuários do sistema, sejam clientes externos ou internos da empresa. <br>
+<strong> Recursos Esperados: </strong> 
+* Autenticação de usuários: Verificar as credenciais de login (usuário/senha) e gerar um token de acesso válido. <br>
+* Autorização de acesso: Controlar o acesso a recursos específicos com base nas permissões do usuário.
+
+#### Users API: 
+<strong> Objetivo: </strong> Gerenciar o cadastro e as informações dos usuários do sistema. <br>
+Destinada a usuários internos da empresa, como administradores e equipes de suporte. <br>
+<strong> Recursos Esperados: </strong> 
+* Cadastro de usuários: Permitir a criação de novos usuários no sistema, especificando seus dados básicos, funções e permissões. <br>
+* Gerenciamento de usuários: Oferecer funcionalidades para atualização, exclusão e listagem de usuários cadastrados.
 
 
 ## Arquitetura
@@ -114,15 +128,17 @@ Para garantir os requisitos de confidenciabilidade e integridade da api, foi uti
 4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
 5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
 
-## Testes
+Para abranger todos os requisitos, tanto funcionais quanto não funcionais, foram conduzidos testes manuais utilizando a ferramenta Postman, seguindo os cenários de teste definidos no Qase. Estes cenários foram redigidos conforme o formato do Gherkin, garantindo uma abordagem estruturada e compreensível.
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+Os testes mapeados no Qase abrangem diferentes tipos, incluindo testes funcionais para validação das funcionalidades e testes de integração para verificar a interação entre os componentes do sistema. Essa abordagem abrangente visa assegurar a qualidade e a robustez do software em todos os aspectos importantes.
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+
+![qase](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/af9ab9e0-e237-4112-ae21-b910d2869789)
+Print de tela da ferramenta Qase com mapeamento dos casos de testes:
+
+
+[CA-2024-04-23.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/files/15082485/CA-2024-04-23.pdf) <br>
+PDF com todos os testes realizados
 
 # Referências
 
