@@ -9,6 +9,7 @@ namespace Domain.Dtos.FlightAggregate
 {
     public class FlightDtoCreate
     {
+
         [Required(ErrorMessage = "Data do voo é um campo obrigatório")]
         public Guid FlightIntineraryId { get; set; }
 

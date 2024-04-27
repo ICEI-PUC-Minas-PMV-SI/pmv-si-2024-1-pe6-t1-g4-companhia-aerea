@@ -21,6 +21,7 @@ namespace Service.Services
 {
     public class FlightService : IFlightService
     {
+
         private IFlightRepository _repository;
         private readonly IMapper _mapper;
         public FlightService(IFlightRepository repository, IMapper mapper)
@@ -281,6 +282,7 @@ namespace Service.Services
             }
 
             return listDto;
+
         }
     }
 }

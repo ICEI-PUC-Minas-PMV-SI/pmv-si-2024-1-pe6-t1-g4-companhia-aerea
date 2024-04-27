@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,12 @@ using Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data.Implementations
+
 {
     public class FlightImplementation : BaseRepository<FlightEntity>, IFlightRepository
     {
         private DbSet<FlightEntity> _dbFlight;
+
         private DbSet<FlightIntineraryEntity> _dbFlightIntinerary;
         private DbSet<ReserveEntity> _dbReserve;
         private DbSet<AddressEntity> _dbAddress;
@@ -31,11 +34,13 @@ namespace Api.Data.Implementations
         }
 
         public async Task<IEnumerable<FlightEntity>> GetAllFlight()
+
         {
             try
             {
                 return await _dbFlight.ToListAsync();
             }
+
             catch (Exception ex)
             {
                 throw ex;
@@ -75,11 +80,13 @@ namespace Api.Data.Implementations
             catch (Exception ex)
             {
                 throw ex;
+
             }
         }
 
         public async Task<FlightEntity> GetFlightById(Guid id)
         {
+
             return await _dbFlight.SingleOrDefaultAsync(p => p.Id.Equals(id));
         }
 
@@ -164,6 +171,7 @@ namespace Api.Data.Implementations
                 throw ex;
             }
             return seats;
+
         }
     }
 }

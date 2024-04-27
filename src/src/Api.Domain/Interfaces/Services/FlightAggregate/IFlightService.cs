@@ -1,4 +1,3 @@
-﻿using Domain.Dtos.FlightAggregate;
 using Domain.Dtos.PurchaseAggregate;
 using System;
 using System.Collections.Generic;
@@ -10,6 +9,7 @@ namespace Domain.Interfaces.Services.FlightAggregate
 {
     public interface IFlightService
     {
+
         //Flight
         Task<FlightDto> CreateFlight(FlightDtoCreate flight, Guid userId);
         Task<FlightDto> GetFlight(Guid id);
@@ -30,5 +30,6 @@ namespace Domain.Interfaces.Services.FlightAggregate
         Task<SeatsAvailableDto> CreateSeatsAvailable(SeatsAvailableDtoCreate seats);
         Task<SeatsAvailableDto> GetSeatsAvailable(Guid id);
         Task<IEnumerable<SeatsAvailableDto>> GetAllSeatsAvailable();
+
     }
 }

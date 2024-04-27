@@ -20,10 +20,12 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
             serviceCollection.AddScoped<ICustomerRepository, CustomerImplementation>();
+
             serviceCollection.AddScoped<IPurchaseRepository, PurchaseImplementation>();
             serviceCollection.AddScoped<IFlightRepository, FlightImplementation>();
 
             var dbConnectionString = configuration["MySQLConnection:MySQLConnectionString"];
+
 
             serviceCollection.AddDbContext<MyContext>(
                 options => options.UseMySql(

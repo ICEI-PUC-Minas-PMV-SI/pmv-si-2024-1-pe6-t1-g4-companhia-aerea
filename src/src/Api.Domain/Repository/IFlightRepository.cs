@@ -1,4 +1,3 @@
-﻿using Api.Domain.Entities.FlightAggregate;
 using Api.Domain.Interfaces;
 using Domain.Entities.FlightAggregate;
 using Domain.Entities.PaymentAggregate;
@@ -13,6 +12,7 @@ namespace Domain.Repository
 {
     public interface IFlightRepository : IRepository<FlightEntity>
     {
+
         //Flight
         Task<FlightEntity> InsertFlightAsync(FlightEntity flight);
         Task<FlightEntity> GetFlightById(Guid id);
@@ -32,5 +32,6 @@ namespace Domain.Repository
         Task<SeatsAvailableEntity> InsertSeatsAvailableAsync(SeatsAvailableEntity seats);
         Task<SeatsAvailableEntity> GetSeatsAvailableById(Guid id);
         Task<IEnumerable<SeatsAvailableEntity>> GetAllSeatsAvailable();
+
     }
 }

@@ -17,12 +17,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Application.Controllers
 {
 
-    [ApiController]
-    [Route("api/v1/[controller]")]
-    [Authorize("Bearer")]
-    public class FlightController : CustomController
-    {
-
         public IFlightService _service { get; set; }
         public ILoginService _loginService { get; set; }
         public FlightController(IFlightService service, ILoginService loginService)
@@ -57,7 +51,6 @@ namespace Api.Application.Controllers
                     }
                 }
                 return BadRequest();
-
             }
             catch (ArgumentException e)
             {
@@ -65,17 +58,21 @@ namespace Api.Application.Controllers
             }
         }
 
+
         [HttpGet("get/flight")]
         public async Task<ActionResult> GetFlight([FromQuery] Guid id)
         {
            
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
+
                 var result = await _service.GetFlight(id);
+
                 return Ok(result);
             }
             catch (ArgumentException e)
@@ -83,6 +80,7 @@ namespace Api.Application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
+
 
         [HttpGet("getall/flight")]
         public async Task<ActionResult> GetAllFlight()
@@ -103,6 +101,7 @@ namespace Api.Application.Controllers
 
         [HttpPost("create/flightintinerary")]
         public async Task<ActionResult> CreateFlightIntinerary([FromBody] FlightIntineraryDtoCreate flight)
+
         {
             if (!ModelState.IsValid)
             {
@@ -115,6 +114,7 @@ namespace Api.Application.Controllers
                 var baseUser = await _loginService.FindByLogin(email);
                 if (baseUser != null)
                 {
+
                     var result = await _service.CreateFlightIntinerary(flight);
                     if (result != null)
                     {
@@ -134,9 +134,11 @@ namespace Api.Application.Controllers
             }
         }
 
+
         [HttpGet("get/flightintinerary")]
         public async Task<ActionResult> GetFlightIntinerary([FromQuery] Guid id)
         {
+
 
             if (!ModelState.IsValid)
             {
@@ -144,6 +146,7 @@ namespace Api.Application.Controllers
             }
             try
             {
+
                 var result = await _service.GetFlightIntinerary(id);
                 return Ok(result);
             }
@@ -302,14 +305,13 @@ namespace Api.Application.Controllers
             try
             {
                 return Ok(await _service.GetAllSeatsAvailable());
+
             }
             catch (ArgumentException e)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-
-
 
     }
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Api.CrossCutting.DependencyInjection;
 using Api.CrossCutting.Mappings.UserAggregate;
+using Api.CrossCutting.Mappings.ReserveAggregate;
 using Api.Data;
 using Api.Domain.Security;
 using AutoMapper;
+using CrossCutting.Mappings.FlightAggregate;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +46,12 @@ namespace application
                 cfg.AddProfile(new DtoToModelProfile());
                 cfg.AddProfile(new EntityToDtoProfile());
                 cfg.AddProfile(new ModelToEntityProfile());
+                cfg.AddProfile(new ReserveDtoToModelProfile());
+                cfg.AddProfile(new ReserveEntityToDtoProfile());
+                cfg.AddProfile(new ReserveModelToEntityProfile());
+                cfg.AddProfile(new FlightDtoToModelProfile());
+                cfg.AddProfile(new FlightEntityToDtoProfile());
+                cfg.AddProfile(new FlightModelToEntityProfile());
             });
 
             IMapper mapper = config.CreateMapper();
