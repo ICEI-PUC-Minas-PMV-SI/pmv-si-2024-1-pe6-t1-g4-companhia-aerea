@@ -2,13 +2,7 @@ using Api.Data.Mapping;
 using Api.Data.Mapping.CustomerAggregate;
 using Api.Domain.Entities;
 using Api.Domain.Entities.CustomerAggregate;
-using Data.Mapping.PurchaseAggregate;
-using Data.Seeds.CustomerAggregates;
-using Data.Seeds.UserAggregate;
-using Domain.Entities.PaymentAggregate;
-using Domain.Entities.PurchaseAggregate;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Api.Data
 {
@@ -22,10 +16,6 @@ namespace Api.Data
         public DbSet<CareerEntity> Careers { get; set; }
         public DbSet<NationalityEntity> Nationalities { get; set; }
         public DbSet<PhoneEntity> Phones { get; set; }
-
-        //PurchaseAggregate
-        public DbSet<OffersEntity> Offers { get; set; }
-        public DbSet<PaymentEntity> Payments { get; set; }
 
 
 
@@ -43,27 +33,10 @@ namespace Api.Data
             modelBuilder.Entity<NationalityEntity>(new NationalityMap().Configure);
             modelBuilder.Entity<PhoneEntity>(new PhoneMap().Configure);
 
-            //Purchase Aggregate
-            modelBuilder.Entity<OffersEntity>(new OfferMap().Configure);
-            modelBuilder.Entity<PaymentEntity>(new PaymentMap().Configure);
 
 
 
-
-
-
-            //Cria os Mocks no banco de dados - Tem que apagar o BDD e gerar as migrations novamente
-
-            //User
-            UsersSeeds.Users(modelBuilder);
-
-            //CustomerAggregate - O Customer foi o ultimo pos ele depende das outras tabelas
-            AddressesSeeds.Addresses(modelBuilder);
-            CareersSeeds.Careers(modelBuilder);
-            NationalitiesSeeds.Nationalities(modelBuilder);
-            PhonesSeeds.Phones(modelBuilder);
-            CustomersSeeds.Customers(modelBuilder);
-
+            //Podemos tb configurar para popular o banco com dados fakes
         }
     }
 }

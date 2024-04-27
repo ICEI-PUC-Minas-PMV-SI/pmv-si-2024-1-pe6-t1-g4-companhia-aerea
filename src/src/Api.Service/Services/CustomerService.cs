@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.CustomerAggregate;
 using Api.Domain.Entities.CustomerAggregate;
+using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services.CustomerAggregate;
 using Api.Domain.Repository;
 using AutoMapper;
 using Domain.Dtos.CustomerAggregate;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Service.Services
 {
@@ -24,22 +27,10 @@ namespace Api.Service.Services
             return await _repository.DeleteAsync(id);
         }
 
-        public async Task<CustomerDtoGetResult> Get(Guid id)
+        public async Task<CustomerDto> Get(Guid id)
         {
             var entity = await _repository.SelectByIdAsync(id);
-            var customerDto = new CustomerDtoGetResult()
-            {
-                Id = entity.Id,
-                FirstName = entity.FirstName,
-                LastName = entity.LastName,
-                Email = entity.Email,
-                Document = entity.Document,
-                DateBirth = entity.DateBirth,
-                NationalityId = entity.NationalityId,
-                AddressId = entity.AddressId,
-                PhoneId = entity.PhoneId,
-                CareerId = entity.CareerId,
-            };
+            var customerDto = _mapper.Map<CustomerDto>(entity);
 
             return customerDto;
         }
@@ -117,7 +108,6 @@ namespace Api.Service.Services
                 DateBirth = result.DateBirth,
                 NationalityId = result.AddressId,
                 UserId = result.UserId,
-                AddressId = result.AddressId,
                 PhoneId = result.PhoneId,
                 CareerId = result.CareerId,
 
@@ -147,36 +137,23 @@ namespace Api.Service.Services
             var phoneDb = await _repository.GetPhoneById(customer.PhoneId);
             if (customerDb != null && addressDb != null && phoneDb != null)
             {
-                try
-                {
-                    var customerEntity = new CustomerEntity()
-                    {
-                        Id = customer.Id,
-                        FirstName = customer.FirstName,
-                        LastName = customer.LastName,
-                        Email = customer.Email,
-                        Document = customer.Document,
-                        DateBirth = DateTime.Parse(customer.DateBirth),
-                        StatusId = CustomerStatus.Active,
-                        NationalityId = customer.NationalityId,
-                        CareerId = customer.CareerId,
-                        UserId = userId,
-                        UpdateAt = DateTime.UtcNow,
-                        PhoneId = customerDb.PhoneId,
-                        AddressId = customerDb.AddressId
-
-                    };
-                    var result = await _repository.UpdateAsync(customerEntity);
-                    var phoneUpdated = await UpdatePhone(customer, phoneDb);
-                    var addressUpdate = await UpdateAddress(customer, addressDb);
-                    return EntityToCustomerDtoUpdateResult(result, phoneUpdated, addressUpdate);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception(ex.ToString());
-                }
                 //var customerEntity = _mapper.Map<CustomerEntity>(customer);
-
+                var customerEntity = new CustomerEntity()
+                {
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Email = customer.Email,
+                    Document = customer.Document,
+                    DateBirth = DateTime.Parse(customer.DateBirth),
+                    StatusId = CustomerStatus.Active,
+                    NationalityId = customer.NationalityId,
+                    CareerId = customer.CareerId,
+                    UserId = userId,
+                };
+                var result = await _repository.UpdateAsync(customerEntity);
+                var phoneUpdated = await UpdatePhone(customer, phoneDb);
+                var addressUpdate = await UpdateAddress(customer, addressDb);
+                return EntityToCustomerDtoUpdateResult(result, phoneUpdated, addressUpdate);
             }
             return null;
         }
@@ -218,34 +195,18 @@ namespace Api.Service.Services
 
         private async Task<PhoneEntity> UpdatePhone(CustomerDtoUpdate customer, PhoneEntity phone)
         {
-            var phoneEntity = new PhoneEntity()
-            {
-                Id = phone.Id,
-                CountryCode = customer.CountryCode,
-                DDD = customer.DDD,
-                Number = customer.PhoneNumber,
-                TypePhone = (TypePhone)customer.TypePhone,
-                UpdateAt = DateTime.UtcNow,
-            };
+
+            var phoneEntity = _mapper.Map<PhoneEntity>(customer);
+            phoneEntity.Id = phone.Id;
+            phoneEntity.Number = customer.PhoneNumber;
+
             return await _repository.UpdatePhone(phoneEntity);
         }
 
         private async Task<AddressEntity> UpdateAddress(CustomerDtoUpdate customer, AddressEntity address)
         {
-            //var addressEntity = _mapper.Map<AddressEntity>(customer);
-            var addressEntity = new AddressEntity()
-            {
-                Id = address.Id,
-                ZipCode = customer.ZipCode,
-                Country = customer.Country,
-                State = customer.State,
-                City = customer.City,
-                Neighborhood = customer.Neighborhood,
-                Street = customer.Street,
-                Number = customer.Number,
-                Complement = customer.Complement,
-                UpdateAt = DateTime.UtcNow,
-            };
+            var addressEntity = _mapper.Map<AddressEntity>(customer);
+            addressEntity.Id = address.Id;
 
             return await _repository.UpdateAddress(addressEntity);
         }
@@ -283,103 +244,38 @@ namespace Api.Service.Services
         public async Task<AddressDto> GetAddress(Guid id)
         {
             var addressDb = await _repository.GetAddressById(id);
-            var dto = new AddressDto()
-            {
-                Id = id,
-                ZipCode = addressDb.ZipCode,
-                Country = addressDb.Country,
-                State = addressDb.State,
-                City = addressDb.City,
-                Neighborhood = addressDb.Neighborhood,
-                Street = addressDb.Street,
-                Number = addressDb.Number,
-                Complement = addressDb.Complement
-            };
-
-            return dto;
+            return _mapper.Map<AddressDto>(addressDb);
 
         }
 
         public async Task<CareerDto> GetCareer(Guid id)
         {
             var careerDb = await _repository.GetCareerById(id);
-            var dto = new CareerDto()
-            {
-                Id = id,
-                Description = careerDb.Description,
-                Note = careerDb.Note,
-                AverageWage = careerDb.AverageWage,
-            };
-
-            return dto;
+            return _mapper.Map<CareerDto>(careerDb);
         }
 
         public async Task<NationalityDto> GetNationality(Guid id)
         {
             var nationalityDb = await _repository.GetNationalityById(id);
-
-
-            var dto = new NationalityDto()
-            {
-                Id = id,
-                Description = nationalityDb.Description,
-                Note = nationalityDb.Note,
-            };
-            return dto;
+            return _mapper.Map<NationalityDto>(nationalityDb);
         }
 
         public async Task<PhoneDto> GetPhone(Guid id)
         {
             var phoneDb = await _repository.GetPhoneById(id);
-            var dto = new PhoneDto()
-            {
-                Id = id,
-                CountryCode = phoneDb.CountryCode,
-                DDD = phoneDb.DDD,
-                Number = phoneDb.Number,
-                TypePhone = (int)phoneDb.TypePhone
-            };
-
-            return dto;
+            return _mapper.Map<PhoneDto>(phoneDb);
         }
 
         public async Task<IEnumerable<CareerDto>> GetAllCareer()
         {
             var listEntity = await _repository.GetAllCareer();
-            var listDto = new List<CareerDto>();
-
-            foreach ( var career in listEntity)
-            {
-                var dto = new CareerDto()
-                {
-                    Id = career.Id,
-                    Description = career.Description,
-                    AverageWage = career.AverageWage,
-                    Note = career.Note,     
-                };
-                listDto.Add(dto);
-            }
-
-            return listDto;
+            return _mapper.Map<IEnumerable<CareerDto>>(listEntity);
         }
 
         public async Task<IEnumerable<NationalityDto>> GetAllNationality()
         {
             var listEntity = await _repository.GetAllNationality();
-            var listDto = new List<NationalityDto>();
-
-            foreach (var nationality in listEntity)
-            {
-                var dto = new NationalityDto()
-                {
-                    Id = nationality.Id,
-                    Description = nationality.Description,
-                    Note = nationality.Note,
-                };
-                listDto.Add(dto);
-            }
-
-            return listDto;
+            return _mapper.Map<IEnumerable<NationalityDto>>(listEntity);
         }
     }
 }

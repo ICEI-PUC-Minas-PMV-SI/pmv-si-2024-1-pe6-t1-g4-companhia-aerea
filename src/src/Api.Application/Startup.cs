@@ -39,7 +39,7 @@ namespace application
 
             services.AddControllers();
             ConfigureService.ConfigureDependenciesService(services);
-            ConfigureRepository.ConfigureDependenciesRepository(services, Configuration);
+            ConfigureRepository.ConfigureDependenciesRepository(services);
 
             var config = new MapperConfiguration(cfg =>
             {
@@ -164,14 +164,16 @@ namespace application
             //     }
             // }
 
-            using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            if ("APPLY".ToLower() == "APPLY".ToLower())
             {
-                using (var context = service.ServiceProvider.GetService<MyContext>())
+                using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
-                    context.Database.Migrate();
+                    using (var context = service.ServiceProvider.GetService<MyContext>())
+                    {
+                        context.Database.Migrate();
+                    }
                 }
             }
-            
         }
     }
 }

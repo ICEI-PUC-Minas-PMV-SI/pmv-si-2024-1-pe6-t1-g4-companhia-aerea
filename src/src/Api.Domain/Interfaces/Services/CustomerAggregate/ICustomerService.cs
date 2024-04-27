@@ -11,7 +11,7 @@ namespace Api.Domain.Interfaces.Services.CustomerAggregate
     {
         Task<CustomerDtoCreateResult> Post(CustomerDtoCreate customer, Guid userId);
         Task<CustomerDtoUpdateResult> Put(CustomerDtoUpdate customer, Guid userId);
-        Task<CustomerDtoGetResult> Get(Guid id);
+        Task<CustomerDto> Get(Guid id);
         Task<IEnumerable<CustomerDtoSearchResult>> GetAll();
         Task<bool> Delete(Guid id);
 
@@ -23,5 +23,4 @@ namespace Api.Domain.Interfaces.Services.CustomerAggregate
         Task<IEnumerable<NationalityDto>> GetAllNationality();
 
     }
-
 }

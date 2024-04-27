@@ -37,7 +37,7 @@ namespace Api.Application.Controllers
         }
 
         [HttpGet]
-        [Route("{id}", Name = "GetById")]
+        [Route("{id}", Name = "GetReserveById")]
         public async Task<ActionResult> Get(Guid id)
         {
             if (!ModelState.IsValid)
@@ -67,7 +67,7 @@ namespace Api.Application.Controllers
                 var result = await _service.Post(reserve);
                 if (result != null)
                 {
-                    return Created(new Uri(Url.Link("GetById", new { id = result.Id })), result);
+                    return Created(new Uri(Url.Link("GetReserveById", new { id = result.Id })), result);
                 }
                 else
                 {

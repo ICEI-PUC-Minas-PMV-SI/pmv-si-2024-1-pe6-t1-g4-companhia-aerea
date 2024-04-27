@@ -9,14 +9,12 @@ namespace Domain.Dtos.FlightAggregate
 {
     public class FlightDtoCreate
     {
-
-        [Required(ErrorMessage = "Data do voo é um campo obrigatório")]
-        public Guid FlightIntineraryId { get; set; }
-
-        [Required(ErrorMessage = "Poltrona do voo é um campo obrigatório")]
-        public Guid SeatsAvailableId { get; set; }
-
-        [Required(ErrorMessage = "Código do voo é um campo obrigatório")]
+        [Required(ErrorMessage = "Código de Vôo é um campo obrigatório")]
         public string FlightCode { get; set; }
+        [Required(ErrorMessage = "Rota de Vôo é um campo obrigatório")]
+        public Guid FlightIntineraryId { get; set; }
+        [Required(ErrorMessage = "Status de Vôo é um campo obrigatório")]
+        public int FlightStatusId { get; set; }
+        public Guid SeatsAvailableId { get; set; }
     }
 }

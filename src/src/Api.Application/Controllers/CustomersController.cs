@@ -111,9 +111,7 @@ namespace Api.Application.Controllers
             }
             try
             {
-                var email = GetSessionData().Email;
-                var baseUser = await _loginService.FindByLogin(email);
-                var result = await _service.Put(customer, baseUser.Id);
+                var result = await _service.Put(customer, Guid.Empty);
                 if (result != null)
                 {
                     return Ok(result);
