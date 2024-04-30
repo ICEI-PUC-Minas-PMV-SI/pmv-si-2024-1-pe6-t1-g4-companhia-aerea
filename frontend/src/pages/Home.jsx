@@ -1,51 +1,32 @@
-import { useState } from 'react';
-import Card from "../components/Card";
-import Select from "../components/Select";
-import Input from '../components/Input';
+import { Box, Container, Typography } from "@mui/material";
+import { alpha } from "@mui/material";
 
 function HomePage() {
-    const [selectedOrigin, setOrigin] = useState('');
-
-    const options = [
-      { value: '1', label: 'Recife' },
-      { value: '2', label: 'Rio de Janeiro' },
-      { value: '3', label: 'Belo Horizonte' },
-    ];
-  
-    const handleOriginChange = (event) => {
-      setOrigin(event.target.value);
-    };
-
-
-    const greeting = 'Olá, vamos voar para onde?'; 
-
   return (
-    <>
-      <Card title={greeting}>
-        <div className='d-flex'>
-            <div className='pl-1 align-self-end'>
-                <Select options={options} onChange={handleOriginChange} value={selectedOrigin} placeholder="Selecione uma origem"/>
-            </div>
-            <div className='pl-1 align-self-end'>
-                <Select options={options} onChange={handleOriginChange} value={selectedOrigin} placeholder="Selecione um destino"/>
-            </div>
-            <div className='pl-1'>
-                <Input type='date' label="Data de Ida"/>
-            </div>
-            <div className='pl-1'>
-                <Input type='date' label="Data de Volta"/>
-            </div>
-        </div>
-        <div className='d-flex justify-end'>
-            <button className='bg-b f-cb'>Confirmar</button>
-        </div>
-      </Card>
-      <Card title="Ofertas em destaque">
-        <div>
-            <h2>Imagine um carrosel ou algo do tipo com um monte de ofertas...</h2>
-        </div>
-      </Card>
-    </>
+    <Box
+      id="hero"
+      sx={(theme) => ({
+        width: "100%",
+        backgroundImage:
+          theme.palette.mode === "light"
+            ? "linear-gradient(180deg, #CEE5FD, #FFF)"
+            : `linear-gradient(#02294F, ${alpha("#090E10", 0.0)})`,
+        backgroundSize: "100% 20%",
+        backgroundRepeat: "no-repeat",
+      })}
+    >
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          pt: { xs: 14, sm: 20 },
+          pb: { xs: 8, sm: 12 },
+        }}
+      >
+        <Typography variant="h1">Minha home</Typography>
+      </Container>
+    </Box>
   );
 }
 
