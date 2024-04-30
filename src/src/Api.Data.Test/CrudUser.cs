@@ -1,16 +1,17 @@
 ﻿using Api.Data.Implementations;
 using Api.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
+using Xunit;
 
 namespace Api.Data.Test
 {
-    public class CrudUser
+    public class CrudUser : BaseTest, IClassFixture<DbTest>
     {
-        private ServiceProvider _serviceProvide;
+        private readonly ServiceProvider _serviceProvide;
 
-        public CrudUser(ServiceProvider serviceProvide)
+        public CrudUser(DbTest dbTeste)
         {
-            _serviceProvide = serviceProvide;
+            _serviceProvide = dbTeste.ServiceProvider;
         }
 
         [Fact(DisplayName = "CRUD User")]
