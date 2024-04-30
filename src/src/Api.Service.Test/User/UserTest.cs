@@ -10,7 +10,7 @@ public class UserTest
     public static string UsernameChanged { get; set; }
     public static string UserLastnameChanged { get; set; }
     public static string EmailUserChanged { get; set; }
-    public static Guid IdUsuario { get; set; }
+    public static Guid UserId { get; set; }
     public static DateTime UserDateBirth { get; set; }
     public static DateTime UserCreateAt { get; set; }
     
@@ -25,7 +25,7 @@ public class UserTest
 
     public UserTest()
     {
-        IdUsuario = Guid.NewGuid();
+        UserId = Guid.NewGuid();
         UserName = Faker.Name.First();
         UserLastName = Faker.Name.Last();
         UserEmail = Faker.Internet.Email();
@@ -51,7 +51,7 @@ public class UserTest
 
         userDto = new UserDto
         {
-            Id = IdUsuario,
+            Id = UserId,
             FirstName = UserName,
             LastName = UserLastName,
             Email = UserEmail,
@@ -71,7 +71,7 @@ public class UserTest
 
         userDtoCreateResult = new UserDtoCreateResult
         {
-            Id = IdUsuario,
+            Id = UserId,
             FirstName = UserName,
             LastName = UserLastName,
             Email = UserEmail,
@@ -81,7 +81,7 @@ public class UserTest
 
         userDtoUpdate = new UserDtoUpdate
         {
-            Id = IdUsuario,
+            Id = UserId,
            
             FirstName = UsernameChanged,
             LastName = UserLastnameChanged,

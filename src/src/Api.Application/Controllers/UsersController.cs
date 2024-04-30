@@ -3,21 +3,19 @@ using System.Net;
 using System.Threading.Tasks;
 using Api.Domain.Dtos.UserAggregate;
 using Api.Domain.Interfaces.Services.UserAggregate;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-
-namespace Api.Application.Controllers
+namespace application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     //[Authorize("Bearer")]
     public class UsersController : ControllerBase
     {
-        public IUserService _service { get; set; }
+        private IUserService Service { get; set; }
         public UsersController(IUserService service)
         {
-            _service = service;
+            Service = service;
         }
 
         //[Authorize("Bearer")]
@@ -30,7 +28,7 @@ namespace Api.Application.Controllers
             }
             try
             {
-                return Ok(await _service.GetAll());
+                return Ok(await Service.GetAll());
             }
             catch (ArgumentException e)
             {
@@ -49,7 +47,7 @@ namespace Api.Application.Controllers
             }
             try
             {
-                var result = await _service.Get(id);
+                var result = await Service.Get(id);
                 return Ok(result);
             }
             catch (ArgumentException e)
@@ -68,10 +66,10 @@ namespace Api.Application.Controllers
             }
             try
             {
-                var result = await _service.Post(user);
+                var result = await Service.Post(user);
                 if (result != null)
                 {
-                    return Created(new Uri(Url.Link("GetById", new { id = result.Id })), result);
+                    return Created(new Uri(Url.Link("GetById", new { id = result.Id }) ?? string.Empty), result);
                 }
                 else
                 {
@@ -94,7 +92,7 @@ namespace Api.Application.Controllers
             }
             try
             {
-                var result = await _service.Put(user);
+                var result = await Service.Put(user);
                 if (result != null)
                 {
                     return Ok(result);
@@ -120,7 +118,7 @@ namespace Api.Application.Controllers
             }
             try
             {
-                return Ok(await _service.Delete(id));
+                return Ok(await Service.Delete(id));
             }
             catch (ArgumentException e)
             {
