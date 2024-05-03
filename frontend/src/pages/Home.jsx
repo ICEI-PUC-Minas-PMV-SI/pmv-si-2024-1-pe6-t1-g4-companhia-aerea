@@ -5,6 +5,9 @@ import { DatePicker } from "@mui/x-date-pickers";
 import CheckIcon from '@mui/icons-material/Check';
 
 function HomePage() {
+
+  const isInvalid = true;
+
   return (
     <Box
       id="home"
@@ -36,7 +39,7 @@ function HomePage() {
             <DatePicker sx={{ marginRight: "1rem" }} label="Volta" />
           </Box>
           <Box sx={{ mt: "1rem", mr: "1rem", display: "flex", flexDirection: "row-reverse" }}>
-            <Button variant="contained" endIcon={<CheckIcon />}>
+            <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid}>
                 Confirmar
             </Button>
           </Box>
