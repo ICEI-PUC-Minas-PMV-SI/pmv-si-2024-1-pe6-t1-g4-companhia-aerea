@@ -3,6 +3,7 @@ import { alpha } from "@mui/material";
 import AsyncComboBox from "../components/AsyncComboBox";
 import { DatePicker } from "@mui/x-date-pickers";
 import CheckIcon from '@mui/icons-material/Check';
+import FormTravel from "../components/FormTravel";
 
 function HomePage() {
 
@@ -30,20 +31,7 @@ function HomePage() {
           pb: { xs: 8, sm: 12 },
         }}
       >
-        <Card sx={{ minWidth: 800, padding: 3 }}>
-          <CardHeader title="Ola, vamos voar?" />
-          <Box sx={{ display: "flex" }}>
-            <AsyncComboBox label="Origem" />
-            <AsyncComboBox label="Destino" />
-            <DatePicker sx={{ marginRight: "1rem" }} label="Ida" />
-            <DatePicker sx={{ marginRight: "1rem" }} label="Volta" />
-          </Box>
-          <Box sx={{ mt: "1rem", mr: "1rem", display: "flex", flexDirection: "row-reverse" }}>
-            <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid}>
-                Confirmar
-            </Button>
-          </Box>
-        </Card>
+        <FormTravel />
       </Container>
     </Box>
   );
