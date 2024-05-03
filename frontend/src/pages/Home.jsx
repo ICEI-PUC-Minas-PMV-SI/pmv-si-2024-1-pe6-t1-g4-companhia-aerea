@@ -1,13 +1,8 @@
-import { Box, Button, Card, CardHeader, Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { alpha } from "@mui/material";
-import AsyncComboBox from "../components/AsyncComboBox";
-import { DatePicker } from "@mui/x-date-pickers";
-import CheckIcon from '@mui/icons-material/Check';
 import FormTravel from "../components/FormTravel";
 
 function HomePage() {
-
-  const isInvalid = true;
 
   return (
     <Box

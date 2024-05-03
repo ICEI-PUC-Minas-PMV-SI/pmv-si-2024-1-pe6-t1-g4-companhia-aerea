@@ -4,6 +4,9 @@ import { DatePicker } from "@mui/x-date-pickers";
 import CheckIcon from '@mui/icons-material/Check';
 
 function FormTravel() {
+
+    const isInvalid = true;
+
     return (
         <Card sx={{ minWidth: 800, padding: 3 }}>
             <CardHeader title="Ola, vamos voar?" />
