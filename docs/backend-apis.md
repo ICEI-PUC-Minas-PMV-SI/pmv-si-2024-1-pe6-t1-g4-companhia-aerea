@@ -213,7 +213,7 @@ Para abranger todos os requisitos, tanto funcionais quanto não funcionais, fora
 Os testes mapeados no Qase abrangem diferentes tipos, incluindo testes funcionais para validação das funcionalidades e testes de integração para verificar a interação entre os componentes do sistema. Essa abordagem abrangente visa assegurar a qualidade e a robustez do software em todos os aspectos importantes.
 
 ![qase](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/af9ab9e0-e237-4112-ae21-b910d2869789)
-Print de tela da ferramenta Qase com mapeamento dos casos de testes:
+Print de tela da ferramenta Qase com mapeamento dos casos de testes
 
 [CA-2024-04-23.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/files/15082485/CA-2024-04-23.pdf) <br>
 PDF com todos os testes realizados
