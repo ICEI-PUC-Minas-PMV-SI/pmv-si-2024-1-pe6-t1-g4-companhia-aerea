@@ -92,17 +92,103 @@ Foi desenvolvida uma api REST utilizando a linguagem C# e o framework Asp.net co
 
 ### Endpoint 1
 - Método: GET
-- URL: /endpoint1
+- URL: api/v1/Customers/getallcustomers
 - Parâmetros:
   - param1: [descrição]
 - Resposta:
   - Sucesso (200 OK)
     ```
+    [
+      {
+        "id": "039cd0f7-1506-4daf-9648-be0fa40434fb",
+        "fullName": "Customer 03 do Adm  Last Name Customer 03",
+        "email": "customer03@email.com",
+        "document": "543.609.281-49",
+        "dateBirth": "1994-01-01T00:00:00",
+        "nationalityId": "e8460494-91aa-4b03-8fd8-aefd7ad63164",
+        "careerId": null,
+        "nationalityDescription": "Brasileira",
+        "careerDescription": ""
+      },
+      {
+        "id": "0c0e881c-61cf-4d12-8788-94e118d22177",
+        "fullName": "Customer 03 do regular 01  Last Name Customer 02R",
+        "email": "customer03r@email.com",
+        "document": "367.195.482-34",
+        "dateBirth": "1994-02-02T00:00:00",
+        "nationalityId": "1c52d7f7-49ac-45b3-a3fc-8375068e97ae",
+        "careerId": "ba8c526d-ec49-4469-a0e6-01d63f68712f",
+        "nationalityDescription": "Argentina",
+        "careerDescription": "Psicólogo Clínico"
+      }
+    ]
+    ```
+  - Erro (4XX, 5XX)
+    ```
     {
-      "message": "Success",
-      "data": {
+      "message": "Error",
+      "error": {
         ...
       }
+    }
+    ```
+
+### Endpoint 2
+- Método: POST
+- URL: api/v1/Customers
+- Parâmetros:
+  - No parameters
+- body
+   ```
+   {
+      "firstName": "string",
+      "lastName": "string",
+      "email": "user@example.com",
+      "document": "string",
+      "dateBirth": "string",
+      "nationalityId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "careerId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "countryCode": "str",
+      "ddd": "str",
+      "phoneNumber": "string",
+      "typePhone": 0,
+      "zipCode": "string",
+      "country": "string",
+      "state": "string",
+      "city": "string",
+      "neighborhood": "string",
+      "street": "string",
+      "number": "string",
+      "complement": "string"
+   }   
+   ```
+- Resposta:
+  - Sucesso (201 OK)
+    ```
+    {
+      "id": "5d5ae4ec-e625-455f-8a39-ab06188e350b",
+      "firstName": "Henrique",
+      "lastName": "Lopes",
+      "email": "henrique.sebastiao.lopes10@tasaut.com.br",
+      "document": "46423025576",
+      "dateBirth": "1994-04-11T00:00:00",
+      "nationalityId": "9c977682-f951-4352-8b02-9f3847ad4bcf",
+      "addressId": "00000000-0000-0000-0000-000000000000",
+      "userId": "5e1849cd-ddee-4982-b4c6-8d4b3c20b041",
+      "phoneId": "41bbbd02-4535-417d-a2ba-d72659ba483a",
+      "careerId": "0ec49ed6-1a07-4e63-b3d2-4ac3cb56a962",
+      "countryCode": "55",
+      "ddd": "22",
+      "phoneNumber": "204",
+      "typePhone": 1,
+      "zipCode": "69316318",
+      "country": "Brasil",
+      "state": "RR",
+      "city": "Boa Vista",
+      "neighborhood": "Boa Vista",
+      "street": "Rua OP-XXXI",
+      "number": "204",
+      "complement": null
     }
     ```
   - Erro (4XX, 5XX)
@@ -120,6 +206,7 @@ Foi desenvolvida uma api REST utilizando a linguagem C# e o framework Asp.net co
 
 Para garantir os requisitos de confidenciabilidade e integridade da api, foi utilizado o JWT, que é um token criptografado de autenticação, com declarações sobre um usuário e uma chave, além dos recursos de autorização do framework asp.net core para restringir o acesso a determinadas funcionalidades da api e recursos anti-fraude.
 
+## Testes
 
 Para abranger todos os requisitos, tanto funcionais quanto não funcionais, foram conduzidos testes manuais utilizando a ferramenta Postman, seguindo os cenários de teste definidos no Qase. Estes cenários foram redigidos conforme o formato do Gherkin, garantindo uma abordagem estruturada e compreensível.
 
