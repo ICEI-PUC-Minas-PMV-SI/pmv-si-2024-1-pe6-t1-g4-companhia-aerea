@@ -6,17 +6,19 @@ import { useState } from "react";
 import dayjs from "dayjs";
 
 function FormTravel() {
-    const [departureDate, setDepartureDate] = useState(dayjs('04-05-2022'));
+    const [departureDate, setDepartureDate] = useState(dayjs());
+    const [returnDate, setReturnDate] = useState(dayjs().add(1, 'month'));
 
     const isInvalid = true;
 
     function handleDate(identifier, value) {
         switch (identifier) {
             case 'departure':
-                const date = dayjs(value);
-                
                 setDepartureDate(value)
-                console.log(departureDate, value, date.format());
+                console.log(departureDate, value, dayjs(value).format());
+                break;
+            case 'return':
+                setReturnDate(value);
                 break;
             default:
                 console.log('Default');
@@ -30,7 +32,7 @@ function FormTravel() {
                 <AsyncComboBox label="Origem" />
                 <AsyncComboBox label="Destino" />
                 <DatePicker sx={{ marginRight: "1rem" }} label="Ida" value={departureDate} onChange={(value) => handleDate('departure', value)} />
-                <DatePicker sx={{ marginRight: "1rem" }} label="Volta" name="returnDate" />
+                <DatePicker sx={{ marginRight: "1rem" }} label="Volta" value={returnDate} onChange={(value) => handleDate('return', value)}  />
             </Box>
             <Box sx={{ mt: "1rem", mr: "1rem", display: "flex", flexDirection: "row-reverse" }}>
                 <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid}>
