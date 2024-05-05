@@ -12,9 +12,10 @@ function sleep(duration) {
   });
 }
 
-export default function AsyncComboBox({ label }) {
+export default function AsyncComboBox({ label, onOptionSelected, identifier }) {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
   const loading = open && options.length === 0;
 
   useEffect(() => {
@@ -53,6 +54,12 @@ export default function AsyncComboBox({ label }) {
       }}
       onClose={() => {
         setOpen(false);
+      }}
+      onChange={(event, newValue) => {
+        setSelectedOption(newValue);
+        if (onOptionSelected) {
+          onOptionSelected(newValue, identifier); // Pass the identifier to the callback function
+        }
       }}
       isOptionEqualToValue={(option, value) => option.title === value.title}
       getOptionLabel={(option) => option.title}

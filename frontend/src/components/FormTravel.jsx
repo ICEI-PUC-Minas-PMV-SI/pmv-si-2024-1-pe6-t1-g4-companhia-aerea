@@ -2,40 +2,69 @@ import { Box, Button, Card, CardHeader } from "@mui/material";
 import AsyncComboBox from "../components/AsyncComboBox";
 import { DatePicker} from "@mui/x-date-pickers";
 import CheckIcon from '@mui/icons-material/Check';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 
 function FormTravel() {
-    const [departureDate, setDepartureDate] = useState(dayjs());
-    const [returnDate, setReturnDate] = useState(dayjs().add(1, 'month'));
+    const [departureDate, setDepartureDate] = useState();
+    const [returnDate, setReturnDate] = useState();
+    const [flightSearch, setFlightSearch] = useState({
+        from: '',
+        to: '',
+        departure: '',
+        return: ''
+    });
+    const [isInvalid, setIsInvalid] = useState(true);
 
-    const isInvalid = true;
+    const identifierToKeyMap = {
+        from: 'from',
+        to: 'to',
+        departure: 'departure',
+        return: 'return'
+    };
+
+    function handleOptionSelected(option, identifier) {
+        const key = identifierToKeyMap[identifier];
+        setFlightSearch(prevState => ({
+            ...prevState,
+            [key]: option.title
+        }));
+    }
 
     function handleDate(identifier, value) {
-        switch (identifier) {
-            case 'departure':
-                setDepartureDate(value)
-                console.log(departureDate, value, dayjs(value).format());
-                break;
-            case 'return':
-                setReturnDate(value);
-                break;
-            default:
-                console.log('Default');
+        const key = identifierToKeyMap[identifier];
+        const formattedDate = dayjs(value).format();
+        setFlightSearch(prevState => ({
+            ...prevState,
+            [key]: formattedDate
+        }));
+    }
+
+    // Check if all fields in flightSearch are populated
+    useEffect(() => {
+        const { from, to, departure, return: returndate } = flightSearch;
+        if (from && to && departure && returndate) {
+            setIsInvalid(false);
+        } else {
+            setIsInvalid(true);
         }
+    }, [flightSearch]);
+
+    function handleClick() {
+        console.log('confirm clicked', flightSearch)
     }
 
     return (
         <Card sx={{ minWidth: 800, padding: 3 }}>
             <CardHeader title="Ola, vamos voar?" />
             <Box sx={{ display: "flex" }}>
-                <AsyncComboBox label="Origem" />
-                <AsyncComboBox label="Destino" />
+                <AsyncComboBox label="Origem" onOptionSelected={(option, identifier) => handleOptionSelected(option, identifier)} identifier="from"  />
+                <AsyncComboBox label="Destino" onOptionSelected={(option, identifier) => handleOptionSelected(option, identifier)} identifier="to" />
                 <DatePicker sx={{ marginRight: "1rem" }} label="Ida" value={departureDate} onChange={(value) => handleDate('departure', value)} />
                 <DatePicker sx={{ marginRight: "1rem" }} label="Volta" value={returnDate} onChange={(value) => handleDate('return', value)}  />
             </Box>
             <Box sx={{ mt: "1rem", mr: "1rem", display: "flex", flexDirection: "row-reverse" }}>
-                <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid}>
+                <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid} onClick={handleClick}>
                     Confirmar
                 </Button>
             </Box>
