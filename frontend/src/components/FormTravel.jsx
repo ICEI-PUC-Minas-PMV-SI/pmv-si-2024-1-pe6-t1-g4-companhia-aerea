@@ -4,7 +4,6 @@ import { DatePicker} from "@mui/x-date-pickers";
 import CheckIcon from '@mui/icons-material/Check';
 import { useState } from "react";
 import dayjs from "dayjs";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 function FormTravel() {
     const [departureDate, setDepartureDate] = useState(dayjs('04-05-2022'));
