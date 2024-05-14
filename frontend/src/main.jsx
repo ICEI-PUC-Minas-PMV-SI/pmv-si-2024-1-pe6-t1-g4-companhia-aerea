@@ -6,6 +6,7 @@ import Root from "./routes/root.jsx";
 import HomePage from "./pages/Home.jsx";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import SelectionFlightPage from "./pages/SelectionFlight.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,14 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />,
       },
+      {
+        path: "selecao-voo",
+        element: <SelectionFlightPage />
+      },
+      {
+        path: "selecao-voo/:voos",
+        element: <SelectionFlightPage />
+      }
     ],
   },
 ]);

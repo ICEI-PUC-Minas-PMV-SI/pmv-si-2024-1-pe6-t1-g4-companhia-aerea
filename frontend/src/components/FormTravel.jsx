@@ -4,6 +4,7 @@ import { DatePicker} from "@mui/x-date-pickers";
 import CheckIcon from '@mui/icons-material/Check';
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
+import { Link, useNavigate } from "react-router-dom";
 
 function FormTravel() {
     const [departureDate, setDepartureDate] = useState();
@@ -15,6 +16,7 @@ function FormTravel() {
         return: ''
     });
     const [isInvalid, setIsInvalid] = useState(true);
+    const navigate = useNavigate();
 
     const identifierToKeyMap = {
         from: 'from',
@@ -51,12 +53,13 @@ function FormTravel() {
     }, [flightSearch]);
 
     function handleClick() {
-        console.log('confirm clicked', flightSearch)
+        navigate('selecao-voo', {state: {...flightSearch}})
+        console.log('confirm clicked', JSON.stringify(flightSearch))
     }
 
     return (
         <Card sx={{ minWidth: 800, padding: 3 }}>
-            <CardHeader title="Ola, vamos voar?" />
+            <CardHeader title="Olá, vamos voar?" />
             <Box sx={{ display: "flex" }}>
                 <AsyncComboBox label="Origem" onOptionSelected={(option, identifier) => handleOptionSelected(option, identifier)} identifier="from"  />
                 <AsyncComboBox label="Destino" onOptionSelected={(option, identifier) => handleOptionSelected(option, identifier)} identifier="to" />
@@ -64,9 +67,9 @@ function FormTravel() {
                 <DatePicker sx={{ marginRight: "1rem" }} label="Volta" value={returnDate} onChange={(value) => handleDate('return', value)}  />
             </Box>
             <Box sx={{ mt: "1rem", mr: "1rem", display: "flex", flexDirection: "row-reverse" }}>
-                <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid} onClick={handleClick}>
-                    Confirmar
-                </Button>
+                    <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid} onClick={handleClick}>
+                        Confirmar
+                    </Button>
             </Box>
             </Card>
     )
