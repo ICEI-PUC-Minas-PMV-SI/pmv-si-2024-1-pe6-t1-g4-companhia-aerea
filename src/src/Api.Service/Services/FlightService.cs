@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities.FlightAggregate;
 
 namespace Service.Services
 {
@@ -21,78 +22,75 @@ namespace Service.Services
             _mapper = mapper;
         }
 
-        public async Task<FlightDto> Get(Guid id)
-        {
-            var entity = await _flightRepository.GetFlightById(id);
-            var flightDto = _mapper.Map<FlightDto>(entity);
 
-            return flightDto;
+        public async Task<IataDto> GetIata(Guid id)
+        {
+            var entity = await _flightRepository.GetIataById(id);
+            var iataDto = _mapper.Map<IataDto>(entity);
+
+            return iataDto;
         }
 
-        public async Task<List<FlightDto>> GetAll()
+        public async Task<List<IataDto>> GetAllIata()
         {
-            var entity = await _flightRepository.GetAll();
-            var flightDto = _mapper.Map<List<FlightDto>>(entity);
+            var entity = await _flightRepository.GetAllIata();
+            var iataDto = _mapper.Map<List<IataDto>>(entity);
 
-            return flightDto;
+            return iataDto;
         }
 
-        public Task<List<FlightDto>> GetFlightsByDate(DateTime date)
+        public async Task<IataDtoCreateResult> PostIata(IataDtoCreate iata)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<FlightDto> GetFlightsByDate(DateOnly dateOnly)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<FlightDtoCreateResult> Post(FlightDtoCreate flight)
-        {
-            var flightEntity = new FlightEntity()
+            var entity = new IataEntity()
             {
-                FlightCode = flight.FlightCode,
-                FlightIntineraryId = flight.FlightIntineraryId,
-                SeatsAvailableId = flight.SeatsAvailableId,
-                FlightStatusId = flight.FlightStatusId,
+                IATACode = iata.IATACode,
+                Airport = iata.Airport,
+                Location = iata.Location,
+                Available = iata.Available,
             };
 
-            var result = await _flightRepository.InsertAsync(flightEntity);
-            var flightResult = new FlightDtoCreateResult()
+            var result = await _flightRepository.InsertIata(entity);
+
+            var iataDto = new IataDtoCreateResult()
             {
-                Id = result.Id,
-                FlightCode = result.FlightCode,
-                FlightIntineraryId = result.FlightIntineraryId,
-                FlightStatusId = result.FlightStatusId,
-                SeatsAvailableId = result.SeatsAvailableId,
+                IATACode = result.IATACode,
+                Airport = result.Airport,
+                Location = result.Location,
+                Available = result.Available,
             };
 
-            return flightResult;
+            return iataDto;
         }
 
-        public async Task<FlightDtoUpdateResult> Put(FlightDtoUpdate flight)
+        public async Task<IataDtoUpdateResult> PutIata(IataDtoUpdate iata)
         {
-            var flightDb = await _flightRepository.GetFlightById(flight.Id);
+            var iataDb = await _flightRepository.GetIataById(iata.Id);
 
-            if (flightDb != null)
+            if (iataDb != null)
             {
-                var flightEntity = new FlightEntity()
+                var iataEntity = new IataEntity()
                 {
-                    FlightCode = flightDb.FlightCode,
-                    FlightIntineraryId = flightDb.FlightIntineraryId,
-                    SeatsAvailableId = flightDb.SeatsAvailableId,
-                    FlightStatusId = flightDb.FlightStatusId,
+                    Id = iataDb.Id,
+                    IATACode = iataDb.IATACode,
+                    Airport = iataDb.Airport,
+                    Location = iataDb.Location,
+                    Available = iataDb.Available,
                 };
 
-                var result = await _flightRepository.UpdateAsync(flightEntity);
+                var result = await _flightRepository.UpdateIata(iataEntity);
 
-                var resultUpdate = new FlightDtoUpdateResult()
+                var resultUpd = new IataDtoUpdateResult()
                 {
-                    FlightStatusId = result.FlightStatusId
+                    Id = result.Id,
+                    IATACode = result.IATACode,
+                    Airport = result.Airport,
+                    Location = result.Location,
+                    Available = result.Available,
                 };
 
-                return resultUpdate;
+                return resultUpd;
             }
+
             return null;
         }
     }

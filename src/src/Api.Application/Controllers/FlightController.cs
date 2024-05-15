@@ -12,46 +12,27 @@ namespace application.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    [Authorize("Bearer")]
+    //[Authorize("Bearer")]
     public class FlightController : CustomController
     {
         public IFlightService _flightService { get; set; }
-        public ILoginService _loginService { get; set; }
-        public FlightController(IFlightService flightService, ILoginService loginService)
+        public FlightController(IFlightService flightService)
         {
             _flightService = flightService;
-            _loginService = loginService;
         }
-        [HttpGet("getallflights")]
-        public async Task<ActionResult> GetAllFlights()
+        
+        [HttpGet("get/iata")]
+        [Route("{id}", Name = "GetIata")]
+        [AllowAnonymous]
+        public async Task<ActionResult> GetIata(Guid id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
-            }
-            try
-            {
-                return Ok(await _flightService.GetAll());
-            }
-            catch (ArgumentException e)
-            {
-                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
-            }
-        }
-
-        [HttpGet]
-        [Route("{id}", Name = "getflight")]
-        public async Task<ActionResult> GetFlight(Guid id)
-        {
-            var session = GetSessionData();
-            var email = GetSessionData().Email;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             try
             {
-                var result = await _flightService.Get(id);
+                var result = await _flightService.GetIata(id);
                 return Ok(result);
             }
             catch (ArgumentException e)
@@ -59,42 +40,28 @@ namespace application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-
-        [HttpPost]
-        public async Task<ActionResult> Create([FromBody] FlightDtoCreate flight)
+        
+        [HttpGet("search/iata")]
+        [AllowAnonymous]
+        public async Task<ActionResult> GetAllIata()
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
             }
             try
             {
-                var email = GetSessionData().Email;
-
-                var baseUser = await _loginService.FindByLogin(email);
-                if (baseUser != null)
-                {
-                    var result = await _flightService.Post(flight);
-                    if (result != null)
-                    {
-                        return Created(new Uri(Url.Link("GetFlight", new { id = result.Id })), result);
-                    }
-                    else
-                    {
-                        return BadRequest();
-                    }
-                }
-                return BadRequest();
-
+                return Ok(await _flightService.GetAllIata());
             }
             catch (ArgumentException e)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-
-        [HttpPut]
-        public async Task<ActionResult> Update([FromBody] FlightDtoUpdate flight)
+        
+        [HttpPost]
+        [Authorize("Bearer")]
+        public async Task<ActionResult> CreateIata([FromBody] IataDtoCreate iata)
         {
             if (!ModelState.IsValid)
             {
@@ -102,7 +69,30 @@ namespace application.Controllers
             }
             try
             {
-                var result = await _flightService.Put(flight);
+                var result = await _flightService.PostIata(iata);
+                if (result != null)
+                {
+                    return Created(new Uri(Url.Link("GetIata", new { id = result.Id })), result);
+                }
+                return BadRequest();
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+        
+        [HttpPut]
+        [Authorize("Bearer")]
+        public async Task<ActionResult> UpdateIata([FromBody] IataDtoUpdate iata)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var result = await _flightService.PutIata(iata);
                 if (result != null)
                 {
                     return Ok(result);
@@ -117,5 +107,6 @@ namespace application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
+
     }
 }

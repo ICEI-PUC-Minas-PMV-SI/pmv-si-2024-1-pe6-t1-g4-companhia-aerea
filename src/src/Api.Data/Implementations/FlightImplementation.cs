@@ -8,63 +8,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities.FlightAggregate;
 
 namespace Data.Implementations
 {
     public class FlightImplementation : BaseRepository<FlightEntity>, IFlightRepository
     {
         private DbSet<FlightEntity> _dbFlight;
+        private DbSet<IataEntity> _dbIata;
         public FlightImplementation(MyContext context) : base(context)
         {
             _dbFlight = context.Set<FlightEntity>();
-        }
-        public async Task<List<FlightEntity>> GetAll()
-        {
-            try
-            {
-                return await _dbFlight.ToListAsync();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            _dbIata = context.Set<IataEntity>();
         }
 
-        public async Task<FlightEntity> GetFlightById(Guid id)
-        {
-            try
-            {
-                return await _dbFlight.SingleOrDefaultAsync(s => s.Equals(id));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public async Task<FlightEntity> InsertFlight(FlightEntity entity)
+        public async Task<IataEntity> InsertIata(IataEntity entity)
         {
             try
             {
                 entity.Id = entity.Id == Guid.Empty ? Guid.NewGuid() : entity.Id;
                 entity.CreatedAt = DateTime.UtcNow;
 
-                _dbFlight.Add(entity);
+                _dbIata.Add(entity);
                 await _context.SaveChangesAsync();
-
-                return entity;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
+            return entity;
         }
 
-        public async Task<FlightEntity> UpdateFlight(FlightEntity entity)
+        public async Task<IataEntity> UpdateIata(IataEntity entity)
         {
             try
             {
-                var result = await _dbFlight.SingleOrDefaultAsync(p => p.Id.Equals(entity.Id));
+                var result = await _dbIata.SingleOrDefaultAsync(p => p.Id.Equals(entity.Id));
                 if (result == null) return null;
 
                 entity.CreatedAt = result.CreatedAt;
@@ -72,12 +51,29 @@ namespace Data.Implementations
 
                 _context.Entry(result).CurrentValues.SetValues(entity);
                 await _context.SaveChangesAsync();
-
-                return entity;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
+            }
+
+            return entity;
+        }
+
+        public async Task<IataEntity> GetIataById(Guid id)
+        {
+            return await _dbIata.SingleOrDefaultAsync(p => p.Id.Equals(id));
+        }
+
+        public async Task<List<IataEntity>> GetAllIata()
+        {
+            try
+            {
+                return await _dbIata.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

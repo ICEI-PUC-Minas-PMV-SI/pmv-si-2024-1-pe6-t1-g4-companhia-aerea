@@ -2,8 +2,11 @@ using Api.Data.Mapping;
 using Api.Data.Mapping.CustomerAggregate;
 using Api.Domain.Entities;
 using Api.Domain.Entities.CustomerAggregate;
+using Data.Mapping.FlightAggregate;
 using Data.Seeds.CustomerAggregates;
+using Data.Seeds.FlightAggregate;
 using Data.Seeds.UserAggregate;
+using Domain.Entities.FlightAggregate;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data
@@ -34,21 +37,26 @@ namespace Api.Data
             modelBuilder.Entity<CareerEntity>(new CareerMap().Configure);
             modelBuilder.Entity<NationalityEntity>(new NationalityMap().Configure);
             modelBuilder.Entity<PhoneEntity>(new PhoneMap().Configure);
+            
+            //FlightAggregate
+            modelBuilder.Entity<IataEntity>(new IataMap().Configure);
 
-
-
-
+            // ------------------------//
+            //MOCKS
             //Cria os Mocks no banco de dados - Tem que apagar o BDD e gerar as migrations novamente
-
+            
             //User
             UsersSeeds.Users(modelBuilder);
-
+            
             //CustomerAggregate - O Customer foi o ultimo pois ele depende das outras tabelas
             AddressesSeeds.Addresses(modelBuilder);
             CareersSeeds.Careers(modelBuilder);
             NationalitiesSeeds.Nationalities(modelBuilder);
             PhonesSeeds.Phones(modelBuilder);
             CustomersSeeds.Customers(modelBuilder);
+            
+            //FlightAggregate
+            IATASeeds.IATAs(modelBuilder);
         }
     }
 }

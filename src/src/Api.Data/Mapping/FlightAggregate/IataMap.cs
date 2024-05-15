@@ -1,13 +1,8 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.FlightAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Data.Mapping
+namespace Data.Mapping.FlightAggregate
 {
     public class IataMap : IEntityTypeConfiguration<IataEntity>
     {
@@ -27,7 +22,7 @@ namespace Data.Mapping
 
             builder.Property(x => x.Location)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(1000);
 
             builder.Property(x => x.Available)
                 .IsRequired();

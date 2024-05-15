@@ -1,11 +1,7 @@
-﻿using Api.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Api.Domain.Entities;
 
-namespace Domain.Entities
+namespace Domain.Entities.FlightAggregate
 {
     public class FlightEntity : BaseEntity
     {

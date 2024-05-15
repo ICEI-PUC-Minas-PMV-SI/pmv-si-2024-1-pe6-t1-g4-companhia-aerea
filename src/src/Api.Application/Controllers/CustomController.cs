@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace application.Controllers
 {
-    [Authorize("Bearer")]
+    //[Authorize("Bearer")]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class CustomController : ControllerBase

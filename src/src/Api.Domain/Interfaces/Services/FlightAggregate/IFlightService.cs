@@ -9,11 +9,14 @@ namespace Domain.Interfaces.Services.FlightAggregate
 {
     public interface IFlightService
     {
-        Task<FlightDto> Get(Guid id);
-        Task<List<FlightDto>> GetAll();
-        Task<List<FlightDto>> GetFlightsByDate(DateTime date);
-        Task<FlightDto> GetFlightsByDate(DateOnly dateOnly);
-        Task<FlightDtoCreateResult> Post(FlightDtoCreate flight);
-        Task<FlightDtoUpdateResult> Put(FlightDtoUpdate flight);
+        // Task<FlightDto> Get(Guid id);
+        // Task<List<FlightDto>> GetAll();
+        // Task<FlightDtoCreateResult> Post(FlightDtoCreate flight);
+        // Task<FlightDtoUpdateResult> Put(FlightDtoUpdate flight);
+        
+        Task<IataDto> GetIata(Guid id);
+        Task<List<IataDto>> GetAllIata();
+        Task<IataDtoCreateResult> PostIata(IataDtoCreate iata);
+        Task<IataDtoUpdateResult> PutIata(IataDtoUpdate iata);
     }
 }
