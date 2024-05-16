@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.FlightAggregate
 {
-    public class FlightIntineraryEntity : BaseEntity
+    public class FlightItineraryEntity : BaseEntity
     {
         public string Description { get; set; }
         public bool Available { get; set; }
@@ -15,5 +15,10 @@ namespace Domain.Entities
         public DateTime ArriveDate { get; set; }
         public int LeaveIATAId { get; set; }
         public int ArriveIATAId { get; set; }
+
+        public IataEntity LeaveIATA { get; set; }
+        public IataEntity ArriveIATA { get; set; }
+
+
     }
 }

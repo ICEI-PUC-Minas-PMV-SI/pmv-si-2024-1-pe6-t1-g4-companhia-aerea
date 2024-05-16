@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Domain.Dtos.FlightAggregate;
-using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +20,11 @@ namespace CrossCutting.Mappings.FlightAggregate
             CreateMap<FlightDtoUpdateResult, FlightEntity>()
                 .ReverseMap();
 
-            CreateMap<FlightIntineraryDto, FlightIntineraryEntity>()
+            CreateMap<FlightIntineraryDto, FlightItineraryEntity>()
                 .ReverseMap();
-            CreateMap<FlightIntineraryDtoCreateResult, FlightIntineraryEntity>()
+            CreateMap<FlightIntineraryDtoCreateResult, FlightItineraryEntity>()
                 .ReverseMap();
-            CreateMap<FlightIntineraryDtoUpdateResult, FlightIntineraryEntity>()
+            CreateMap<FlightIntineraryDtoUpdateResult, FlightItineraryEntity>()
                 .ReverseMap();
 
             CreateMap<IataDto, IataEntity>() 

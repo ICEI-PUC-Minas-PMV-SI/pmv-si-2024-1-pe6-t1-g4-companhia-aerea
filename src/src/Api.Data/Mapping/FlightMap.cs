@@ -1,5 +1,4 @@
 ﻿using Api.Domain.Entities.CustomerAggregate;
-using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -28,7 +27,7 @@ namespace Data.Mapping
             builder.Property(x => x.FlightIntineraryId)
                 .IsRequired();
 
-            builder.HasOne<FlightIntineraryEntity>()
+            builder.HasOne<FlightItineraryEntity>()
                .WithMany()
                .HasForeignKey(i => i.FlightIntineraryId)
                .OnDelete(DeleteBehavior.NoAction);

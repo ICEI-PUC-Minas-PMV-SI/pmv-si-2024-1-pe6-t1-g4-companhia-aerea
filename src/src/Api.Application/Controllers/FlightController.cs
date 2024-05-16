@@ -22,7 +22,6 @@ namespace application.Controllers
         }
         
         [HttpGet("get/iata")]
-        [Route("{id}", Name = "GetIata")]
         [AllowAnonymous]
         public async Task<ActionResult> GetIata(Guid id)
         {
@@ -72,7 +71,7 @@ namespace application.Controllers
                 var result = await _flightService.PostIata(iata);
                 if (result != null)
                 {
-                    return Created(new Uri(Url.Link("GetIata", new { id = result.Id })), result);
+                    return Created(new Uri(Url.Link("get/iata", new { id = result.Id })), result);
                 }
                 return BadRequest();
             }

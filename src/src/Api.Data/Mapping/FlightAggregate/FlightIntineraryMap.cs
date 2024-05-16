@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -8,11 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities.FlightAggregate;
 
-namespace Data.Mapping
+namespace Data.Mapping.FlightAggregate
 {
-    public class FlightIntineraryMap : IEntityTypeConfiguration<FlightIntineraryEntity>
+    public class FlightIntineraryMap : IEntityTypeConfiguration<FlightItineraryEntity>
     {
-        public void Configure(EntityTypeBuilder<FlightIntineraryEntity> builder)
+        public void Configure(EntityTypeBuilder<FlightItineraryEntity> builder)
         {
             builder.ToTable("Intinerary");
 
@@ -32,20 +31,21 @@ namespace Data.Mapping
                 .HasColumnType("DATE");
 
             builder.Property(x => x.LeaveIATAId)
-                .IsRequired();
+           .IsRequired();
 
-            builder.HasOne<IataEntity>()
-                .WithMany()
-                .HasForeignKey(x => x.LeaveIATAId)
+            builder.HasOne(x => x.LeaveIATA)
+                .WithOne(x => x.FlightItinerary)
+                .HasForeignKey<FlightItineraryEntity>(x => x.LeaveIATAId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.ArriveIATAId)
-                .IsRequired();
+            .IsRequired();
 
-            builder.HasOne<IataEntity>()
-                .WithMany()
-                .HasForeignKey(x => x.ArriveIATAId)
+            builder.HasOne(x => x.ArriveIATA)
+                .WithOne(x => x.FlightItinerary)
+                .HasForeignKey<FlightItineraryEntity>(x => x.ArriveIATAId)
                 .OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

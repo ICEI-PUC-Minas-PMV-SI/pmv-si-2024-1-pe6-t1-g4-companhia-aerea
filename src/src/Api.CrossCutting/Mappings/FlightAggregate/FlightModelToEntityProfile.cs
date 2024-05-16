@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Domain.Entities;
 using Domain.Models.FlightAggregate;
 using System;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ namespace CrossCutting.Mappings.FlightAggregate
             CreateMap<FlightModel, FlightEntity>()
                 .ReverseMap();
 
-            CreateMap<FlightIntineraryModel, FlightIntineraryEntity>()
+            CreateMap<FlightIntineraryModel, FlightItineraryEntity>()
                 .ReverseMap();
 
             CreateMap<IataModel, IataEntity>() 
