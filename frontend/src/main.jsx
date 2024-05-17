@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <SelectionFlightPage />
       },
       {
-        path: "selecao-voo/:voos",
+        path: "selecao-voo/:",
         element: <SelectionFlightPage />
       }
     ],
