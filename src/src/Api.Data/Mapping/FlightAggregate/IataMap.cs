@@ -27,15 +27,7 @@ namespace Data.Mapping.FlightAggregate
             builder.Property(x => x.Available)
                 .IsRequired();
 
-            builder.HasOne(x => x.FlightItinerary)
-                .WithOne(x => x.LeaveIATA)
-                .HasForeignKey<FlightItineraryEntity>(x => x.LeaveIATAId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            builder.HasOne(x => x.FlightItinerary)
-                .WithOne(x => x.ArriveIATA)
-                .HasForeignKey<FlightItineraryEntity>(x => x.ArriveIATAId)
-                .OnDelete(DeleteBehavior.NoAction);
+            
         }
     }
 }

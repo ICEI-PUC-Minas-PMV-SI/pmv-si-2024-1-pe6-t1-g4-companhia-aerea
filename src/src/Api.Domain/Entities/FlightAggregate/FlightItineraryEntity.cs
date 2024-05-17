@@ -13,8 +13,8 @@ namespace Domain.Entities.FlightAggregate
         public bool Available { get; set; }
         public DateTime LeaveDate { get; set; }
         public DateTime ArriveDate { get; set; }
-        public int LeaveIATAId { get; set; }
-        public int ArriveIATAId { get; set; }
+        public Guid LeaveIATAId { get; set; }
+        public Guid ArriveIATAId { get; set; }
 
         public IataEntity LeaveIATA { get; set; }
         public IataEntity ArriveIATA { get; set; }

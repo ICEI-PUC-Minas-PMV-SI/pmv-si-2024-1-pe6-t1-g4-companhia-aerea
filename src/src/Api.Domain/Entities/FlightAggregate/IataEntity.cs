@@ -9,6 +9,5 @@ namespace Domain.Entities.FlightAggregate
         public string Location { get; set; }
         public bool Available { get; set; }
 
-        public FlightItineraryEntity FlightItinerary { get; set; }
     }
 }

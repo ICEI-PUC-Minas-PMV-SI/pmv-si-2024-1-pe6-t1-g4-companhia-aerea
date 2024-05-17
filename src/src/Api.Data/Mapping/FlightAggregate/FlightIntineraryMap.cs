@@ -17,6 +17,10 @@ namespace Data.Mapping.FlightAggregate
 
             builder.HasKey(x => x.Id);
 
+            builder.Ignore(b => b.LeaveIATA);
+
+            builder.Ignore(b => b.ArriveIATA);
+
             builder.Property(x => x.Description)
                 .IsRequired()
                 .HasMaxLength(200);
@@ -30,20 +34,26 @@ namespace Data.Mapping.FlightAggregate
             builder.Property(x => x.ArriveDate)
                 .HasColumnType("DATE");
 
-            builder.Property(x => x.LeaveIATAId)
-           .IsRequired();
+            builder
+                .Property(p => p.ArriveIATAId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("arriveiataid")
+                .IsRequired();
 
-            builder.HasOne(x => x.LeaveIATA)
-                .WithOne(x => x.FlightItinerary)
-                .HasForeignKey<FlightItineraryEntity>(x => x.LeaveIATAId)
+            builder.HasOne<IataEntity>()
+                .WithMany()
+                .HasForeignKey(i => i.ArriveIATAId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(x => x.ArriveIATAId)
-            .IsRequired();
+            builder
+                .Property(p => p.LeaveIATAId)
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("leaveiataid")
+                .IsRequired();
 
-            builder.HasOne(x => x.ArriveIATA)
-                .WithOne(x => x.FlightItinerary)
-                .HasForeignKey<FlightItineraryEntity>(x => x.ArriveIATAId)
+            builder.HasOne<IataEntity>()
+                .WithMany()
+                .HasForeignKey(i => i.LeaveIATAId)
                 .OnDelete(DeleteBehavior.NoAction);
 
         }

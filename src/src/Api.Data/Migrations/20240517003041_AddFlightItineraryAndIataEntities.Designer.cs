@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20240515204221_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240517003041_AddFlightItineraryAndIataEntities")]
+    partial class AddFlightItineraryAndIataEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,7 +68,7 @@ namespace Data.Migrations
                             City = "Belo Horizonte",
                             Complement = "Casa",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7484),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2488),
                             Neighborhood = "Esmelo",
                             Number = "0",
                             State = "MG",
@@ -81,7 +81,7 @@ namespace Data.Migrations
                             City = "Brasília",
                             Complement = "Apartamento",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7488),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2491),
                             Neighborhood = "Asa Sul",
                             Number = "S/N",
                             State = "DF",
@@ -94,7 +94,7 @@ namespace Data.Migrations
                             City = "São Paulo",
                             Complement = "Bloco B",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7492),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2497),
                             Neighborhood = "Vila Mariana",
                             Number = "1000",
                             State = "SP",
@@ -107,7 +107,7 @@ namespace Data.Migrations
                             City = "Rio de Janeiro",
                             Complement = "Casa 2",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7495),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2499),
                             Neighborhood = "Tijuca",
                             Number = "123",
                             State = "RJ",
@@ -120,7 +120,7 @@ namespace Data.Migrations
                             City = "Belo Horizonte",
                             Complement = "Sala 301",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7497),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2502),
                             Neighborhood = "Centro",
                             Number = "250",
                             State = "MG",
@@ -133,7 +133,7 @@ namespace Data.Migrations
                             City = "Piracicaba",
                             Complement = "Loja",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7500),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2505),
                             Neighborhood = "Centro",
                             Number = "789",
                             State = "SP",
@@ -172,7 +172,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("eb15eaef-b653-4ccc-a0cd-b2720da41d55"),
                             AverageWage = 7650.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7538),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2541),
                             Description = "Desenvolvedor de Software",
                             Note = ""
                         },
@@ -180,7 +180,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("46e17017-2f85-4968-80b6-4ff1c0fc2db7"),
                             AverageWage = 9500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7541),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2544),
                             Description = "Engenheiro Civil",
                             Note = ""
                         },
@@ -188,7 +188,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("7a4a0108-7d57-4485-a1cf-ae7b239c1573"),
                             AverageWage = 18000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7543),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2546),
                             Description = "Médico Cirurgião",
                             Note = ""
                         },
@@ -196,7 +196,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("f22844bb-7601-439d-b6f0-d6cc1d510e0e"),
                             AverageWage = 8500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7545),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2548),
                             Description = "Professor Universitário",
                             Note = ""
                         },
@@ -204,7 +204,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("30254dd1-bd95-4e12-9e7c-5bdc40aa61b1"),
                             AverageWage = 9500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7547),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2550),
                             Description = "Advogado",
                             Note = ""
                         },
@@ -212,7 +212,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("82301e43-8ec9-4e7f-8a5a-3c9bc2a1a660"),
                             AverageWage = 5500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7549),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2552),
                             Description = "Enfermeiro",
                             Note = ""
                         },
@@ -220,7 +220,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("ebbe4f7a-f025-4db4-8b52-ae0a0e3d09f7"),
                             AverageWage = 8500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7550),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2554),
                             Description = "Analista Financeiro",
                             Note = ""
                         },
@@ -228,7 +228,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("0ec49ed6-1a07-4e63-b3d2-4ac3cb56a962"),
                             AverageWage = 6000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7552),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2667),
                             Description = "Designer Gráfico",
                             Note = ""
                         },
@@ -236,7 +236,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("a882f777-00a3-4b98-92e8-625ca8d444c0"),
                             AverageWage = 7500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7553),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2669),
                             Description = "Farmacêutico",
                             Note = ""
                         },
@@ -244,7 +244,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("506cb080-4a8b-42a3-9f34-bde6e1a40e9b"),
                             AverageWage = 6000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7556),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2670),
                             Description = "Chef de Cozinha",
                             Note = ""
                         },
@@ -252,7 +252,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("61ad6489-fb49-4782-8c4b-ef9b7fb5b4c7"),
                             AverageWage = 8500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7557),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2672),
                             Description = "Engenheiro de Software",
                             Note = ""
                         },
@@ -260,7 +260,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("ba8c526d-ec49-4469-a0e6-01d63f68712f"),
                             AverageWage = 7000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7559),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2675),
                             Description = "Psicólogo Clínico",
                             Note = ""
                         },
@@ -268,7 +268,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("fd484e11-26b4-4e54-9f1e-66e3e529180d"),
                             AverageWage = 9000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7561),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2677),
                             Description = "Engenheiro Mecânico",
                             Note = ""
                         },
@@ -276,7 +276,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("8e088726-ae8b-4211-8c19-cb20f97a0948"),
                             AverageWage = 12000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7568),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2680),
                             Description = "Piloto de Avião",
                             Note = ""
                         },
@@ -284,7 +284,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("6371818f-7e95-4c65-a67f-19b74f87f47e"),
                             AverageWage = 8000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7569),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2682),
                             Description = "Arquiteto",
                             Note = ""
                         },
@@ -292,7 +292,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("79295cb4-f755-4575-8049-f13e74cb19f4"),
                             AverageWage = 7800.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7571),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2683),
                             Description = "Analista de Sistemas",
                             Note = ""
                         },
@@ -300,7 +300,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("5af956fc-1bb9-44d0-9ee1-6435ff7e5de2"),
                             AverageWage = 8500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7572),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2685),
                             Description = "Dentista",
                             Note = ""
                         },
@@ -308,7 +308,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("c55e8fb0-df1f-43e8-8e07-f81a4463d0a4"),
                             AverageWage = 8000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7575),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2687),
                             Description = "Contador",
                             Note = ""
                         },
@@ -316,7 +316,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("8b3e12cf-8a0b-4d96-8a29-7614bf18d2bc"),
                             AverageWage = 5000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7577),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2688),
                             Description = "Fotógrafo",
                             Note = ""
                         },
@@ -324,7 +324,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("4b42eeed-b9c4-43e2-8151-eb18df5f1e2b"),
                             AverageWage = 7000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7579),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2690),
                             Description = "Analista de Marketing",
                             Note = ""
                         },
@@ -332,7 +332,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("2fc86ba3-6479-454a-9bc7-9e8ec1b78492"),
                             AverageWage = 2800.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7655),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2692),
                             Description = "Auxiliar Administrativo",
                             Note = ""
                         },
@@ -340,7 +340,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("d60ed8ae-6d30-4c2a-b946-6c751a18b871"),
                             AverageWage = 2500.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7660),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2693),
                             Description = "Atendente de Telemarketing",
                             Note = ""
                         },
@@ -348,7 +348,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("671892c6-002f-4a48-9913-3b10e20697d3"),
                             AverageWage = 3000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7662),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2695),
                             Description = "Recepcionista",
                             Note = ""
                         },
@@ -356,7 +356,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("94edfb10-7361-4708-924f-50b3b3ff17d6"),
                             AverageWage = 2000.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7664),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2696),
                             Description = "Auxiliar de Limpeza",
                             Note = ""
                         },
@@ -364,7 +364,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("a76f70c6-6c2d-4d09-b9a0-7dc7f21ef16d"),
                             AverageWage = 1800.0,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7666),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2699),
                             Description = "Ajudante de Cozinha",
                             Note = ""
                         });
@@ -442,7 +442,7 @@ namespace Data.Migrations
                             Id = new Guid("12c55a0e-771a-41bb-9b2a-9094db0ee7f8"),
                             AddressId = new Guid("22ca315c-e483-48c4-9483-d1c0904fee9d"),
                             CareerId = new Guid("eb15eaef-b653-4ccc-a0cd-b2720da41d55"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7826),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2868),
                             DateBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "116.987.659-96",
                             Email = "customer01@email.com",
@@ -458,7 +458,7 @@ namespace Data.Migrations
                             Id = new Guid("7c259bf1-ee8b-4d1d-949e-b4a3aca134c4"),
                             AddressId = new Guid("8ff920eb-58f6-4b4c-a4f1-2e4bf62a7741"),
                             CareerId = new Guid("7a4a0108-7d57-4485-a1cf-ae7b239c1573"),
-                            CreatedAt = new DateTime(2024, 5, 15, 22, 42, 21, 596, DateTimeKind.Utc).AddTicks(7840),
+                            CreatedAt = new DateTime(2024, 5, 17, 2, 30, 41, 222, DateTimeKind.Utc).AddTicks(2881),
                             DateBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "189.847.392-05",
                             Email = "customer02@email.com",
@@ -473,7 +473,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("039cd0f7-1506-4daf-9648-be0fa40434fb"),
                             AddressId = new Guid("e82a1e06-57d7-4b2c-b8b6-1e7b013a2d05"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 52, 21, 596, DateTimeKind.Utc).AddTicks(7856),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 40, 41, 222, DateTimeKind.Utc).AddTicks(2895),
                             DateBirth = new DateTime(1994, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "543.609.281-49",
                             Email = "customer03@email.com",
@@ -489,7 +489,7 @@ namespace Data.Migrations
                             Id = new Guid("f3b171ea-047a-4e9d-a282-4115a76f419f"),
                             AddressId = new Guid("40b3e7df-4ff9-4d8d-bc2d-7f5c6481ff1d"),
                             CareerId = new Guid("0ec49ed6-1a07-4e63-b3d2-4ac3cb56a962"),
-                            CreatedAt = new DateTime(2024, 5, 15, 21, 42, 21, 596, DateTimeKind.Utc).AddTicks(7933),
+                            CreatedAt = new DateTime(2024, 5, 17, 1, 30, 41, 222, DateTimeKind.Utc).AddTicks(2979),
                             DateBirth = new DateTime(1990, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "786.123.549-02",
                             Email = "customer01r@email.com",
@@ -505,7 +505,7 @@ namespace Data.Migrations
                             Id = new Guid("fdf6777d-f6d3-4c54-96c3-4c498aa0903b"),
                             AddressId = new Guid("cd04928a-5934-4a9a-a68e-7cf38f2b8573"),
                             CareerId = new Guid("ba8c526d-ec49-4469-a0e6-01d63f68712f"),
-                            CreatedAt = new DateTime(2024, 5, 15, 23, 42, 21, 596, DateTimeKind.Utc).AddTicks(8051),
+                            CreatedAt = new DateTime(2024, 5, 17, 3, 30, 41, 222, DateTimeKind.Utc).AddTicks(2989),
                             DateBirth = new DateTime(1994, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "952.746.830-61",
                             Email = "customer02r@email.com",
@@ -521,7 +521,7 @@ namespace Data.Migrations
                             Id = new Guid("0c0e881c-61cf-4d12-8788-94e118d22177"),
                             AddressId = new Guid("f2427d11-9e8e-4cf8-976a-482207798ff6"),
                             CareerId = new Guid("ba8c526d-ec49-4469-a0e6-01d63f68712f"),
-                            CreatedAt = new DateTime(2024, 5, 15, 23, 42, 21, 596, DateTimeKind.Utc).AddTicks(8063),
+                            CreatedAt = new DateTime(2024, 5, 17, 3, 30, 41, 222, DateTimeKind.Utc).AddTicks(3001),
                             DateBirth = new DateTime(1994, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Document = "367.195.482-34",
                             Email = "customer03r@email.com",
@@ -560,140 +560,140 @@ namespace Data.Migrations
                         new
                         {
                             Id = new Guid("e8460494-91aa-4b03-8fd8-aefd7ad63164"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7700),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2732),
                             Description = "Brasileira",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("66d38f80-5b2c-409e-b4f6-68b017af22db"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7702),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2734),
                             Description = "Americana",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("ae7c6886-4a8c-4878-8ff6-5755046a93d8"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7704),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2736),
                             Description = "Canadense",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("f700bd3b-1256-4f55-a682-d1e7c10f59a1"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7706),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2740),
                             Description = "Mexicana",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("1c52d7f7-49ac-45b3-a3fc-8375068e97ae"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7708),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2741),
                             Description = "Argentina",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("5f5e0a2c-4201-4a2e-80e5-85d1ee8cf077"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7710),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2743),
                             Description = "Chilena",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("0a3a3f5f-bf97-4a64-bd07-1b45468de336"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7711),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2744),
                             Description = "Inglesa",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("334f5a76-3b27-45f0-8371-75f36a7381c2"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7713),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2746),
                             Description = "Francesa",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("d8f23df8-d9f6-4696-9b0b-1613c1e4ef63"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7715),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2748),
                             Description = "Italiana",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("ca7ae9c3-62f3-4a05-b7ac-0c6e3f29b10e"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7716),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2749),
                             Description = "Alemã",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("96e01522-d4b5-4d07-bfe6-f4c6151b2f33"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7718),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2751),
                             Description = "Espanhola",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("f920c11e-f6f7-42a3-b3bc-83701241c781"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7719),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2753),
                             Description = "Portuguesa",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("c301e7a7-d90e-47e3-b241-3fdad89d0b79"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7721),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2754),
                             Description = "Sueca",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("7ff9a21e-3ff2-4ef0-aac1-1181a6ff7a78"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7722),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2757),
                             Description = "Norueguesa",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("bd609feb-4d8e-4384-bcd1-7641fb4b3e1a"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7724),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2759),
                             Description = "Japonesa",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("ec91c3d3-fb1c-44d1-a01e-af4bb1a4f3f5"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7725),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2761),
                             Description = "Chinesa",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("a5658e1d-61ff-4e48-9a38-95bfb631e7a1"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7727),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2764),
                             Description = "Russa",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("0e61a8b8-0a65-4e3e-9203-dbe526054bb4"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7728),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2766),
                             Description = "Indiana",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("bb179145-250f-4260-80e0-232e5743ec7b"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7730),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2768),
                             Description = "Coreana",
                             Note = ""
                         },
                         new
                         {
                             Id = new Guid("cd1b540e-119a-4417-bf69-6fd4f8a558c1"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7731),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2770),
                             Description = "Australiana",
                             Note = ""
                         });
@@ -732,7 +732,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("f56171aa-4179-4668-9618-ca1676679449"),
                             CountryCode = "55",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7757),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2803),
                             DDD = "31",
                             Number = "9 9944-2621",
                             TypePhone = 1
@@ -741,7 +741,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("316b3c7b-c399-403d-bd7e-98a085fb5d3a"),
                             CountryCode = "55",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7759),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2807),
                             DDD = "11",
                             Number = "3123-4567",
                             TypePhone = 2
@@ -750,7 +750,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("73ed0e45-4740-4a6c-9348-fd97b405da2d"),
                             CountryCode = "55",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7762),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2810),
                             DDD = "21",
                             Number = "98765-4321",
                             TypePhone = 3
@@ -759,7 +759,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("ec1ab1c0-c72a-4030-89f0-9833e9f621f4"),
                             CountryCode = "55",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7764),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2812),
                             DDD = "41",
                             Number = "99988-7766",
                             TypePhone = 1
@@ -768,7 +768,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("a52ef79d-f22c-4a44-8d92-2fcf4823188b"),
                             CountryCode = "55",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7766),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2814),
                             DDD = "51",
                             Number = "3030-2020",
                             TypePhone = 2
@@ -777,7 +777,7 @@ namespace Data.Migrations
                         {
                             Id = new Guid("2b2f3f5f-dfb9-4fe6-98a2-6664b9c6ab08"),
                             CountryCode = "55",
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(7768),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(2815),
                             DDD = "61",
                             Number = "8765-4321",
                             TypePhone = 3
@@ -836,39 +836,82 @@ namespace Data.Migrations
                         new
                         {
                             Id = new Guid("12c55a0e-771a-41bb-9b2a-9094db0ee7f8"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 203, DateTimeKind.Utc).AddTicks(6012),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 40, 638, DateTimeKind.Utc).AddTicks(1426),
                             DateBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user1@email.com",
                             FirstName = "User Adm",
                             LastName = "Adm Master",
-                            Password = "$2a$11$.3D9rRkm/xNLwh/kaxWwkOhLYiv0oZ4lpdUVvEReWt/y3zvEuYr5W",
+                            Password = "$2a$11$4QtyP4E8H5cU5tYamqhe1.DLl9JShlRsHkygu9Sn8NywtUQLSfWLq",
                             Status = 1,
                             TypeUser = 1
                         },
                         new
                         {
                             Id = new Guid("5e1849cd-ddee-4982-b4c6-8d4b3c20b041"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 403, DateTimeKind.Utc).AddTicks(1743),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 40, 942, DateTimeKind.Utc).AddTicks(2399),
                             DateBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user2@email.com",
                             FirstName = "User Regular",
                             LastName = "Last Regular",
-                            Password = "$2a$11$6nUthGesG14PCZ3SeNv9xefC6ViAKF78p0f5/pFBJgMy/RxZP1dpu",
+                            Password = "$2a$11$Iqmaq65KT6UIN6eSwJ9wuuwZap72V9VR9UpU29ya8ziEJzGEr/aXi",
                             Status = 1,
                             TypeUser = 2
                         },
                         new
                         {
                             Id = new Guid("7fc20e97-a58d-4c92-b2c2-a41eedd931e1"),
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(6982),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(1956),
                             DateBirth = new DateTime(1992, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "jose@email.com",
                             FirstName = "Jose",
                             LastName = "Pereira",
-                            Password = "$2a$11$LICmJn6J5CCXhGajOhjg5O/jSyQ8dqAtIj9NbPuFywYYz41IIj9VW",
+                            Password = "$2a$11$7Won8n0r6T.e29xTRbcFku67mQDylqbAUlgjWuwm7OXfy.E94vkN.",
                             Status = 1,
                             TypeUser = 2
                         });
+                });
+
+            modelBuilder.Entity("Domain.Entities.FlightAggregate.FlightItineraryEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("ArriveDate")
+                        .HasColumnType("DATE");
+
+                    b.Property<Guid>("ArriveIATAId")
+                        .HasColumnType("char(36)")
+                        .HasColumnName("arriveiataid");
+
+                    b.Property<bool>("Available")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime>("LeaveDate")
+                        .HasColumnType("DATE");
+
+                    b.Property<Guid>("LeaveIATAId")
+                        .HasColumnType("char(36)")
+                        .HasColumnName("leaveiataid");
+
+                    b.Property<DateTime?>("UpdateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArriveIATAId");
+
+                    b.HasIndex("LeaveIATAId");
+
+                    b.ToTable("Intinerary", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.FlightAggregate.IataEntity", b =>
@@ -888,6 +931,9 @@ namespace Data.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<Guid?>("FlightItineraryId")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("IATACode")
                         .IsRequired()
                         .HasMaxLength(60)
@@ -903,6 +949,8 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FlightItineraryId");
+
                     b.ToTable("Iata", (string)null);
 
                     b.HasData(
@@ -911,7 +959,7 @@ namespace Data.Migrations
                             Id = new Guid("8d45c3c4-3c1e-4b3f-8d9e-c8a7d6f7b8a1"),
                             Airport = "Aeroporto Internacional de Cruzeiro do Sul",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8113),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3033),
                             IATACode = "CZS",
                             Location = "Cruzeiro do Sul"
                         },
@@ -920,7 +968,7 @@ namespace Data.Migrations
                             Id = new Guid("6b3e4a9d-8a1c-4c3d-8d2e-b4a6f7e8c9d1"),
                             Airport = "Aeroporto Internacional de Rio Branco",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8116),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3079),
                             IATACode = "RBR",
                             Location = "Rio Branco"
                         },
@@ -929,7 +977,7 @@ namespace Data.Migrations
                             Id = new Guid("b9f5a4d8-7c3e-4d9b-8a1d-c6a7f8e9b4c3"),
                             Airport = "Aeroporto Internacional Zumbi dos Palmares",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8118),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3083),
                             IATACode = "MCZ",
                             Location = "Maceió"
                         },
@@ -938,7 +986,7 @@ namespace Data.Migrations
                             Id = new Guid("e3d5c7f8-4a2d-4c1b-9d8e-c5a7f6e8b3d2"),
                             Airport = "Aeroporto Internacional de Macapá",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8121),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3085),
                             IATACode = "MCP",
                             Location = "Macapá"
                         },
@@ -947,7 +995,7 @@ namespace Data.Migrations
                             Id = new Guid("a2c7d9e6-8b4a-4d1c-8a5e-b6c7f8e9d4b5"),
                             Airport = "Aeroporto Internacional Eduardo Gomes",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8123),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3088),
                             IATACode = "MAO",
                             Location = "Manaus"
                         },
@@ -956,7 +1004,7 @@ namespace Data.Migrations
                             Id = new Guid("c5d6e7f9-4a3c-4b2d-8a1c-d7b8f9e5c4a2"),
                             Airport = "Aeroporto Internacional de Tabatinga",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8126),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3090),
                             IATACode = "TBT",
                             Location = "Tabatinga"
                         },
@@ -965,7 +1013,7 @@ namespace Data.Migrations
                             Id = new Guid("f7d8c9b5-3e4d-4a1b-9c8e-c9a7f6e5b3d4"),
                             Airport = "Aeroporto Internacional Deputado Luís Eduardo Magalhães",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8128),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3092),
                             IATACode = "SSA",
                             Location = "Salvador"
                         },
@@ -974,7 +1022,7 @@ namespace Data.Migrations
                             Id = new Guid("d4b5c3e7-6a2d-4b9e-8c1d-b6a7f9e8c3d1"),
                             Airport = "Aeroporto Jorge Amado",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8131),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3095),
                             IATACode = "IOS",
                             Location = "Ilhéus"
                         },
@@ -983,7 +1031,7 @@ namespace Data.Migrations
                             Id = new Guid("e2a3d4c5-8b4a-4d2b-8e1c-c5a7f6d9b3e6"),
                             Airport = "Aeroporto Pedro Otacílio Figueiredo",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8132),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3096),
                             IATACode = "VDC",
                             Location = "Vitória da Conquista"
                         },
@@ -992,7 +1040,7 @@ namespace Data.Migrations
                             Id = new Guid("d8b9c7e4-3a2d-4d1c-8b5e-a6c7f8e5b9d2"),
                             Airport = "Aeroporto Internacional Pinto Martins",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8134),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3101),
                             IATACode = "FOR",
                             Location = "Fortaleza"
                         },
@@ -1001,7 +1049,7 @@ namespace Data.Migrations
                             Id = new Guid("b4d9e6c8-7a3e-4d2b-9c1d-d5a7f8b6c3e1"),
                             Airport = "Aeroporto Regional de Jericoacoara",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8136),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3103),
                             IATACode = "JJD",
                             Location = "Jericoacoara"
                         },
@@ -1010,7 +1058,7 @@ namespace Data.Migrations
                             Id = new Guid("c6a7d5b8-8b4e-4a1d-8c9e-b7a8f6e9c3d4"),
                             Airport = "Aeroporto Regional do Cariri",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8138),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3105),
                             IATACode = "QXQ",
                             Location = "Juazeiro do Norte"
                         },
@@ -1019,7 +1067,7 @@ namespace Data.Migrations
                             Id = new Guid("f6b8e7c9-3a4d-4d1b-9c8e-c5a7f6e3b2d1"),
                             Airport = "Aeroporto Internacional Presidente Juscelino Kubitschek",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8140),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3106),
                             IATACode = "BSB",
                             Location = "Brasília"
                         },
@@ -1028,7 +1076,7 @@ namespace Data.Migrations
                             Id = new Guid("d4b3c9a6-7e4a-4d1b-8c5e-b7a8f9e6c3d4"),
                             Airport = "Aeroporto Eurico de Aguiar Salles",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8192),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3108),
                             IATACode = "VIX",
                             Location = "Vitória"
                         },
@@ -1037,7 +1085,7 @@ namespace Data.Migrations
                             Id = new Guid("e5b4c3a7-8b3d-4d1b-8e9e-c6a7f8e4d3c2"),
                             Airport = "Aeroporto Santa Genoveva",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8194),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3110),
                             IATACode = "GYN",
                             Location = "Goiânia"
                         },
@@ -1046,7 +1094,7 @@ namespace Data.Migrations
                             Id = new Guid("a8d7c6e5-3b4a-4d9b-8e1c-c5a7f8b6d3e1"),
                             Airport = "Aeroporto Nelson Ribeiro Guimarães",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8196),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3112),
                             IATACode = "CLV",
                             Location = "Caldas Novas"
                         },
@@ -1055,7 +1103,7 @@ namespace Data.Migrations
                             Id = new Guid("c6a7f9b8-7e3d-4a1b-9c8e-d5a7f6e9b4d3"),
                             Airport = "Aeroporto Internacional Marechal Cunha Machado",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8198),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3115),
                             IATACode = "SLZ",
                             Location = "São Luís"
                         },
@@ -1064,7 +1112,7 @@ namespace Data.Migrations
                             Id = new Guid("b4d3c9e6-8a3e-4d1b-8e5c-c6a7f8d9b3e2"),
                             Airport = "Aeroporto Prefeito Renato Moreira",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8200),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3118),
                             IATACode = "IMP",
                             Location = "Imperatriz"
                         },
@@ -1073,7 +1121,7 @@ namespace Data.Migrations
                             Id = new Guid("f7d8e9c5-3a4b-4d1c-9e8e-b6a7f9e6d3c1"),
                             Airport = "Aeroporto Internacional Marechal Rondon",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8203),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3120),
                             IATACode = "CGB",
                             Location = "Cuiabá"
                         },
@@ -1082,7 +1130,7 @@ namespace Data.Migrations
                             Id = new Guid("d5b3c6a7-8b4e-4a1b-8c9e-c7a8f6e9b4d2"),
                             Airport = "Aeroporto Municipal de Sinop",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8206),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3122),
                             IATACode = "OPS",
                             Location = "Sinop"
                         },
@@ -1091,7 +1139,7 @@ namespace Data.Migrations
                             Id = new Guid("a8d7f9e6-3b4a-4d1c-8e9e-c5a7f8d6c3b4"),
                             Airport = "Aeroporto Internacional de Rondonópolis",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8208),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3124),
                             IATACode = "ROO",
                             Location = "Rondonópolis"
                         },
@@ -1100,7 +1148,7 @@ namespace Data.Migrations
                             Id = new Guid("c6a7d9e8-7e3b-4d1b-9e8c-d5a7f6c9b4e1"),
                             Airport = "Aeroporto Internacional de Campo Grande",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8210),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3125),
                             IATACode = "CGR",
                             Location = "Campo Grande"
                         },
@@ -1109,7 +1157,7 @@ namespace Data.Migrations
                             Id = new Guid("b4d3f9e6-8a4e-4d1b-8e5c-c6a7f8b3d9e2"),
                             Airport = "Aeroporto Francisco de Matos Pereira",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8215),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3128),
                             IATACode = "DOU",
                             Location = "Dourados"
                         },
@@ -1118,7 +1166,7 @@ namespace Data.Migrations
                             Id = new Guid("e7d8c9b5-3a4d-4d1c-9e8e-c5a7f6d9b3e1"),
                             Airport = "Aeroporto Internacional de Confins",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8216),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3130),
                             IATACode = "CNF",
                             Location = "Belo Horizonte"
                         },
@@ -1127,7 +1175,7 @@ namespace Data.Migrations
                             Id = new Guid("d5b3e6c7-8a4e-4a1b-8c9e-c7a8f6e5b9d2"),
                             Airport = "Aeroporto da Pampulha",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8219),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3132),
                             IATACode = "PLU",
                             Location = "Belo Horizonte"
                         },
@@ -1136,7 +1184,7 @@ namespace Data.Migrations
                             Id = new Guid("a8d7c9e6-3b4a-4d1c-8e5e-c5a7f8b6d3e4"),
                             Airport = "Aeroporto de Uberlândia",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8220),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3133),
                             IATACode = "UDI",
                             Location = "Uberlândia"
                         },
@@ -1145,313 +1193,313 @@ namespace Data.Migrations
                             Id = new Guid("f7d8e9c5-4a3b-4d1c-9e8e-b6a7f6d9b3c1"),
                             Airport = "Aeroporto de Montes Claros",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8222),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3135),
                             IATACode = "MOC",
                             Location = "Montes Claros"
                         },
                         new
                         {
-                            Id = new Guid("d362903f-dd5a-4794-9b7e-ebc4e8b15274"),
+                            Id = new Guid("4178772e-1940-42cc-8d05-cab1a472c7f3"),
                             Airport = "Aeroporto Internacional de Belém",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8246),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3161),
                             IATACode = "BEL",
                             Location = "Belém"
                         },
                         new
                         {
-                            Id = new Guid("267b0068-0cf0-4a46-8560-883921c4bbc1"),
+                            Id = new Guid("f34ce5f8-4447-4bfc-964a-2bbb44b00826"),
                             Airport = "Aeroporto Internacional de Santarém",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8249),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3163),
                             IATACode = "STM",
                             Location = "Santarém"
                         },
                         new
                         {
-                            Id = new Guid("c7443faa-87cb-4fb9-8857-6af5216bbbe7"),
+                            Id = new Guid("a96e7a82-f70a-4f92-a317-96bf339c32f9"),
                             Airport = "Aeroporto de Marabá",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8250),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3165),
                             IATACode = "MAB",
                             Location = "Marabá"
                         },
                         new
                         {
-                            Id = new Guid("644815e8-4b41-49c3-be90-2ae29c76f146"),
+                            Id = new Guid("d1c39dd1-09ef-4e8e-9590-ffccd2089bb7"),
                             Airport = "Aeroporto Internacional Presidente Castro Pinto",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8264),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3166),
                             IATACode = "JPA",
                             Location = "João Pessoa"
                         },
                         new
                         {
-                            Id = new Guid("4ed23e87-6986-425e-af0d-c008d9427294"),
+                            Id = new Guid("33e02c8e-253d-4f4f-b73c-18da45ca0817"),
                             Airport = "Aeroporto de Campina Grande",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8266),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3169),
                             IATACode = "CPV",
                             Location = "Campina Grande"
                         },
                         new
                         {
-                            Id = new Guid("6116c6b0-4b95-496c-8242-276e9adf5f96"),
+                            Id = new Guid("549c8ed9-bfba-4705-996c-b368c1fa47e9"),
                             Airport = "Aeroporto Internacional Afonso Pena",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8268),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3170),
                             IATACode = "CWB",
                             Location = "Curitiba"
                         },
                         new
                         {
-                            Id = new Guid("46300b20-7cb8-462a-94d5-f1cedef6edcc"),
+                            Id = new Guid("1c380a61-bc40-409c-a050-dbb0d8d8c2ee"),
                             Airport = "Aeroporto de Londrina",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8269),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3189),
                             IATACode = "LDB",
                             Location = "Londrina"
                         },
                         new
                         {
-                            Id = new Guid("62eb0398-601f-4f9c-87fb-88d6e754b2ac"),
+                            Id = new Guid("6ecf260f-d927-42ec-a624-df681b3c45fb"),
                             Airport = "Aeroporto Internacional de Foz do Iguaçu",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8271),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3192),
                             IATACode = "IGU",
                             Location = "Foz do Iguaçu"
                         },
                         new
                         {
-                            Id = new Guid("4648a682-0acd-4760-95d4-e31841ed1a8f"),
+                            Id = new Guid("4e2c18f0-3eb7-424e-a5ff-18f878d5543d"),
                             Airport = "Aeroporto Internacional dos Guararapes",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8273),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3194),
                             IATACode = "REC",
                             Location = "Recife"
                         },
                         new
                         {
-                            Id = new Guid("e60dbce5-14cc-48f0-99a6-5ff6839fb8af"),
+                            Id = new Guid("39eb8e1a-be3c-462f-8dcc-9f5a079381c0"),
                             Airport = "Aeroporto de Petrolina",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8275),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3196),
                             IATACode = "PNZ",
                             Location = "Petrolina"
                         },
                         new
                         {
-                            Id = new Guid("5c9dfc77-49fd-4ecc-a722-9847fab39a25"),
+                            Id = new Guid("966963e4-dc10-4576-a9e7-7e178943febc"),
                             Airport = "Aeroporto Senador Petrônio Portella",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8276),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3197),
                             IATACode = "THE",
                             Location = "Teresina"
                         },
                         new
                         {
-                            Id = new Guid("71a07e0e-5bff-428b-8a7c-d9be9c6a1629"),
+                            Id = new Guid("e7632821-dc68-4d1b-aca9-4a3c06472a85"),
                             Airport = "Aeroporto Internacional Prefeito Doutor João Silva Filho",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8281),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3199),
                             IATACode = "PHB",
                             Location = "Parnaíba"
                         },
                         new
                         {
-                            Id = new Guid("91fc30ae-bfd6-490e-9892-185fee7bfdd3"),
+                            Id = new Guid("99a7b440-6cc4-4d63-b094-490f5867892a"),
                             Airport = "Aeroporto Internacional do Galeão",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8283),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3200),
                             IATACode = "GIG",
                             Location = "Rio de Janeiro"
                         },
                         new
                         {
-                            Id = new Guid("88a61e56-e1d4-431d-82d0-b6849f510bfd"),
+                            Id = new Guid("3fbeaba7-c3b3-4d2b-8b1b-9b05dfeaa4c5"),
                             Airport = "Aeroporto Santos Dumont",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8285),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3202),
                             IATACode = "SDU",
                             Location = "Rio de Janeiro"
                         },
                         new
                         {
-                            Id = new Guid("0be87071-72e0-4b07-af6d-30b3cc716ba3"),
+                            Id = new Guid("75d5984e-734e-4d42-bb94-70035333aaa8"),
                             Airport = "Aeroporto de Cabo Frio",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8287),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3206),
                             IATACode = "CFB",
                             Location = "Cabo Frio"
                         },
                         new
                         {
-                            Id = new Guid("8da655f7-8f0a-468c-b75a-df69d26cdd8e"),
+                            Id = new Guid("fcb34970-5948-4d77-8c7d-ee17919ce064"),
                             Airport = "Aeroporto Internacional Governador Aluízio Alves",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8289),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3209),
                             IATACode = "NAT",
                             Location = "Natal"
                         },
                         new
                         {
-                            Id = new Guid("0f7d52a2-7ca9-4d99-a454-1382f31fb94d"),
+                            Id = new Guid("df1cfd5d-8102-438b-842a-84d4b5c3be5a"),
                             Airport = "Aeroporto Regional de Mossoró",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8290),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3210),
                             IATACode = "MII",
                             Location = "Mossoró"
                         },
                         new
                         {
-                            Id = new Guid("8c9a6f90-b55c-4744-9e1f-88f76c8fa61f"),
+                            Id = new Guid("706d3702-8fd3-4de7-8610-89c0244a5e68"),
                             Airport = "Aeroporto Internacional Salgado Filho",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8292),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3212),
                             IATACode = "POA",
                             Location = "Porto Alegre"
                         },
                         new
                         {
-                            Id = new Guid("b9ecc22c-66dd-438c-b4ee-13e2a3656de7"),
+                            Id = new Guid("d136ceb0-ec31-4e54-86c2-5a9030150dd3"),
                             Airport = "Aeroporto Regional Hugo Cantergiani",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8295),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3214),
                             IATACode = "CXJ",
                             Location = "Caxias do Sul"
                         },
                         new
                         {
-                            Id = new Guid("9c810cc6-4217-4a3d-b2a0-f0296f8a3b03"),
+                            Id = new Guid("0f31f0df-a89d-4df5-a7d0-b62e4a633043"),
                             Airport = "Aeroporto Lauro Kortz",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8299),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3216),
                             IATACode = "PFB",
                             Location = "Passo Fundo"
                         },
                         new
                         {
-                            Id = new Guid("60426936-6b61-4622-baee-d2a1bc1bb2dd"),
+                            Id = new Guid("558d56a8-92aa-4a20-986f-30154245358f"),
                             Airport = "Aeroporto Internacional Governador Jorge Teixeira de Oliveira",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8301),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3218),
                             IATACode = "PVH",
                             Location = "Porto Velho"
                         },
                         new
                         {
-                            Id = new Guid("362f1502-af72-4d84-a771-6d68d2ffe40d"),
+                            Id = new Guid("759f3a80-d441-4b75-b590-5418f96f80ca"),
                             Airport = "Aeroporto José Coleto",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8303),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3219),
                             IATACode = "JPR",
                             Location = "Ji-Paraná"
                         },
                         new
                         {
-                            Id = new Guid("15a1cee1-c19f-49ee-bcec-122ba92ad043"),
+                            Id = new Guid("bb29986d-b495-4b9b-ba03-bec26d6d2977"),
                             Airport = "Aeroporto de Vilhena",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8304),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3223),
                             IATACode = "BVH",
                             Location = "Vilhena"
                         },
                         new
                         {
-                            Id = new Guid("e4ca0a0c-3ba7-4c00-8963-37c17465af3b"),
+                            Id = new Guid("71b1e0d3-5214-462d-96ba-b87f7f624dc1"),
                             Airport = "Aeroporto Internacional Atlas Brasil Cantanhede",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8306),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3226),
                             IATACode = "BVB",
                             Location = "Boa Vista"
                         },
                         new
                         {
-                            Id = new Guid("95b2e1c1-34bf-480d-86f8-81a79f0bc31f"),
+                            Id = new Guid("8df9948b-d1b9-4e31-8777-de92415e0dab"),
                             Airport = "Aeroporto Internacional Hercílio Luz",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8308),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3227),
                             IATACode = "FLN",
                             Location = "Florianópolis"
                         },
                         new
                         {
-                            Id = new Guid("07060478-5c02-4570-87ad-66c28313cf95"),
+                            Id = new Guid("852bccc0-c1ea-4d61-a01d-1a2cb92b2e78"),
                             Airport = "Aeroporto Internacional de Navegantes",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8309),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3229),
                             IATACode = "NVT",
                             Location = "Navegantes"
                         },
                         new
                         {
-                            Id = new Guid("20624969-68ae-4f5c-92d2-e1fc82cc656b"),
+                            Id = new Guid("7c5846cf-4797-41ea-86ef-7ccb7564d365"),
                             Airport = "Aeroporto Lauro Carneiro de Loyola",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8311),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3231),
                             IATACode = "JOI",
                             Location = "Joinville"
                         },
                         new
                         {
-                            Id = new Guid("681ce0a4-cabd-4ee9-873d-d7ff91609f2e"),
+                            Id = new Guid("ba8f4871-33aa-4889-9c52-9a813a5f1b1e"),
                             Airport = "Aeroporto Internacional de Guarulhos",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8315),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3232),
                             IATACode = "GRU",
                             Location = "São Paulo"
                         },
                         new
                         {
-                            Id = new Guid("ca521f0e-b19d-442a-aa6d-29d530a0f177"),
+                            Id = new Guid("1561fee0-fd49-4bd8-bb5a-ab923d63b29a"),
                             Airport = "Aeroporto de Congonhas",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8317),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3234),
                             IATACode = "CGH",
                             Location = "São Paulo"
                         },
                         new
                         {
-                            Id = new Guid("ea6e88cb-f469-4399-8cfd-9c906128cc80"),
+                            Id = new Guid("35444197-16d7-471c-8695-d91753d44d77"),
                             Airport = "Aeroporto Internacional de Viracopos",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8319),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3235),
                             IATACode = "VCP",
                             Location = "Campinas"
                         },
                         new
                         {
-                            Id = new Guid("4e81e283-0e4b-493a-9843-a2c2fb48d8fd"),
+                            Id = new Guid("5b4ac581-4947-469c-a72a-62a4c9d38034"),
                             Airport = "Aeroporto Internacional de Aracaju",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8321),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3239),
                             IATACode = "AJU",
                             Location = "Aracaju"
                         },
                         new
                         {
-                            Id = new Guid("02b77980-2b76-4fed-bb76-ee029d6f12cb"),
+                            Id = new Guid("45fd78b8-d1fd-4dea-8769-85e995a79bda"),
                             Airport = "Aeroporto Brigadeiro Lysias Rodrigues",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8323),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3241),
                             IATACode = "PMW",
                             Location = "Palmas"
                         },
                         new
                         {
-                            Id = new Guid("c6089fdd-ed0e-4d77-a81f-6761fa963cee"),
+                            Id = new Guid("6a76a905-cd07-4f99-a0ef-8af2e6e99d23"),
                             Airport = "Aeroporto de Araguaína",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8325),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3243),
                             IATACode = "AUX",
                             Location = "Araguaína"
                         },
                         new
                         {
-                            Id = new Guid("b882579d-6704-4aa5-b954-ac4a80524cad"),
+                            Id = new Guid("f5dcffed-b74e-4cd1-9629-2070e1e8bc1d"),
                             Airport = "Aeroporto de Gurupi",
                             Available = true,
-                            CreatedAt = new DateTime(2024, 5, 15, 20, 42, 21, 596, DateTimeKind.Utc).AddTicks(8327),
+                            CreatedAt = new DateTime(2024, 5, 17, 0, 30, 41, 222, DateTimeKind.Utc).AddTicks(3245),
                             IATACode = "GMP",
                             Location = "Gurupi"
                         });
@@ -1481,6 +1529,30 @@ namespace Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.FlightAggregate.FlightItineraryEntity", b =>
+                {
+                    b.HasOne("Domain.Entities.FlightAggregate.IataEntity", null)
+                        .WithMany()
+                        .HasForeignKey("ArriveIATAId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.FlightAggregate.IataEntity", null)
+                        .WithMany()
+                        .HasForeignKey("LeaveIATAId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.FlightAggregate.IataEntity", b =>
+                {
+                    b.HasOne("Domain.Entities.FlightAggregate.FlightItineraryEntity", "FlightItinerary")
+                        .WithMany()
+                        .HasForeignKey("FlightItineraryId");
+
+                    b.Navigation("FlightItinerary");
                 });
 #pragma warning restore 612, 618
         }

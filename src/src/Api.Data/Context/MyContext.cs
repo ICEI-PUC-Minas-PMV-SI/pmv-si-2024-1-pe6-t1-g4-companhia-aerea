@@ -40,11 +40,12 @@ namespace Api.Data
             
             //FlightAggregate
             modelBuilder.Entity<IataEntity>(new IataMap().Configure);
+            modelBuilder.Entity<FlightItineraryEntity>(new FlightIntineraryMap().Configure);
 
             // ------------------------//
             //MOCKS
             //Cria os Mocks no banco de dados - Tem que apagar o BDD e gerar as migrations novamente
-            
+
             //User
             UsersSeeds.Users(modelBuilder);
             
