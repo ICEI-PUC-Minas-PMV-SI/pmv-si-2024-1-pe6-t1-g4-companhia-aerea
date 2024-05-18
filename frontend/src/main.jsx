@@ -35,6 +35,10 @@ const router = createBrowserRouter([
         path: "faq",
         element: <FAQPage />,
       },
+      {
+        path: "aboutus",
+        element: <AboutUs />,
+      },
     ],
   },
 ]);
