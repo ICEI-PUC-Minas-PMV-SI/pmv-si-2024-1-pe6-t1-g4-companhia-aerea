@@ -640,7 +640,7 @@ function SelectionFlightPage() {
         ) : (
           // This block executes for all other steps
           <>
-            <Card>
+            <Card variant="outlined">
               <CardHeader title="Resumo da seleção" />
               <Divider />
               <CardContent>
@@ -683,13 +683,71 @@ function SelectionFlightPage() {
                     </Box>
                   </Box>
                 ))}
-                <Box sx={{display: "flex", background: "primary", justifyContent: "space-between", pt: 2, pl:2 }}>
-                    <Typography>Total de viajantes: {travelersAmount}</Typography>
-                    <Chip size="medium" sx={{fontWeight: "bold"}} label="R$ 15.234,78" color="success"/>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    pt: 2,
+                    pl: 2,
+                  }}
+                >
+                  <Typography>Total de viajantes: {travelersAmount}</Typography>
+                  <Chip
+                    size="medium"
+                    sx={{ fontWeight: "bold" }}
+                    label="R$ 15.234,78"
+                    color="success"
+                  />
                 </Box>
               </CardContent>
             </Card>
-            <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+
+            <Card variant="outlined" sx={{mt: 2}}>
+              <CardHeader title="Dados de pagamento" />
+              <Divider />
+              <CardContent>
+                <Box
+                  sx={{ display: "flex", justifyContent: "center", mb: "22px" }}
+                >
+                  <Box
+                    sx={{
+                      color: "rgb(154, 154, 154)",
+                      textTransform: "uppercase",
+                      height: "150px",
+                      width: "241px",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        border: "1px solid rgb(213, 213, 213)",
+                        borderRadius: "5px",
+                        boxSizing: "border-box",
+                        padding: "8px 8px 11px 14px",
+                        transition:
+                          "0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                        background: "rgb(235, 235, 235)!important",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          height: "40px",
+                          width: "40px",
+                          borderRadius: "4px",
+                          border: " 1px solid rgb(213, 213, 213)",
+                        }}
+                      ></Box>
+                      <Typography fontSize="19px" padding={2}>
+                        XXX XXX XXX XXX
+                      </Typography>
+                      <Typography fontSize="12px">Val. XX/XX</Typography>
+                      <Typography fontSize="10px" textTransform="uppercase">
+                        xxx
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+              </CardContent>
+            </Card>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
                 ANTERIOR
