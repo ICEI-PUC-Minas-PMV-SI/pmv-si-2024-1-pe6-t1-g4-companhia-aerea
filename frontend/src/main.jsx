@@ -4,9 +4,11 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Root from "./routes/root.jsx";
 import HomePage from "./pages/Home.jsx";
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import SelectionFlightPage from "./pages/SelectionFlight.jsx";
+import ReservationPage from "./pages/Reservation.jsx";
+import FAQPage from "./pages/FrequentlyAsked.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,12 +21,20 @@ const router = createBrowserRouter([
       },
       {
         path: "selecao-voo",
-        element: <SelectionFlightPage />
+        element: <SelectionFlightPage />,
       },
       {
         path: "selecao-voo/:",
-        element: <SelectionFlightPage />
-      }
+        element: <SelectionFlightPage />,
+      },
+      {
+        path: "reservas",
+        element: <ReservationPage />,
+      },
+      {
+        path: "faq",
+        element: <FAQPage />,
+      },
     ],
   },
 ]);

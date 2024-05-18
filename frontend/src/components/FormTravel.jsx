@@ -12,7 +12,7 @@ import { DatePicker } from "@mui/x-date-pickers";
 import CheckIcon from "@mui/icons-material/Check";
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import RemoveCircleOutlineOutlinedIcon from "@mui/icons-material/RemoveCircleOutlineOutlined";
 
@@ -44,13 +44,13 @@ function FormTravel() {
     const key = identifierToKeyMap[identifier];
     setFlightSearch((prevState) => ({
       ...prevState,
-      [key]: option.title,
+      [key]: option ? option.title : "",
     }));
   }
 
   function handleDate(identifier, value) {
     const key = identifierToKeyMap[identifier];
-    const formattedDate = dayjs(value).format();
+    const formattedDate = value ? dayjs(value).format() : "";
     setFlightSearch((prevState) => ({
       ...prevState,
       [key]: formattedDate,
@@ -60,20 +60,32 @@ function FormTravel() {
   // Check if all fields in flightSearch are populated
   useEffect(() => {
     const { from, to, departure, return: returndate } = flightSearch;
-    const {  adult, child, baby } = travelers;
-    if (from && to && departure && returndate && (adult > 0 || child > 0 || baby > 0)) {
-        console.log('entered here')
-        setIsInvalid(false);
-    } else {
-      setIsInvalid(true);
-    }
+    const { adult, child, baby } = travelers;
+    setIsInvalid(
+      !(
+        from &&
+        to &&
+        departure &&
+        returndate &&
+        (adult > 0 || child > 0 || baby > 0)
+      )
+    );
+
+    // if (from && to && departure && returndate && (adult > 0 || child > 0 || baby > 0)) {
+    //     console.log('entered here')
+    //     setIsInvalid(false);
+    // } else {
+    //   setIsInvalid(true);
+    // }
   }, [flightSearch, travelers]);
 
   function handleClick() {
-    navigate("selecao-voo", { state: {
+    navigate("selecao-voo", {
+      state: {
         flightSearch: { ...flightSearch },
-        travelers: {...travelers}
-    }});
+        travelers: { ...travelers },
+      },
+    });
   }
 
   function handleTravelers(operation, travelerType) {

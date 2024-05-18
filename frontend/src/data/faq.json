@@ -1,0 +1,79 @@
+{
+  "FAQ": [
+    {
+      "question_number": 1,
+      "question": "Como posso reservar um voo online?",
+      "answer": "Você pode reservar facilmente um voo online através do nosso site oficial. Basta selecionar a origem, destino, datas de viagem e número de passageiros. Em seguida, você será direcionado para escolher o voo que melhor atende às suas necessidades e completar o processo de reserva."
+    },
+    {
+      "question_number": 2,
+      "question": "Quais são as opções de pagamento disponíveis?",
+      "answer": "Aceitamos uma variedade de opções de pagamento, incluindo cartões de crédito/débito principais (Visa, MasterCard, American Express, etc.), transferência bancária e, em alguns casos, pagamento em dinheiro em nossos balcões de atendimento."
+    },
+    {
+      "question_number": 3,
+      "question": "Quais são as políticas de bagagem da companhia aérea?",
+      "answer": "Nossas políticas de bagagem variam dependendo do tipo de bilhete adquirido e da rota do voo. Geralmente, os passageiros têm direito a uma quantidade específica de bagagem de mão e bagagem despachada, com limites de peso e tamanho. Recomendamos verificar as políticas específicas de bagagem ao fazer a reserva ou entrar em contato conosco."
+    },
+    {
+      "question_number": 4,
+      "question": "Como faço para fazer o check-in online?",
+      "answer": "O check-in online pode ser feito através do nosso site ou aplicativo móvel. Geralmente, está disponível 24 horas antes do horário de partida programado do voo. Basta seguir as instruções na plataforma e escolher seus assentos preferidos."
+    },
+    {
+      "question_number": 5,
+      "question": "Quais são as opções de reembolso disponíveis em caso de cancelamento?",
+      "answer": "Os reembolsos estão sujeitos às condições do bilhete adquirido. Geralmente, oferecemos reembolso total ou parcial, dependendo do tempo entre o cancelamento e a data de partida do voo. Recomendamos revisar nossos termos e condições ou entrar em contato conosco para obter informações específicas sobre reembolsos."
+    },
+    {
+      "question_number": 6,
+      "question": "Quais são os serviços de assistência disponíveis para passageiros com necessidades especiais?",
+      "answer": "Oferecemos uma variedade de serviços de assistência para passageiros com necessidades especiais, incluindo assistência no embarque e desembarque, transporte de cadeira de rodas, assistência com alimentos e muito mais. Solicitamos gentilmente que entre em contato conosco com antecedência para que possamos providenciar os serviços necessários."
+    },
+    {
+      "question_number": 7,
+      "question": "Quais documentos são necessários para viajar, especialmente para voos internacionais?",
+      "answer": "Os documentos necessários podem variar dependendo do destino e das leis locais. Geralmente, um passaporte válido é necessário para viagens internacionais, e em alguns casos, um visto pode ser necessário. Recomendamos verificar os requisitos de documentação específicos para o seu destino antes da viagem."
+    },
+    {
+      "question_number": 8,
+      "question": "Qual é a política da companhia aérea em relação a voos atrasados ou cancelados?",
+      "answer": "Em caso de atrasos ou cancelamentos, faremos o nosso melhor para reacomodar os passageiros em voos alternativos o mais rápido possível. Os passageiros podem ter direito a compensação de acordo com as regulamentações locais e as políticas da companhia aérea. Recomendamos entrar em contato conosco para assistência imediata em caso de perturbações no voo."
+    },
+    {
+      "question_number": 9,
+      "question": "Quais são as opções de entretenimento a bordo?",
+      "answer": "Oferecemos uma variedade de opções de entretenimento a bordo, incluindo filmes, programas de TV, música e jogos. Além disso, em voos selecionados, oferecemos Wi-Fi para acesso à internet durante a jornada."
+    },
+    {
+      "question_number": 10,
+      "question": "Como posso solicitar assistência para crianças viajando sozinhas?",
+      "answer": "Para crianças viajando desacompanhadas, oferecemos serviços de acompanhamento dedicados para garantir sua segurança e conforto durante a jornada. Recomendamos entrar em contato conosco com antecedência para organizar os detalhes necessários."
+    },
+    {
+      "question_number": 11,
+      "question": "Quais são as políticas de transporte de animais de estimação?",
+      "answer": "Temos políticas específicas para o transporte de animais de estimação, incluindo requisitos de transporte, taxas adicionais e restrições de raça. Recomendamos verificar nossas políticas de transporte de animais de estimação ou entrar em contato conosco para mais informações."
+    },
+    {
+      "question_number": 12,
+      "question": "Posso reservar assentos específicos durante o processo de reserva?",
+      "answer": "Sim, durante o processo de reserva, você pode selecionar assentos específicos, sujeitos à disponibilidade. Recomendamos reservar seus assentos com antecedência para garantir que você obtenha sua preferência."
+    },
+    {
+      "question_number": 13,
+      "question": "Posso fazer alterações na minha reserva depois de confirmada?",
+      "answer": "Sim, é possível fazer alterações na sua reserva após a confirmação, sujeito à disponibilidade e possíveis taxas de alteração. Recomendamos entrar em contato conosco o mais breve possível para solicitar quaisquer alterações necessárias."
+    },
+    {
+      "question_number": 14,
+      "question": "O Wi-Fi está disponível nos voos?",
+      "answer": "Sim, em alguns de nossos voos, oferecemos Wi-Fi para acesso à internet a bordo. Recomendamos verificar a disponibilidade de Wi-Fi para o seu voo específico durante o processo de reserva."
+    },
+    {
+      "question_number": 15,
+      "question": "Existe um programa de fidelidade ou de milhagem para passageiros frequentes?",
+      "answer": "Sim, temos um programa de fidelidade que oferece aos passageiros frequentes a oportunidade de acumular milhas e receber benefícios exclusivos, como upgrades de classe, acesso a salas VIP e muito mais. Recomendamos se inscrever em nosso programa de fidelidade para aproveitar esses benefícios adicionais."
+    }
+  ]
+}
