@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Box,
   Button,
@@ -24,6 +24,7 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import FlightLandIcon from "@mui/icons-material/FlightLand";
 import AirlineSeatReclineExtraIcon from "@mui/icons-material/AirlineSeatReclineExtra";
 import LuggageIcon from "@mui/icons-material/Luggage";
+import dayjs from "dayjs";
 
 const steps = [
   "Selecionar voo de ida",
@@ -217,7 +218,62 @@ function SelectionFlightPage() {
       seat: null,
     }))
   );
+  const [cardData, setCardData] = useState({
+    cardNumber: "",
+    validDate: "",
+    cvv: "",
+    CPF: "",
+    cardName: "",
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "cardNumber") {
+      const formattedCardNumber = value
+        .replace(/\D/g, "")
+        .replace(/(.{4})/g, "$1 ")
+        .trim();
+      setCardData((prevData) => ({
+        ...prevData,
+        [name]: formattedCardNumber,
+      }));
+    } else if (name === "validDate") {
+      const formattedValidDate = value
+        .replace(/\D/g, "")
+        .replace(/^(\d{2})(\d{0,4})/, "$1/$2");
+      setCardData((prevData) => ({
+        ...prevData,
+        [name]: formattedValidDate,
+      }));
+    } else if (name === "CPF") {
+      const formattedCPF = value
+        .replace(/\D/g, "")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+        .slice(0, 14); // Limiting to 14 characters (000.000.000-00)
+      setCardData((prevData) => ({
+        ...prevData,
+        [name]: formattedCPF,
+      }));
+    } else {
+      setCardData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+  };
+
+  const isFinalizeDisabled = () => {
+    return (
+      !cardData.cardNumber ||
+      !cardData.validDate ||
+      !cardData.cvv ||
+      !cardData.CPF ||
+      !cardData.cardName
+    );
+  };
   console.log(location.state);
 
   const handleInputChange = (index, field, value) => {
@@ -266,10 +322,6 @@ function SelectionFlightPage() {
     );
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
   return (
     <Container
       sx={{
@@ -295,6 +347,16 @@ function SelectionFlightPage() {
               <ArrowRightAltIcon />
               <Typography>{flight.to}</Typography>
             </Box>
+            <Box sx={{ display: "flex" }}>
+              <Typography>
+                Data de ida: {dayjs(flight.departure).format("DD/MM/YYYY")}
+              </Typography>
+            </Box>
+            <Box sx={{ display: "flex" }}>
+              <Typography>
+                Data de volta: {dayjs(flight.return).format("DD/MM/YYYY")}
+              </Typography>
+            </Box>
           </CardContent>
         </Card>
       </Box>
@@ -312,12 +374,16 @@ function SelectionFlightPage() {
         </Stepper>
         {activeStep === steps.length ? (
           <>
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
-            </Typography>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Typography variant="h2" sx={{ mt: 2, mb: 1 }}>
+                Boa Viagem!
+              </Typography>
+            </Box>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleReset}>Reset</Button>
+              <Link to="/">
+                <Button>Voltar para a home!</Button>
+              </Link>
             </Box>
           </>
         ) : activeStep === 0 ? (
@@ -702,13 +768,11 @@ function SelectionFlightPage() {
               </CardContent>
             </Card>
 
-            <Card variant="outlined" sx={{mt: 2}}>
+            <Card variant="outlined" sx={{ mt: 2 }}>
               <CardHeader title="Dados de pagamento" />
               <Divider />
               <CardContent>
-                <Box
-                  sx={{ display: "flex", justifyContent: "center", mb: "22px" }}
-                >
+                <Box sx={{ display: "flex" }}>
                   <Box
                     sx={{
                       color: "rgb(154, 154, 154)",
@@ -737,12 +801,56 @@ function SelectionFlightPage() {
                         }}
                       ></Box>
                       <Typography fontSize="19px" padding={2}>
-                        XXX XXX XXX XXX
+                        {cardData.cardNumber || "XXX XXX XXX XXX"}
                       </Typography>
-                      <Typography fontSize="12px">Val. XX/XX</Typography>
+                      <Typography fontSize="12px">
+                        VAL. {cardData.validDate || "XX/XX"}
+                      </Typography>
                       <Typography fontSize="10px" textTransform="uppercase">
-                        xxx
+                        {cardData.cvv || "XXX"}
                       </Typography>
+                    </Box>
+                  </Box>
+                  <Box>
+                    <Box sx={{ pb: 2 }}>
+                      <TextField
+                        sx={{ pr: 2, pl: 2, pb: 2 }}
+                        placeholder="Número do Cartão"
+                        name="cardNumber"
+                        value={cardData.cardNumber}
+                        onChange={handleChange}
+                        inputProps={{ maxLength: 19 }} // Maximum length for "1111 1111 1111 1111"
+                      />
+                      <TextField
+                        sx={{ pr: 2, pb: 2 }}
+                        placeholder="Validade"
+                        name="validDate"
+                        value={cardData.validDate}
+                        onChange={handleChange}
+                        inputProps={{ maxLength: 7 }} // Maximum length for "MM/YYYY"
+                      />
+                      <TextField
+                        sx={{ pr: 2, pb: 2 }}
+                        placeholder="CVV"
+                        name="cvv"
+                        value={cardData.cvv}
+                        onChange={handleChange}
+                        inputProps={{ maxLength: 3, inputMode: "numeric" }} // Accepting numeric input only and max length 3
+                      />
+                      <TextField
+                        sx={{ pr: 2, pl: 2, pb: 2 }}
+                        placeholder="CPF do titular do cartão"
+                        name="CPF"
+                        value={cardData.CPF}
+                        onChange={handleChange}
+                      />
+                      <TextField
+                        sx={{ pr: 2, pb: 2 }}
+                        placeholder="Nome impresso no cartão"
+                        name="cardName"
+                        value={cardData.cardName}
+                        onChange={handleChange}
+                      />
                     </Box>
                   </Box>
                 </Box>
@@ -753,8 +861,8 @@ function SelectionFlightPage() {
                 ANTERIOR
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleNext}>
-                {activeStep === steps.length - 1 ? "Finish" : "PRÓXIMO"}
+              <Button disabled={isFinalizeDisabled()} onClick={handleNext}>
+                {activeStep === steps.length - 1 ? "FINALIZAR" : "PRÓXIMO"}
               </Button>
             </Box>
           </>

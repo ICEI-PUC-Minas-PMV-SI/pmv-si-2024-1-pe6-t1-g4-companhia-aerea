@@ -9,6 +9,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import SelectionFlightPage from "./pages/SelectionFlight.jsx";
 import ReservationPage from "./pages/Reservation.jsx";
 import FAQPage from "./pages/FrequentlyAsked.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "aboutus",
-        element: <AboutUs />,
+        element: <AboutUs />
       },
     ],
   },

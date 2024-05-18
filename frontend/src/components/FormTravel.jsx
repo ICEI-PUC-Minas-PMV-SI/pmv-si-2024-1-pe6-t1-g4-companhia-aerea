@@ -44,7 +44,7 @@ function FormTravel() {
     const key = identifierToKeyMap[identifier];
     setFlightSearch((prevState) => ({
       ...prevState,
-      [key]: option ? option.title : "",
+      [key]: option ? option.city : "",
     }));
   }
 
@@ -70,13 +70,6 @@ function FormTravel() {
         (adult > 0 || child > 0 || baby > 0)
       )
     );
-
-    // if (from && to && departure && returndate && (adult > 0 || child > 0 || baby > 0)) {
-    //     console.log('entered here')
-    //     setIsInvalid(false);
-    // } else {
-    //   setIsInvalid(true);
-    // }
   }, [flightSearch, travelers]);
 
   function handleClick() {
