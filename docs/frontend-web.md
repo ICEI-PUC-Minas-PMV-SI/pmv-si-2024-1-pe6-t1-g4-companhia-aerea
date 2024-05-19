@@ -85,7 +85,14 @@ PDF com todos os testes realizados
 
 # Referências
 
-As seguintes referências foram utilizadas para elaboração da Api:
-.https://medium.com/beelabacademy/domain-driven-design-vs-arquitetura-em-camadas-d01455698ec5
-.https://medium.com/beelabacademy/implementando-na-pr%C3%A1tica-rest-api-com-conceitos-de-ddd-net-core-sql-no-docker-ioc-2cb3a2e7c649
-.https://medium.com/beelabacademy/implementando-na-pr%C3%A1tica-rest-api-com-conceitos-de-ddd-net-2160291a44b7
+### As seguintes referências foram utilizadas para elaboração da Api:
+.https://medium.com/beelabacademy/domain-driven-design-vs-arquitetura-em-camadas-d01455698ec5 <br>
+.https://medium.com/beelabacademy/implementando-na-pr%C3%A1tica-rest-api-com-conceitos-de-ddd-net-core-sql-no-docker-ioc-2cb3a2e7c649 <br>
+.https://medium.com/beelabacademy/implementando-na-pr%C3%A1tica-rest-api-com-conceitos-de-ddd-net-2160291a44b7 <br>
+
+### As seguintes referências foram utilizadas para elaboração da Arquitetura Front-End:
+https://pt-br.legacy.reactjs.org/docs/getting-started.html <br>
+https://reactrouter.com/en/6.23.1/web/guides/quick-start
+
+
+
