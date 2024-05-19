@@ -97,8 +97,10 @@ function NavAppBar({ mode, toggleColorMode }) {
               />
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <MenuItem
-                  onClick={() => scrollToSection("features")}
                   sx={{ py: "6px", px: "12px" }}
+                  onClick={() => {
+                    navigate("comprar");
+                  }}
                 >
                   <Typography variant="body2" color="text.primary">
                     Comprar

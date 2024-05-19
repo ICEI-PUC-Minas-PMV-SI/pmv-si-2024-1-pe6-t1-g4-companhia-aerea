@@ -10,6 +10,7 @@ import SelectionFlightPage from "./pages/SelectionFlight.jsx";
 import ReservationPage from "./pages/Reservation.jsx";
 import FAQPage from "./pages/FrequentlyAsked.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
+import BuyPage from "./pages/Buy.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "selecao-voo/:",
         element: <SelectionFlightPage />,
+      },
+      {
+        path: "comprar",
+        element: <BuyPage />
       },
       {
         path: "reservas",
