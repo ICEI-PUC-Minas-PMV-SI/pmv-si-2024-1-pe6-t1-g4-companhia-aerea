@@ -42,9 +42,9 @@ const router = createBrowserRouter([
         element: <FAQPage />,
       },
       {
-        path: "aboutus",
+        path: "sobre",
         element: <AboutUs />
-      },
+      }
     ],
   },
 ]);
@@ -56,3 +56,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </LocalizationProvider>
   </React.StrictMode>
 );
+
