@@ -1,0 +1,30 @@
+[
+  {
+    "firstName": "Ana",
+    "lastName": "Silva",
+    "cpf": "123.456.789-00",
+    "email": "ana.silva@example.com",
+    "password": "senha123"
+  },
+  {
+    "firstName": "Bruno",
+    "lastName": "Santos",
+    "cpf": "987.654.321-00",
+    "email": "bruno.santos@example.com",
+    "password": "bruno2024"
+  },
+  {
+    "firstName": "Carla",
+    "lastName": "Oliveira",
+    "cpf": "111.222.333-44",
+    "email": "carla.oliveira@example.com",
+    "password": "carla789"
+  },
+  {
+    "firstName": "Diego",
+    "lastName": "Ferreira",
+    "cpf": "555.666.777-88",
+    "email": "diego.ferreira@example.com",
+    "password": "diego456"
+  }
+]

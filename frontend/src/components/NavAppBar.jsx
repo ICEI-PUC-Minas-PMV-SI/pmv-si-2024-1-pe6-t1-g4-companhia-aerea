@@ -13,6 +13,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ToggleColorMode from "./ToggleColorMode";
 import uaiFly from "../assets/uaifly.svg";
 import { useNavigate } from "react-router-dom";
+import LoginModal from "../components/LoginModal";
+import ForgotPasswordModal from "../components/ForgotPasswordModal";
+import RegisterModal from "../components/RegisterModal";
 
 const logoStyle = {
   width: "140px",
@@ -22,6 +25,9 @@ const logoStyle = {
 
 function NavAppBar({ mode, toggleColorMode }) {
   const [open, setOpen] = React.useState(false);
+  const [loginOpen, setLoginOpen] = React.useState(false);
+  const [forgotPasswordOpen, setForgotPasswordOpen] = React.useState(false);
+  const [registerOpen, setRegisterOpen] = React.useState(false);
   const navigate = useNavigate();
 
   const toggleDrawer = (newOpen) => () => {
@@ -45,6 +51,18 @@ function NavAppBar({ mode, toggleColorMode }) {
   const handleLogoClick = () => {
     navigate("/");
   };
+
+  const handleLoginOpen = () => setLoginOpen(true);
+  const handleLoginClose = () => setLoginOpen(false);
+
+  const handleForgotPasswordOpen = () => {
+    setLoginOpen(false);
+    setForgotPasswordOpen(true);
+  };
+  const handleForgotPasswordClose = () => setForgotPasswordOpen(false);
+
+  const handleRegisterOpen = () => setRegisterOpen(true);
+  const handleRegisterClose = () => setRegisterOpen(false);
 
   return (
     <div>
@@ -99,7 +117,7 @@ function NavAppBar({ mode, toggleColorMode }) {
                 <MenuItem
                   sx={{ py: "6px", px: "12px" }}
                   onClick={() => {
-                    navigate("comprar");
+                    navigate("/comprar");
                   }}
                 >
                   <Typography variant="body2" color="text.primary">
@@ -156,6 +174,7 @@ function NavAppBar({ mode, toggleColorMode }) {
                 size="small"
                 component="a"
                 target="_blank"
+                onClick={handleLoginOpen}
               >
                 Login
               </Button>
@@ -165,6 +184,7 @@ function NavAppBar({ mode, toggleColorMode }) {
                 size="small"
                 component="a"
                 target="_blank"
+                onClick={handleRegisterOpen}
               >
                 Cadastre-se
               </Button>
@@ -174,7 +194,6 @@ function NavAppBar({ mode, toggleColorMode }) {
                 variant="text"
                 color="primary"
                 aria-label="menu"
-                onClick={toggleDrawer(true)}
                 sx={{ minWidth: "30px", p: "4px" }}
               >
                 <MenuIcon />
@@ -224,6 +243,7 @@ function NavAppBar({ mode, toggleColorMode }) {
                       component="a"
                       target="_blank"
                       sx={{ width: "100%" }}
+                      onClick={handleRegisterOpen}
                     >
                       Cadastre-se
                     </Button>
@@ -235,6 +255,7 @@ function NavAppBar({ mode, toggleColorMode }) {
                       component="a"
                       target="_blank"
                       sx={{ width: "100%" }}
+                      onClick={handleLoginOpen}
                     >
                       Login
                     </Button>
@@ -245,6 +266,19 @@ function NavAppBar({ mode, toggleColorMode }) {
           </Toolbar>
         </Container>
       </AppBar>
+      <LoginModal
+        open={loginOpen}
+        onClose={handleLoginClose}
+        onForgotPasswordClick={handleForgotPasswordOpen}
+      />
+      <ForgotPasswordModal
+        open={forgotPasswordOpen}
+        onClose={handleForgotPasswordClose}
+      />
+      <RegisterModal
+        open={registerOpen} // Passa o estado de abertura do modal de cadastro
+        onClose={handleRegisterClose} // Passa o manipulador de eventos para fechar o modal de cadastro
+      />
     </div>
   );
 }
