@@ -18,7 +18,7 @@ Construtor de aplicações JavaScript rápido e leve que utiliza ESM (ECMAScript
 
 ## Arquitetura
 
-[Descrição da arquitetura das aplicação web, incluindo os componentes e suas interações.]
+A arquitetura da aplicação web da UaiFly é cuidadosamente projetada para proporcionar uma experiência de usuário excelente, com um frontend interativo e responsivo, um backend robusto e seguro, e uma integração eficiente entre todos os componentes. A utilização de ferramentas modernas para design e desenvolvimento garante que a aplicação seja escalável, acessível e fácil de manter.
 
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
@@ -111,14 +111,12 @@ Para garantir os requisitos de confidenciabilidade e integridade da api, foi uti
 
 ## Testes
 
-Para abranger todos os requisitos, tanto funcionais quanto não funcionais, foram conduzidos testes manuais utilizando a ferramenta Postman, seguindo os cenários de teste definidos no Qase. Estes cenários foram redigidos conforme o formato do Gherkin, garantindo uma abordagem estruturada e compreensível.
+Os testes mapeados no Qase abrangem diferentes tipos, incluindo testes funcionais para validação das funcionalidades e testes de integração para verificar a interação entre os componentes do sistema. Além disso, foram incorporados testes de usabilidade focados no frontend para garantir que a experiência do usuário seja intuitiva, eficiente e satisfatória. Essa abordagem abrangente visa assegurar a qualidade, a robustez e a usabilidade do software em todos os aspectos importantes.
 
-Os testes mapeados no Qase abrangem diferentes tipos, incluindo testes funcionais para validação das funcionalidades e testes de integração para verificar a interação entre os componentes do sistema. Essa abordagem abrangente visa assegurar a qualidade e a robustez do software em todos os aspectos importantes.
+![testes](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/db32e054-2bec-4204-a89d-45fe74e36f45)
+Print de tela da ferramenta Qase com mapeamento dos casos de testes dessa etapa
 
-![qase](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/af9ab9e0-e237-4112-ae21-b910d2869789)
-Print de tela da ferramenta Qase com mapeamento dos casos de testes
-
-[CA-2024-04-23.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/files/15082485/CA-2024-04-23.pdf) <br>
+[CA-2024-05-21.pdf](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/files/15396066/CA-2024-05-21.pdf) <br>
 PDF com todos os testes realizados
 
 # Referências
