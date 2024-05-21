@@ -27,16 +27,54 @@ Construtor de aplicações JavaScript rápido e leve que utiliza ESM (ECMAScript
 A interface web da aplicação da Uaifly foi projetada seguindo as diretrizes do Material Design, com uma paleta de cores vibrantes e uma tipografia legível. O layout é organizado para facilitar a navegação, com interações responsivas e animações sutis para indicar transições entre páginas. As opções de viagem são apresentadas de forma clara e interativa, considerando a acessibilidade por meio de design responsivo, suporte a leitores de tela e opções de contraste ajustável. Em resumo, a interface web oferece uma experiência completa e agradável para a reserva de passagens aéreas, atendendo às necessidades de diversos usuários.
 
 ### Wireframes
-[Inclua os wireframes das páginas principais da interface, mostrando a disposição dos elementos na página.]
+A UaiFly utilizou a ferramenta Miro para idealizar o modelo da página, distribuindo os componentes de forma harmoniosa. O uso do Miro permitiu a criação de um wireframe simples, fornecendo uma noção clara dos espaços e da disposição geral dos elementos. Esse wireframe básico ajudou a esboçar a estrutura principal da página, incluindo a localização de botões, menus, imagens e textos, garantindo uma navegação intuitiva. A ferramenta também facilitou a colaboração entre os membros da equipe, permitindo ajustes rápidos e feedback imediato, essencial para otimizar a experiência do usuário desde as fases iniciais do design. 
+<br>
+<br>
+![WIREFRAME](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/2d13fbbe-b007-486b-8ddb-cc98b29ce4c0)
+
 
 ### Design Visual
-[Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
+A UaiFly aplica o conceito de material como metáfora para criar interfaces intuitivas que simulam objetos reais. Isso significa que botões, cartões e outros elementos da interface possuem sombras e profundidades, oferecendo uma sensação de realismo e tangibilidade. Ao usar essas características, a navegação no site e no aplicativo da UaiFly torna-se mais natural e envolvente.
+
+![Screenshot_1](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/249584e8-11b6-43d8-bab2-01dd8b02c53d)
+
+A UaiFly utiliza cores vibrantes e a tipografia Roboto para destacar informações importantes de forma clara. As cores claras melhoram a estética e a legibilidade. Animações sutis e transições fluidas fornecem feedback e continuidade visual, melhorando a experiência do usuário. O layout responsivo permite acesso fácil em qualquer dispositivo, essencial para viajantes em movimento. A UaiFly adota componentes de interface do Material Design, como botões e cartões, que são esteticamente agradáveis e funcionais, contribuindo para uma experiência coesa e eficiente.
+
+![Screenshot_2](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/e049ceda-c2b0-42c9-ab6c-d23879091051)
+
+Ao adotar os princípios do Material Design, a UaiFly oferece uma interface de usuário que é ao mesmo tempo moderna e intuitiva. Essa abordagem não só melhora a estética do site e do aplicativo, mas também facilita a navegação e o acesso às informações, proporcionando uma experiência de usuário superior. Com a UaiFly, voar se torna não apenas uma viagem, mas uma experiência digital agradável e eficiente.
+
+
+<br> Tipografia <br> 
+![tipografia](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/64032efb-8049-4797-a6a5-8e6fc7d13a65)
+<br> 
+<br> 
+Paleta de Cores <br> 
+![paleta de cores](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/ca91cdce-92ed-4b9e-90f5-4fe4b92156fa)
+
+
+
 
 ### Layout Responsivo
 A adoção do Material UI no site da UaiFly é uma estratégia consolidada e testada no mercado para o desenvolvimento web responsivo. A combinação da estrutura adaptativa do Material UI com princípios de layout fluído e escalável garante uma experiência consistente em diversos dispositivos. A arquitetura de grade simplifica a distribuição flexível de conteúdo em diferentes resoluções de tela, enquanto as media queries permitem a personalização do estilo e comportamento dos componentes conforme a largura da tela. A modularidade dos componentes oferece uma abordagem escalável para criar layouts versáteis e adaptáveis, garantindo uma experiência de usuário satisfatória e intuitiva em todos os contextos de visualização.
 
 ### Interações do Usuário
-[Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
+Na interface da UaiFly, as interações do usuário são cuidadosamente projetadas para oferecer uma experiência fluida e intuitiva. Aqui estão alguns aspectos principais: <br>
+
+<strong> Opção de Modo Escuro: </strong> Os usuários têm a opção de alternar entre o modo claro e o modo escuro. Esta funcionalidade não apenas melhora a experiência visual em ambientes com pouca luz, mas também ajuda a reduzir o cansaço visual durante a navegação noturna. <br>
+![modo escuro](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/b50d87a6-1a9c-49f8-994c-27b02e5aabcd)
+
+
+#### Elementos Interativos:
+
+<strong> 1. Botões e Ícones: </strong> Botões ganham um efeito de sombra ou cor quando clicados, e ícones interativos mostram animações de rotação ou transformação para indicar que uma ação está em andamento. <br>
+<strong> 2. Modais e Diálogos: </strong>  Quando pop-ups ou diálogos são ativados, eles surgem com uma leve animação de zoom ou fade-in, chamando a atenção do usuário sem ser intrusivo. <br>
+<strong> 3. Scroll Suave: </strong> Ao rolar pela página, a rolagem é suave, evitando saltos bruscos e permitindo que os usuários leiam e interajam com o conteúdo de maneira mais confortável. <br>
+
+![interação](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/51e666a3-b0e4-4939-a1c2-b7a1fda502ab)
+
+
+Essas interações combinadas garantem que a navegação e o uso do site ou aplicativo da UaiFly sejam agradáveis, eficientes e satisfatórios, elevando a experiência do usuário a um nível superior. <br>
 
 ## Fluxo de Dados
 
