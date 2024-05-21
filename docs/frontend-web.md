@@ -21,7 +21,7 @@ Construtor de aplicações JavaScript rápido e leve que utiliza ESM (ECMAScript
 A arquitetura da aplicação web da UaiFly é cuidadosamente projetada para proporcionar uma experiência de usuário excelente, com um frontend interativo e responsivo, um backend robusto e seguro, e uma integração eficiente entre todos os componentes. A utilização de ferramentas modernas para design e desenvolvimento garante que a aplicação seja escalável, acessível e fácil de manter.
 
 ## Modelagem da Aplicação
-[Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
+<img src="img/relacionamento-classes.png">
 
 ## Projeto da Interface Web
 A interface web da aplicação da Uaifly foi projetada seguindo as diretrizes do Material Design, com uma paleta de cores vibrantes e uma tipografia legível. O layout é organizado para facilitar a navegação, com interações responsivas e animações sutis para indicar transições entre páginas. As opções de viagem são apresentadas de forma clara e interativa, considerando a acessibilidade por meio de design responsivo, suporte a leitores de tela e opções de contraste ajustável. Em resumo, a interface web oferece uma experiência completa e agradável para a reserva de passagens aéreas, atendendo às necessidades de diversos usuários.
@@ -57,8 +57,6 @@ Foi criada uma logomarca para a Uaifly que incorpora o nome da empresa e um desi
 ![paleta de cores](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/ca91cdce-92ed-4b9e-90f5-4fe4b92156fa)
 
 
-
-
 ### Layout Responsivo
 A adoção do Material UI no site da UaiFly é uma estratégia consolidada e testada no mercado para o desenvolvimento web responsivo. A combinação da estrutura adaptativa do Material UI com princípios de layout fluído e escalável garante uma experiência consistente em diversos dispositivos. A arquitetura de grade simplifica a distribuição flexível de conteúdo em diferentes resoluções de tela, enquanto as media queries permitem a personalização do estilo e comportamento dos componentes conforme a largura da tela. A modularidade dos componentes oferece uma abordagem escalável para criar layouts versáteis e adaptáveis, garantindo uma experiência de usuário satisfatória e intuitiva em todos os contextos de visualização.
 
@@ -82,7 +80,10 @@ Essas interações combinadas garantem que a navegação e o uso do site ou apli
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+O fluxo de dados da Api se deu da seguinte forma, com cada camada com sua própria responsabilidade:
+
+<img src="img/fluxo_dados.png">
+<img src="img/fluxo-dados-02.png">
 
 ### Requisitos Funcionais
 
