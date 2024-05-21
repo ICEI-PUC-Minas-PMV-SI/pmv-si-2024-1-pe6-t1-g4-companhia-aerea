@@ -45,11 +45,15 @@ A UaiFly utiliza cores vibrantes e a tipografia Roboto para destacar informaçõ
 Ao adotar os princípios do Material Design, a UaiFly oferece uma interface de usuário que é ao mesmo tempo moderna e intuitiva. Essa abordagem não só melhora a estética do site e do aplicativo, mas também facilita a navegação e o acesso às informações, proporcionando uma experiência de usuário superior. Com a UaiFly, voar se torna não apenas uma viagem, mas uma experiência digital agradável e eficiente.
 
 
-<br> Tipografia <br> 
+#### Logo Tipo
+Foi criada uma logomarca para a Uaifly que incorpora o nome da empresa e um design visualmente atraente. A logo utiliza as cores predominantes do site, garantindo uma identidade visual coesa. Além disso, um ícone de avião foi estrategicamente posicionado abaixo do nome "Uaifly", criando a ilusão de um sorriso. Este detalhe não apenas evoca a ideia de viagem, mas também simboliza a felicidade e a satisfação que a marca deseja transmitir aos seus usuários ao visualizarem a logomarca.
+![uaifly](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/145ee7f3-c18c-4bb2-9f30-7243649f351a)
+
+#### Tipografia <br> 
 ![tipografia](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/64032efb-8049-4797-a6a5-8e6fc7d13a65)
 <br> 
 <br> 
-Paleta de Cores <br> 
+#### Paleta de Cores <br> 
 ![paleta de cores](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t1-g4-companhia-aerea/assets/89879720/ca91cdce-92ed-4b9e-90f5-4fe4b92156fa)
 
 
