@@ -80,10 +80,65 @@ Essas interações combinadas garantem que a navegação e o uso do site ou apli
 
 ## Fluxo de Dados
 
-O fluxo de dados da Api se deu da seguinte forma, com cada camada com sua própria responsabilidade:
+Fluxo de Dados na Aplicação
 
-<img src="img/fluxo_dados.png">
-<img src="img/fluxo-dados-02.png">
+1. Estrutura Geral da Aplicação
+
+Entrada do Usuário (Cadastro):
+   - Formulários para coleta de dados do usuário (usando componentes do Material-UI).
+   - Validação de dados de entrada.
+   - Armazenamento temporário no LocalStorage após submissão.
+
+Carregamento de Dados Estáticos:
+   - JSON estático armazenado localmente ou embutido no código.
+   - Uso desses dados para renderizar as interfaces (listas, tabelas, etc).
+
+2. Componentes e Estado
+Componentes de Cadastro:
+ - Formulário de Cadastro: Campos de entrada (TextField, Select, etc.).
+ - Estado Local: Uso do hook `useState` para gerenciar o estado dos campos do formulário.
+ - Armazenamento Local: Armazenar os dados no LocalStorage quando o formulário é submetido.
+
+Componentes de Exibição de Dados:
+  - Componente de Lista/Tabela: Exibe dados carregados do JSON estático.
+  - Estado Local: Uso do hook `useState` para gerenciar os dados carregados.
+
+3. Fluxo de Dados
+
+Cadastro de Usuário:
+   - Input do Usuário: O usuário preenche o formulário.
+   - Validação e Submissão:
+     - Validação dos campos do formulário.
+     - Armazenamento dos dados no LocalStorage.
+   - Estado Local: Gerenciar os dados do formulário.
+
+
+Carregamento de Dados Estáticos:
+   - JSON Local: Carregar dados do JSON estático.
+   - Uso de Estado: Uso do hook `useState` e `useEffect` para carregar e gerenciar esses dados.
+
+
+
+Fluxo de Dados Resumido
+Cadastro de Usuário:
+   - O usuário interage com o formulário de cadastro.
+   - Os dados do formulário são gerenciados no estado local do componente.
+   - Ao submeter, os dados são validados e salvos no LocalStorage.
+
+Exibição de Dados:
+   - JSON estático é carregado quando o componente de exibição de dados é montado.
+   - Os dados são armazenados no estado local e utilizados para renderizar a interface.
+
+
+
+Considerações Finais
+
+- Validação: Implementar validação dos campos de formulário para garantir a integridade dos dados.
+- Manutenção: Separar os componentes e manter o código modular para facilitar a manutenção e a escalabilidade.
+- Segurança: Embora o LocalStorage seja conveniente para armazenamento temporário, considere a segurança e a privacidade dos dados armazenados.
+
+Esse é um fluxo de dados básico que pode ser ajustado conforme suas necessidades específicas e conforme o backend for desenvolvido.
+
 
 ### Requisitos Funcionais
 
