@@ -2,6 +2,7 @@ using Api.Data.Mapping;
 using Api.Data.Mapping.CustomerAggregate;
 using Api.Domain.Entities;
 using Api.Domain.Entities.CustomerAggregate;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data
@@ -16,7 +17,7 @@ namespace Api.Data
         public DbSet<CareerEntity> Careers { get; set; }
         public DbSet<NationalityEntity> Nationalities { get; set; }
         public DbSet<PhoneEntity> Phones { get; set; }
-
+      
 
 
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
