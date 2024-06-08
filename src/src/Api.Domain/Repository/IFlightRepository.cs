@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities.FlightAggregate;
+using Domain.Dtos.FlightAggregate;
 
 namespace Domain.Repository
 {
@@ -20,5 +21,8 @@ namespace Domain.Repository
         Task<IataEntity> UpdateIata(IataEntity entity);
         Task<IataEntity> GetIataById(Guid id);
         Task<List<IataEntity>> GetAllIata();
+        Task<FlightsInfoDto> SearchFlights(FlightDetailRequestDto request);
+        Task<SearchSeatsResponse> SearchSeats(SearchSeatsRequest request);
+
     }
 }

@@ -18,5 +18,7 @@ namespace Domain.Interfaces.Services.FlightAggregate
         Task<List<IataDto>> GetAllIata();
         Task<IataDtoCreateResult> PostIata(IataDtoCreate iata);
         Task<IataDtoUpdateResult> PutIata(IataDtoUpdate iata);
+        Task<FlightInfoResponseDto> SearchFlights(FlightDetailRequestDto request);
+        Task<SearchSeatsResponse> SearchSeats(SearchSeatsRequest request);
     }
 }

@@ -107,5 +107,41 @@ namespace application.Controllers
             }
         }
 
+        [HttpGet("search/searchflights")]
+        [AllowAnonymous]
+        public async Task<ActionResult> SearchFlights([FromQuery] FlightDetailRequestDto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);  // 400 Bad Request - Solicitação Inválida
+            }
+            try
+            {
+                return Ok(await _flightService.SearchFlights(model));
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
+        [HttpGet("search/seats")]
+        [AllowAnonymous]
+        public async Task<ActionResult> SearchSeats([FromQuery] SearchSeatsRequest model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); 
+            }
+            try
+            {
+                return Ok(await _flightService.SearchSeats(model));
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
     }
 }

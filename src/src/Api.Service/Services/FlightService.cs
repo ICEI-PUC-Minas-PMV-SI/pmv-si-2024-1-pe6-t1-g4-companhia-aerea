@@ -93,5 +93,36 @@ namespace Service.Services
 
             return null;
         }
+
+        public async Task<FlightInfoResponseDto> SearchFlights(FlightDetailRequestDto request)
+        {
+            var result = await _flightRepository.SearchFlights(request);
+
+            var flightInfo = new FlightInfoResponseDto()
+            {
+                DepartureFlights = result.DepartureFlights.Select(f => new FlightDetailResponseDto()
+                {
+                    Departure = $"{f.LeaveIATACode} - {f.LeaveLocation}",
+                    Arrival = $"{f.ArriveIATACode} - {f.ArriveLocation}",
+                    DepartureTime = f.LeaveDate.ToString("HH:mm"),
+                    ArrivalTime = f.ArriveDate.ToString("HH:mm"),
+                    Duration = $"{(int)(f.ArriveDate - f.LeaveDate).TotalHours}h {(f.ArriveDate - f.LeaveDate).Minutes}m",
+                    PriceBusiness = f.PriceExecutive.ToString("C2", new System.Globalization.CultureInfo("pt-BR")),
+                    PriceEconomy = f.PriceEconomy.ToString("C2", new System.Globalization.CultureInfo("pt-BR")),
+                }).ToList(),
+                ReturnFlights = result.ReturnFlights.Select(f => new FlightDetailResponseDto()
+                {
+                    Departure = $"{f.LeaveIATACode} - {f.LeaveLocation}",
+                    Arrival = $"{f.ArriveIATACode} - {f.ArriveLocation}",
+                    DepartureTime = f.LeaveDate.ToString("HH:mm"),
+                    ArrivalTime = f.ArriveDate.ToString("HH:mm"),
+                    Duration = $"{(int)(f.ArriveDate - f.LeaveDate).TotalHours}h {(f.ArriveDate - f.LeaveDate).Minutes}m",
+                    PriceBusiness = f.PriceExecutive.ToString("C2", new System.Globalization.CultureInfo("pt-BR")),
+                    PriceEconomy = f.PriceEconomy.ToString("C2", new System.Globalization.CultureInfo("pt-BR")),
+                }).ToList()
+            };
+
+            return flightInfo;
+        }
     }
 }

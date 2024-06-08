@@ -13,7 +13,7 @@ namespace Data.Mapping.FlightAggregate
     {
         public void Configure(EntityTypeBuilder<FlightItineraryEntity> builder)
         {
-            builder.ToTable("Intinerary");
+            builder.ToTable("FlightIntinerary");
 
             builder.HasKey(x => x.Id);
 
@@ -28,16 +28,16 @@ namespace Data.Mapping.FlightAggregate
             builder.Property(x => x.Available)
                 .IsRequired();
 
-            builder.Property(x => x.LeaveDate)
-                .HasColumnType("DATE");
+            //builder.Property(x => x.LeaveDate)
+            //    .HasColumnType("DATE");
 
-            builder.Property(x => x.ArriveDate)
-                .HasColumnType("DATE");
+            //builder.Property(x => x.ArriveDate)
+            //    .HasColumnType("DATE");
 
             builder
                 .Property(p => p.ArriveIATAId)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("arriveiataid")
+                .HasColumnName("ArriveIATAID")
                 .IsRequired();
 
             builder.HasOne<IataEntity>()
@@ -48,7 +48,7 @@ namespace Data.Mapping.FlightAggregate
             builder
                 .Property(p => p.LeaveIATAId)
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("leaveiataid")
+                .HasColumnName("LeaveIATAId")
                 .IsRequired();
 
             builder.HasOne<IataEntity>()

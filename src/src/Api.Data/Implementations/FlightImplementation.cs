@@ -9,17 +9,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities.FlightAggregate;
+using Domain.Dtos.FlightAggregate;
+using System.Data;
+using System.Data.Common;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using MySqlConnector;
+
 
 namespace Data.Implementations
 {
+
     public class FlightImplementation : BaseRepository<FlightEntity>, IFlightRepository
     {
         private DbSet<FlightEntity> _dbFlight;
         private DbSet<IataEntity> _dbIata;
+        private DbSet<FlightItineraryEntity> _dbItinerary;
+        private DbSet<SeatsEntity> _dbSeats;
+
+        private MyContext _myContext;
+
+
         public FlightImplementation(MyContext context) : base(context)
         {
             _dbFlight = context.Set<FlightEntity>();
             _dbIata = context.Set<IataEntity>();
+            _dbSeats = context.Set<SeatsEntity>();
+            _dbItinerary = context.Set<FlightItineraryEntity>();
+            _myContext = context;
         }
 
         public async Task<IataEntity> InsertIata(IataEntity entity)
@@ -75,6 +91,82 @@ namespace Data.Implementations
             {
                 throw ex;
             }
+        }
+
+        private async Task<List<FlightDetailDto>> GetFlightDetail(DateTime filterDate, string leaveIATA, string arriveIATA)
+        {
+            List<FlightDetailDto> flights = FlightDetailData.GetFlights()
+                .Where(flight =>
+                    flight.LeaveDate.Date == filterDate.Date
+                    && flight.LeaveIATACode.ToLower() == leaveIATA.ToLower()
+                    && flight.ArriveIATACode.ToLower() == arriveIATA.ToLower()
+                )
+                .ToList();
+
+            return flights;
+
+
+            //var sql = @"
+            //select distinct 
+            //    f.id,
+            //    i.Description,
+            //    i.LeaveDate,
+            //    i.ArriveDate,
+            //    ia.IATACode,
+            //    ia.Airport,
+            //    ia.Location,
+            //    s.price
+            //    From uaiflydb.flights f
+            //    LEFT JOIN uaiflydb.intinerary i ON i.id = f.flightintineraryId
+            //    LEFT JOIN uaiflydb.iata ia ON ia.id = i.LeaveIATAId
+            //    LEFT JOIN uaiflydb.seats s ON s.FlightId = f.id
+            //    WHERE s.Price IS NOT null
+            //    AND i.LeaveDate::date = {filterDate:yyyy-MM-dd}
+            //    AND ia.IATACode = {leaveIATA}
+            //    AND ia.IATACode = {arriveIATA}";
+
+            //var results = await _myContext.Set<FlightDetailDto>()
+            //    .FromSqlRaw(sql)
+            //    .ToListAsync();
+
+            //return results;
+
+
+        }
+
+        public async Task<FlightsInfoDto> SearchFlights(FlightDetailRequestDto request)
+        {
+            try
+            {
+                var flightInfo = new FlightsInfoDto()
+                {
+                    DepartureFlights = new List<FlightDetailDto>(),
+                    ReturnFlights = new List<FlightDetailDto>(),
+                };
+
+
+                var departureFlights = GetFlightDetail(request.DepeartureDate, request.FromIataCode, request.ToIataCode);
+                flightInfo.DepartureFlights = await departureFlights;
+
+                if (request.ReturnDate.HasValue)
+                {
+                    var returnFlights = GetFlightDetail(request.ReturnDate.Value, request.ToIataCode, request.FromIataCode);
+                    flightInfo.ReturnFlights = await returnFlights;
+                }
+
+
+                return flightInfo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public Task<SearchSeatsResponse> SearchSeats(SearchSeatsRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

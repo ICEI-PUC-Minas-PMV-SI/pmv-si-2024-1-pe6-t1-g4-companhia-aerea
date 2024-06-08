@@ -22,6 +22,12 @@ namespace Api.Data
         public DbSet<NationalityEntity> Nationalities { get; set; }
         public DbSet<PhoneEntity> Phones { get; set; }
 
+        //FlightAggregate
+        public DbSet<IataEntity> Iatas { get; set; }
+        public DbSet<FlightItineraryEntity> Intineraries { get; set; }
+        public DbSet<SeatsEntity> Seats { get; set; }
+        public DbSet<FlightEntity> Flights { get; set; }
+
 
 
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
@@ -41,6 +47,8 @@ namespace Api.Data
             //FlightAggregate
             modelBuilder.Entity<IataEntity>(new IataMap().Configure);
             modelBuilder.Entity<FlightItineraryEntity>(new FlightIntineraryMap().Configure);
+            modelBuilder.Entity<SeatsEntity>(new SeatsMap().Configure);
+            modelBuilder.Entity<FlightEntity>(new FlightMap().Configure);
 
             // ------------------------//
             //MOCKS
@@ -58,6 +66,9 @@ namespace Api.Data
             
             //FlightAggregate
             IATASeeds.IATAs(modelBuilder);
+            FlightItinerarySeeds.Intineraries(modelBuilder);
+            FlightSeeds.Flights(modelBuilder);
+            SeatsSeed.Seats(modelBuilder);
         }
     }
 }

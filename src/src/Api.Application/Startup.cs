@@ -164,16 +164,16 @@ namespace application
             //     }
             // }
 
-            if ("APPLY".ToLower() == "APPLY".ToLower())
-            {
-                using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-                {
-                    using (var context = service.ServiceProvider.GetService<MyContext>())
-                    {
-                        context.Database.Migrate();
-                    }
-                }
-            }
+            //if ("APPLY".ToLower() == "APPLY".ToLower())
+            //{
+            //    using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //    {
+            //        using (var context = service.ServiceProvider.GetService<MyContext>())
+            //        {
+            //            context.Database.Migrate();
+            //        }
+            //    }
+            //}
         }
     }
 }
