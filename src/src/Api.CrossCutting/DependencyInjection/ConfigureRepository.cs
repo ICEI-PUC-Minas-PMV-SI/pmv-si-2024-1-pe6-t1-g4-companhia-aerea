@@ -24,11 +24,12 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped<ICustomerRepository, CustomerImplementation>();
             serviceCollection.AddScoped<IFlightRepository, FlightImplementation>();
 
-            
+            //var connectionString = "Server=db;Port=3306;Database=uaiflydb;Uid=root;Pwd=docker;SslMode=none"; //docker
+            var connectionString = "Server=localhost;Port=3306;Database=uaiflydb;Uid=root;Pwd=12345678;"; //local
 
             serviceCollection.AddDbContext<MyContext>(
                 options => options.UseMySql(
-                    "Server=db;Port=3306;Database=uaiflydb;Uid=root;Pwd=docker;SslMode=none",
+                    connectionString,
                     new MySqlServerVersion(new Version(8, 0, 21))
                 )
             );

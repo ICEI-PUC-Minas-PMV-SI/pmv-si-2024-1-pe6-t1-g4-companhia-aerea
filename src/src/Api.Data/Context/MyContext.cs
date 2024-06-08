@@ -43,7 +43,7 @@ namespace Api.Data
             modelBuilder.Entity<CareerEntity>(new CareerMap().Configure);
             modelBuilder.Entity<NationalityEntity>(new NationalityMap().Configure);
             modelBuilder.Entity<PhoneEntity>(new PhoneMap().Configure);
-            
+
             //FlightAggregate
             modelBuilder.Entity<IataEntity>(new IataMap().Configure);
             modelBuilder.Entity<FlightItineraryEntity>(new FlightIntineraryMap().Configure);
@@ -56,14 +56,14 @@ namespace Api.Data
 
             //User
             UsersSeeds.Users(modelBuilder);
-            
+
             //CustomerAggregate - O Customer foi o ultimo pois ele depende das outras tabelas
             AddressesSeeds.Addresses(modelBuilder);
             CareersSeeds.Careers(modelBuilder);
             NationalitiesSeeds.Nationalities(modelBuilder);
             PhonesSeeds.Phones(modelBuilder);
             CustomersSeeds.Customers(modelBuilder);
-            
+
             //FlightAggregate
             IATASeeds.IATAs(modelBuilder);
             FlightItinerarySeeds.Intineraries(modelBuilder);

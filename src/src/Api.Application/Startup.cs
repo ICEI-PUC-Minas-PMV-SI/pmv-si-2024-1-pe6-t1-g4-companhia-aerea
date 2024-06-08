@@ -46,12 +46,15 @@ namespace application
                 cfg.AddProfile(new DtoToModelProfile());
                 cfg.AddProfile(new EntityToDtoProfile());
                 cfg.AddProfile(new ModelToEntityProfile());
-                cfg.AddProfile(new ReserveDtoToModelProfile());
-                cfg.AddProfile(new ReserveEntityToDtoProfile());
-                cfg.AddProfile(new ReserveModelToEntityProfile());
+                //cfg.AddProfile(new ReserveDtoToModelProfile());
+                //cfg.AddProfile(new ReserveEntityToDtoProfile());
+                //cfg.AddProfile(new ReserveModelToEntityProfile());
                 cfg.AddProfile(new FlightDtoToModelProfile());
                 cfg.AddProfile(new FlightEntityToDtoProfile());
                 cfg.AddProfile(new FlightModelToEntityProfile());
+                //cfg.AddProfile(new ReserveDtoToModelProfile());
+                //cfg.AddProfile(new ReserveEntityToDtoProfile());
+                //cfg.AddProfile(new ReserveModelToEntityProfile());
             });
 
             IMapper mapper = config.CreateMapper();

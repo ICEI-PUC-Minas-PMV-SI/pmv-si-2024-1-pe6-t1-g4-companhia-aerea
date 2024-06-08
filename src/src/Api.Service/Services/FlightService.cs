@@ -124,5 +124,10 @@ namespace Service.Services
 
             return flightInfo;
         }
+
+        public Task<SearchSeatsResponse> SearchSeats(SearchSeatsRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

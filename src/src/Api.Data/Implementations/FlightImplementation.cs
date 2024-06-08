@@ -164,6 +164,15 @@ namespace Data.Implementations
 
         }
 
+        private SeatsAvailableDTO GetSeatsAvailable()
+        {
+            List<string> flightCodes = new List<string>
+            {
+                "AD 0910", "AD 2021", "AD 1617", "AD 0809", "VO 0809", "VO 1718", "LA 9102"
+            };
+            return new SeatsAvailableDTO() { };
+        }
+
         public Task<SearchSeatsResponse> SearchSeats(SearchSeatsRequest request)
         {
             throw new NotImplementedException();
