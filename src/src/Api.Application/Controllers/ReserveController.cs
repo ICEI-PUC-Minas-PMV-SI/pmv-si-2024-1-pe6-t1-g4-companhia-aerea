@@ -54,6 +54,25 @@ namespace Api.Application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
+        [HttpGet]
+        [Route("{code}", Name = "GetReserveByCode")]
+        public async Task<ActionResult> GetByCode(string code)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                var result = await _service.GetReserveByCode( code);
+                return Ok(result);
+            }
+            catch (ArgumentException e)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
+            }
+        }
+
 
         /*
         [HttpGet]
