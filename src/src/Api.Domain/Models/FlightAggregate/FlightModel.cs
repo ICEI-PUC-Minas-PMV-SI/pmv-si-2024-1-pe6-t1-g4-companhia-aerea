@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,18 +30,13 @@ namespace Domain.Models.FlightAggregate
             set { _flightIntineraryId = value; }
         }
 
-        private Guid _seatsAvailableId;
-        public Guid SeatsAvailableId
-        {
-            get { return _seatsAvailableId; }
-            set { _seatsAvailableId = value; }
-        }
+       
 
-        private int _flightStatusId;
-        public int FlightStatusId
+        private FlightStatus _flightStatus;
+        public FlightStatus FlightStatus
         {
-            get { return _flightStatusId; }
-            set { _flightStatusId = value; }
+            get { return _flightStatus; }
+            set { _flightStatus = value; }
         }
 
         private DateTime _createAt;

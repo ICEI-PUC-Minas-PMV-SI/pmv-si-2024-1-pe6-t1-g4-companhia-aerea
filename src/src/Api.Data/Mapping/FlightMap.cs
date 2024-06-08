@@ -1,4 +1,5 @@
-﻿using Api.Domain.Entities.CustomerAggregate;
+﻿using Api.Domain.Entities;
+using Api.Domain.Entities.CustomerAggregate;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -24,19 +25,18 @@ namespace Data.Mapping
             builder.Property(x => x.FlightCode)
                 .IsRequired();
 
-            builder.Property(x => x.FlightIntineraryId)
-                .IsRequired();
+            builder.Property(x => x.FlightIntineraryEntityId);
 
-            builder.HasOne<FlightIntineraryEntity>()
-               .WithMany()
-               .HasForeignKey(i => i.FlightIntineraryId)
+
+            builder.HasOne<FlightIntineraryEntity>().WithMany()
+               .HasForeignKey(f=>f.FlightIntineraryEntityId)
                .OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(x => x.SeatsAvailableId)
+
+            builder.Property(x => x.FlightStatus)
                 .IsRequired();
 
-            builder.Property(x => x.FlightStatusId)
-                .IsRequired();
+            //builder.Navigation("FlightIntinerary");
         }
     }
 }

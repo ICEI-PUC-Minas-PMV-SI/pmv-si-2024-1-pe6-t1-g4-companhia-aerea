@@ -55,6 +55,7 @@ namespace Api.Application.Controllers
             }
         }
 
+        /*
         [HttpGet]
         [Route("{id}", Name = "GetByCustomer")]
         public async Task<ActionResult> GetReserveByCustomer(Guid id)
@@ -73,7 +74,7 @@ namespace Api.Application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
-
+        */
 
         [HttpPost]
         public async Task<ActionResult> Create([FromBody] ReserveDtoCreate reserve)

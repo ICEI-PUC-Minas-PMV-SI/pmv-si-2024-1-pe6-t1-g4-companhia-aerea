@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace Domain.Dtos.FlightAggregate
         [Required(ErrorMessage = "Id é um campo obrigatório")]
         public Guid Id { get; set; }
         [Required(ErrorMessage = "Status de Vôo é um campo obrigatório")]
-        public int FlightStatusId { get; set; }
+        public FlightStatus FlightStatus { get; set; }
     }
 }

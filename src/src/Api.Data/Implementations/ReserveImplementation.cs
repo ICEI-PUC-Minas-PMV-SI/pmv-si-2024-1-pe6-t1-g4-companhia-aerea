@@ -19,9 +19,11 @@ namespace Data.Implementations
         {
            _dataset = context.Set<ReserveEntity>(); 
         }
-        public async Task<IEnumerable<ReserveEntity>> GetReserveByCustomer(Guid id)
+
+
+        public async Task<ReserveEntity> GetReserveByCode(string code)
         {
-            return await _dataset.Where(r=>r.CustomerId == id).ToListAsync();
+            return await _dataset.Include(r => r.Flight).ThenInclude(f => f.FlightIntinerary).FirstOrDefaultAsync(r => r.ReserveCode == code); ;
         }
     }
 }

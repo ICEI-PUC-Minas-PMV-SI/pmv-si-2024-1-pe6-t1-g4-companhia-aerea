@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Domain.Dtos.FlightAggregate
         [Required(ErrorMessage = "Rota de Vôo é um campo obrigatório")]
         public Guid FlightIntineraryId { get; set; }
         [Required(ErrorMessage = "Status de Vôo é um campo obrigatório")]
-        public int FlightStatusId { get; set; }
-        public Guid SeatsAvailableId { get; set; }
+        public FlightStatus FlightStatus { get; set; }
+       
     }
 }

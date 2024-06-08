@@ -173,7 +173,7 @@ namespace application
                 {
                     using (var context = service.ServiceProvider.GetService<MyContext>())
                     {
-                        context.Database.Migrate();
+                        context.Database.EnsureCreated();
                     }
                 }
             }

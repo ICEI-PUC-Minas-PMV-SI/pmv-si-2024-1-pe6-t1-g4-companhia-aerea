@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Domain.Dtos.FlightAggregate
 {
     public class FlightDtoUpdateResult
     {
-        public int FlightStatusId { get; set; }
+        public FlightStatus FlightStatus { get; set; }
     }
 }

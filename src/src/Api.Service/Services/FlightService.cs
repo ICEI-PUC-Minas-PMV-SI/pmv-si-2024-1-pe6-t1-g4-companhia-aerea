@@ -52,9 +52,8 @@ namespace Service.Services
             var flightEntity = new FlightEntity()
             {
                 FlightCode = flight.FlightCode,
-                FlightIntineraryId = flight.FlightIntineraryId,
-                SeatsAvailableId = flight.SeatsAvailableId,
-                FlightStatusId = flight.FlightStatusId,
+                FlightIntineraryEntityId = flight.FlightIntineraryId,
+                FlightStatus = flight.FlightStatus,
             };
 
             var result = await _flightRepository.InsertAsync(flightEntity);
@@ -62,9 +61,9 @@ namespace Service.Services
             {
                 Id = result.Id,
                 FlightCode = result.FlightCode,
-                FlightIntineraryId = result.FlightIntineraryId,
-                FlightStatusId = result.FlightStatusId,
-                SeatsAvailableId = result.SeatsAvailableId,
+                FlightIntineraryId = result.FlightIntineraryEntityId,
+                FlightStatus = result.FlightStatus,
+              
             };
 
             return flightResult;
@@ -79,16 +78,15 @@ namespace Service.Services
                 var flightEntity = new FlightEntity()
                 {
                     FlightCode = flightDb.FlightCode,
-                    FlightIntineraryId = flightDb.FlightIntineraryId,
-                    SeatsAvailableId = flightDb.SeatsAvailableId,
-                    FlightStatusId = flightDb.FlightStatusId,
+                    FlightIntineraryEntityId = flightDb.FlightIntineraryEntityId,
+                    FlightStatus = flightDb.FlightStatus,
                 };
 
                 var result = await _flightRepository.UpdateAsync(flightEntity);
 
                 var resultUpdate = new FlightDtoUpdateResult()
                 {
-                    FlightStatusId = result.FlightStatusId
+                    FlightStatus = result.FlightStatus
                 };
 
                 return resultUpdate;

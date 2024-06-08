@@ -17,8 +17,8 @@ namespace Domain.Dtos.ReserveAggregate
         [Required(ErrorMessage = "O campo bagagem extra é obrigatório!")]
         public bool ExtraLuggage { get; set; }
         [Required(ErrorMessage = "O campo de cliente é obrigatório!")]
-        public Guid CustomerId { get; set; }
+        public Guid CustomerEntityId { get; set; }
         [Required(ErrorMessage = "O campo de voo é obrigatório!")]
-        public Guid FlightId { get; set; }
+        public Guid FlightEntityId { get; set; }
     }
 }

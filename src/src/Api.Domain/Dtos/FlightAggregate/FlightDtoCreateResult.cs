@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Api.Domain.Entities;
+using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +16,7 @@ namespace Domain.Dtos.FlightAggregate
         
         public Guid FlightIntineraryId { get; set; }
         
-        public int FlightStatusId { get; set; }
-        public Guid SeatsAvailableId { get; set; }
+        public FlightStatus FlightStatus { get; set; }
+     
     }
 }

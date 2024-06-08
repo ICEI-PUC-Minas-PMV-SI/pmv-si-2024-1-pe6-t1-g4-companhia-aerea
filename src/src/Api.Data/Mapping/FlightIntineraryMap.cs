@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Api.Domain.Entities;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -13,7 +14,7 @@ namespace Data.Mapping
     {
         public void Configure(EntityTypeBuilder<FlightIntineraryEntity> builder)
         {
-            builder.ToTable("Intinerary");
+            builder.ToTable("FlightIntineraries");
 
             builder.HasKey(x => x.Id);
 
@@ -32,19 +33,22 @@ namespace Data.Mapping
 
             builder.Property(x => x.LeaveIATAId)
                 .IsRequired();
+          
 
             builder.HasOne<IataEntity>()
-                .WithMany()
-                .HasForeignKey(x => x.LeaveIATAId)
+                .WithMany("FlightIntineraries")
+                .HasForeignKey("LeaveIATAId")
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.Property(x => x.ArriveIATAId)
                 .IsRequired();
 
             builder.HasOne<IataEntity>()
-                .WithMany()
-                .HasForeignKey(x => x.ArriveIATAId)
+                .WithMany("FlightIntineraries")
+                .HasForeignKey("ArriveIATAId")
                 .OnDelete(DeleteBehavior.NoAction);
+
+          
         }
     }
 }

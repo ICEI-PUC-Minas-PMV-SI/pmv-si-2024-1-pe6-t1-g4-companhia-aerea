@@ -28,14 +28,15 @@ namespace Data.Mapping
             builder.Property(x => x.ReserveStatus).IsRequired();
             builder.Property(x=> x.ExtraLuggage).IsRequired();
 
-            builder.Property(x=>x.CustomerId).IsRequired();
+            builder.Property(x=>x.CustomerEntityId).IsRequired();
+            builder.Property(x=>x.FlightEntityId).IsRequired();
 
-            builder.HasOne<CustomerEntity>().WithMany().HasForeignKey(x => x.CustomerId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasOne<FlightEntity>().WithMany("Reserves").HasForeignKey("FlightEntityId")
+              .OnDelete(DeleteBehavior.NoAction);
 
+            builder.HasOne<CustomerEntity>().WithMany().HasForeignKey(x => x.CustomerEntityId).OnDelete(DeleteBehavior.NoAction);
 
-            builder.Property(x => x.FlightId).IsRequired();
-
-            builder.HasOne<FlightEntity>().WithOne().HasForeignKey("ReserveEntity","FlightId").OnDelete(DeleteBehavior.NoAction);
+            
 
         }
     }

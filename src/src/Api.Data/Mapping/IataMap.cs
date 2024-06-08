@@ -13,7 +13,7 @@ namespace Data.Mapping
     {
         public void Configure(EntityTypeBuilder<IataEntity> builder)
         {
-            builder.ToTable("Iata");
+            builder.ToTable("Iatas");
 
             builder.HasKey(x => x.Id);
 

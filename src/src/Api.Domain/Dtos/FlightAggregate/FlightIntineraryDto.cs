@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ namespace Domain.Dtos.FlightAggregate
         public bool Available { get; set; }
         public DateTime LeaveDate { get; set; }
         public DateTime ArriveDate { get; set; }
-        public int LeaveIATAId { get; set; }
-        public int ArriveIATAId { get; set; }
+        public Guid LeaveIATAId { get; set; }
+        public Guid ArriveIATAId { get; set; }
+        public ICollection<FlightEntity> Flights { get; set; }
     }
 }

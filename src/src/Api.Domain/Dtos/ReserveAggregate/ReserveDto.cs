@@ -13,8 +13,8 @@ namespace Domain.Dtos.ReserveAggregate
         public string ReserveCode { get; set; }
         public ReserveStatus Status { get; set; }
         public bool ExtraLuggage { get; set; }
-        public Guid CustomerId { get; set; }
-        public Guid FlightId { get; set; }
+        public Guid CustomerEntityId { get; set; }
+        public Guid FlightEntityId { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

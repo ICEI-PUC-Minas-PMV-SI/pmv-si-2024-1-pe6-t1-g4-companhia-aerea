@@ -43,15 +43,15 @@ namespace Domain.Models.FlightAggregate
             set { _arriveDate = value; } 
         }
 
-        private int _leaveIATAId;
-        public int LeaveIATAId 
+        private Guid _leaveIATAId;
+        public Guid LeaveIATAId 
         { 
             get { return _leaveIATAId; } 
             set { _leaveIATAId = value; }
         }
 
-        private int _arriveIATAId;
-        public int ArriveIATAId 
+        private Guid _arriveIATAId;
+        public Guid ArriveIATAId 
         { 
             get { return _arriveIATAId; } 
             set { _arriveIATAId = value; } 

@@ -18,8 +18,8 @@ namespace Domain.Dtos.FlightAggregate
         [Required(ErrorMessage = "Horario de chegada é um campo obrigatório")]
         public DateTime ArriveDate { get; set; }
         [Required(ErrorMessage = "Aeroporto de partida é um campo obrigatório")]
-        public int LeaveIATAId { get; set; }
+        public Guid LeaveIATAId { get; set; }
         [Required(ErrorMessage = "Aeroporto de chegada é um campo obrigatório")]
-        public int ArriveIATAId { get; set; }
+        public Guid ArriveIATAId { get; set; }
     }
 }
