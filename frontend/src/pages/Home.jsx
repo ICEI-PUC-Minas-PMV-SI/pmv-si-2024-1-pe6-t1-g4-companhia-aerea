@@ -2,8 +2,29 @@ import { Box, Container } from "@mui/material";
 import { alpha } from "@mui/material";
 import FormTravel from "../components/FormTravel";
 import OfferPage from "./Offer";
+import axios from 'axios';
+import React, {useEffect,useState} from "react";
 
 function HomePage() {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://viacep.com.br/ws/01001000/json/');
+            setData(response.data.cep);
+            console.log('response',response.data)
+            //console.log('data',data)
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    fetchData();
+}, []);
+useEffect(() => {
+  console.log('data state updated:', data);
+}, [data]);
 
   return (
     <Box
