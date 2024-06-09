@@ -3,6 +3,7 @@ import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import PropTypes from "prop-types";
 import loginData from "../data/loginData.json";
+import api from "../axios/axiosConfig";
 
 const style = {
   position: "absolute",
@@ -16,11 +17,12 @@ const style = {
   p: 4,
 };
 
-const LoginModal = ({ open, onClose, onForgotPasswordClick }) => {
+const LoginModal = ({ open, onClose, onForgotPasswordClick, onLoginSuccess }) => {
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const LoginModal = ({ open, onClose, onForgotPasswordClick }) => {
     if (success) {
       timer = setTimeout(() => {
         handleClose();
-      }, 1000);
+      }, 2000);
     }
     return () => clearTimeout(timer);
   }, [success]);
@@ -48,7 +50,7 @@ const LoginModal = ({ open, onClose, onForgotPasswordClick }) => {
     return cpf.replace(/\D/g, "");
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const normalizedCpf = normalizeCPF(cpf);
 
     // Validar CPF
@@ -64,23 +66,32 @@ const LoginModal = ({ open, onClose, onForgotPasswordClick }) => {
     }
 
     // Validar Senha
-    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
-      setError("A senha deve conter letras e números");
-      return;
-    }
+    // if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
+    //   setError("A senha deve conter letras e números");
+    //   return;
+    // }
 
-    // Verificar credenciais
-    const user = loginData.find(
-      (user) =>
-        normalizeCPF(user.cpf) === normalizedCpf &&
-        user.email === email &&
-        user.password === password
-    );
-
-    if (user) {
-      setSuccess(true);
-    } else {
-      setError("Credenciais inválidas");
+    try {
+      setLoading(true)
+      const response = await api.post('/api/Login', {
+        email: email,
+        password: password
+      });
+      const user = response.data;
+      if (user) {
+        onLoginSuccess(user);
+        setSuccess(true);
+      } else {
+        setError("Credenciais inválidas");
+      }
+    } catch (error) {
+      if (error.request.status >= 400 || error.request.status < 500) {
+        setError("Credenciais inválidas");
+      } else {
+        setError("Erro ao fazer login");
+      }
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -136,7 +147,7 @@ const LoginModal = ({ open, onClose, onForgotPasswordClick }) => {
               fullWidth
               sx={{ mt: 2 }}
             >
-              Entrar
+              {isLoading ? 'Carregando...' : 'Entrar'}
             </Button>
             <Typography
               variant="body2"

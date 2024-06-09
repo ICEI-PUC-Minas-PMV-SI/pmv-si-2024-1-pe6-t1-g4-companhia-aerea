@@ -117,6 +117,7 @@ function FormTravel() {
         <DatePicker
           sx={{ marginRight: "1rem" }}
           label="Ida"
+          inputFormat="dd/MM/yyyy"
           value={departureDate}
           onChange={(value) => handleDate("departure", value)}
         />

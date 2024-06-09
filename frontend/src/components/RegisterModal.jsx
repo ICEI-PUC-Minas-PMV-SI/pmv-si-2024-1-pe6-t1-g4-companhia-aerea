@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
+import api from "../axios/axiosConfig";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const style = {
   position: "absolute",
@@ -13,19 +18,24 @@ const style = {
   p: 4,
 };
 
-const RegisterModal = ({ open, onClose }) => {
+const RegisterModal = ({ open, onClose, onResponse }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCpf] = useState("");
+  const [dateBirth, setDateBirth] = useState(null);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [isLoading, setLoading] = useState(false);
+
+
 
   useEffect(() => {
     if (open) {
       // Limpar campos do modal
+      setDateBirth(null)
       setFirstName("");
       setLastName("");
       setEmail("");
@@ -50,7 +60,7 @@ const RegisterModal = ({ open, onClose }) => {
     alert("Dados cadastrados com sucesso!");
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     // Validar campos obrigatórios
     if (
       !firstName ||
@@ -58,8 +68,10 @@ const RegisterModal = ({ open, onClose }) => {
       !email ||
       !cpf ||
       !password ||
-      !confirmPassword
+      !confirmPassword ||
+      !dateBirth
     ) {
+      console.log(dateBirth)
       setError("Todos os campos são obrigatórios");
       return;
     }
@@ -86,32 +98,52 @@ const RegisterModal = ({ open, onClose }) => {
     // Limpar a mensagem de erro
     setError("");
 
-    // Verificar se as senhas coincidem
+    // // Verificar se as senhas coincidem
     if (password !== confirmPassword) {
       setError("As senhas não coincidem");
       return;
     }
+
+    setLoading(true)
 
     // Adicionar novo usuário ao JSON de loginData
     const newUser = {
       firstName,
       lastName,
       email,
-      cpf: normalizedCpf,
+      //cpf: normalizedCpf,
       password,
+      dateBirth
     };
 
-    // Adicionar o novo usuário ao JSON de loginData
-    addUserToLoginData(newUser);
+    try {
+      // Fazer a solicitação POST com Axios
+      const response = await api.post('/api/Users', newUser);
+      onResponse({ response: 'success' })
 
-    // Fechar o modal
-    onClose();
+      setTimeout(() => {
+        onClose();
+      }, 2000);
+      // Fechar o modal
+
+    } catch (error) {
+      onResponse({ response: 'error' })
+      //setError("Erro ao fazer Cadastrar");
+    } finally {
+      setLoading(false)
+    }
+
   };
 
   const handleClose = () => {
     setError("");
     onClose();
   };
+
+  function handleDate(value) {
+    //const formattedDate = value ? dayjs(value).format() : "";
+    //setDateBirth(formattedDate)
+  }
 
   return (
     <Modal open={open} onClose={handleClose}>
@@ -132,6 +164,19 @@ const RegisterModal = ({ open, onClose }) => {
           onChange={(e) => setLastName(e.target.value)}
           fullWidth
           margin="normal"
+        />
+
+        <DatePicker
+          label="Data de Nascimento"
+          value={dateBirth ? dayjs(dateBirth) : null}
+          fullWidth
+          sx={{ width: '100%', margin: "10px 0" }}
+          onChange={(newValue) => {
+            setDateBirth(newValue ? newValue.toISOString() : null);
+          }}
+          renderInput={(params) => <TextField {...params} />}
+          disableFuture
+          minDate={dayjs('1920-01-01')}
         />
         <TextField
           label="Email"
@@ -184,9 +229,11 @@ const RegisterModal = ({ open, onClose }) => {
           fullWidth
           sx={{ mt: 2 }}
         >
-          Cadastrar
+          {isLoading ? 'Carregando...' : 'Cadastrar'}
         </Button>
+        <ToastContainer />
       </Box>
+
     </Modal>
   );
 };

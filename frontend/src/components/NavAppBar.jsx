@@ -16,6 +16,11 @@ import { useNavigate } from "react-router-dom";
 import LoginModal from "../components/LoginModal";
 import ForgotPasswordModal from "../components/ForgotPasswordModal";
 import RegisterModal from "../components/RegisterModal";
+import { AccountCircleRounded as AccountCircleRoundedIcon, Logout as LogoutIcon } from "@mui/icons-material";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const logoStyle = {
   width: "140px",
@@ -28,11 +33,20 @@ function NavAppBar({ mode, toggleColorMode }) {
   const [loginOpen, setLoginOpen] = React.useState(false);
   const [forgotPasswordOpen, setForgotPasswordOpen] = React.useState(false);
   const [registerOpen, setRegisterOpen] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+  React.useEffect(() => {
+    const user = localStorage.getItem('user');
+    if (user) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const sectionElement = document.getElementById(sectionId);
@@ -63,6 +77,39 @@ function NavAppBar({ mode, toggleColorMode }) {
 
   const handleRegisterOpen = () => setRegisterOpen(true);
   const handleRegisterClose = () => setRegisterOpen(false);
+
+  const handleLoginSuccess = (user) => {
+    setIsLoggedIn(true);
+    localStorage.setItem('user', JSON.stringify(user)); // Salva o usuário no localStorage
+  };
+
+  const handleResponse = (response) => {
+    if (response.response == 'success') {
+      toast.success('Usuário cadastrado com sucesso', {
+        autoClose: 1500
+      });
+    }
+    if (response.response == 'error') {
+      toast.error('Ocorreu um erro!', {
+        autoClose: 1500
+      });
+    }
+  };
+
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('user');
+    setAnchorEl(null);
+  };
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div>
@@ -168,26 +215,50 @@ function NavAppBar({ mode, toggleColorMode }) {
               }}
             >
               <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-              <Button
-                color="primary"
-                variant="text"
-                size="small"
-                component="a"
-                target="_blank"
-                onClick={handleLoginOpen}
-              >
-                Login
-              </Button>
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                component="a"
-                target="_blank"
-                onClick={handleRegisterOpen}
-              >
-                Cadastre-se
-              </Button>
+              {isLoggedIn ? (
+                <>
+                  <IconButton
+                    edge="end"
+                    color="inherit"
+                    aria-controls="user-menu"
+                    aria-haspopup="true"
+                    onClick={handleMenuOpen}
+                  >
+                    <AccountCircleRoundedIcon sx={{ color: "#1976d2" }} />
+                  </IconButton>
+                  <Menu
+                    id="user-menu"
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleMenuClose}
+                  >
+                    <MenuItem onClick={handleLogout}><LogoutIcon sx={{ marginRight: "8px" }} /> Sair</MenuItem>
+                  </Menu>
+                </>
+              ) : (
+                <>
+                  <Button
+                    color="primary"
+                    variant="text"
+                    size="small"
+                    component="a"
+                    target="_blank"
+                    onClick={handleLoginOpen}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="small"
+                    component="a"
+                    target="_blank"
+                    onClick={handleRegisterOpen}
+                  >
+                    Cadastre-se
+                  </Button>
+                </>
+              )}
             </Box>
             <Box sx={{ display: { sm: "", md: "none" } }}>
               <Button
@@ -270,15 +341,20 @@ function NavAppBar({ mode, toggleColorMode }) {
         open={loginOpen}
         onClose={handleLoginClose}
         onForgotPasswordClick={handleForgotPasswordOpen}
+        onLoginSuccess={handleLoginSuccess}
       />
       <ForgotPasswordModal
         open={forgotPasswordOpen}
         onClose={handleForgotPasswordClose}
+
       />
       <RegisterModal
         open={registerOpen} // Passa o estado de abertura do modal de cadastro
-        onClose={handleRegisterClose} // Passa o manipulador de eventos para fechar o modal de cadastro
+        onClose={handleRegisterClose}
+        onResponse={handleResponse}
+      // Passa o manipulador de eventos para fechar o modal de cadastro
       />
+      <ToastContainer />
     </div>
   );
 }
