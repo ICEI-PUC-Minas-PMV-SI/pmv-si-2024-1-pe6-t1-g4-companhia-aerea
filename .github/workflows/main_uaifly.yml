@@ -39,21 +39,20 @@ jobs:
         working-directory: ./frontend
 
       - name: Create artifacts directory
-        run: mkdir -p artifacts
+        run: mkdir artifacts
 
       - name: Create zip for artifact
-        run: |
-          tar -czf ./artifacts/frontend.tar.gz -C ./frontend .
+        run: tar -czf artifacts/frontend.tar.gz -C frontend .
         shell: bash
 
       - name: List files after creating artifact
-        run: ls -la artifacts
+        run: Get-ChildItem -Force artifacts
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4  # Atualizado para v4
         with:
           name: node-app
-          path: ./artifacts/frontend.tar.gz
+          path: artifacts/frontend.tar.gz
 
   deploy:
     runs-on: ubuntu-latest
@@ -67,21 +66,21 @@ jobs:
         uses: actions/download-artifact@v4  # Atualizado para v4
         with:
           name: node-app
-          path: ./artifacts  # Adicionado path para especificar onde baixar o artefato
+          path: artifacts
 
       - name: List files for debugging
         run: ls -la
 
       - name: List files in artifacts directory for debugging
-        run: ls -la ./artifacts
+        run: ls -la artifacts
 
       - name: Verify artifact presence
-        run: test -f ./artifacts/frontend.tar.gz || { echo "Artifact not found"; exit 1; }
+        run: test -f artifacts/frontend.tar.gz || { echo "Artifact not found"; exit 1; }
 
       - name: Unzip artifact
         run: |
           mkdir -p frontend
-          tar -xzf ./artifacts/frontend.tar.gz -C ./frontend
+          tar -xzf artifacts/frontend.tar.gz -C frontend
         shell: bash
 
       - name: 'Login to Azure'
@@ -95,5 +94,5 @@ jobs:
         with:
           app-name: 'uaifly'
           slot-name: 'production'
-          package: ./frontend
+          package: frontend
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_855151956ffd48898ed8ac90c7324da7 }}
