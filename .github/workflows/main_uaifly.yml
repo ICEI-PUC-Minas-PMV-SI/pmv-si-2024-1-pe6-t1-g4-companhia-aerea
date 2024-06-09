@@ -3,7 +3,7 @@ name: Build and deploy Node.js app to Azure Web App - uaifly
 on:
   push:
     branches:
-      - main
+      - feature/finish-tests
   workflow_dispatch:
 
 jobs:
