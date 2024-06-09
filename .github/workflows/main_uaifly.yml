@@ -50,7 +50,7 @@ jobs:
           path: ./artifacts/frontend.zip
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'production'
@@ -61,6 +61,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+
+      - name: List files for debugging
+        run: ls -l ./artifacts
+
+      - name: Verify artifact presence
+        run: test -f ./artifacts/frontend.zip
 
       - name: Unzip artifact
         run: unzip -o ./artifacts/frontend.zip -d ./frontend
