@@ -13,6 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
@@ -30,11 +38,16 @@ jobs:
         run: npm run test --if-present
         working-directory: ./frontend
 
+      - name: Create zip for artifact
+        run: |
+          mkdir -p artifacts
+          powershell Compress-Archive -Path ./frontend/* -DestinationPath ./artifacts/frontend.zip
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: ./frontend
+          path: ./artifacts/frontend.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,12 +55,20 @@ jobs:
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: node-app
+
+      - name: Unzip artifact
+        run: unzip -o ./artifacts/frontend.zip -d ./frontend
+
+      - name: 'Login to Azure'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -57,4 +78,3 @@ jobs:
           slot-name: 'production'
           package: ./frontend
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_855151956ffd48898ed8ac90c7324da7 }}
-
