@@ -21,7 +21,9 @@ function FormTravel() {
   const [returnDate, setReturnDate] = useState();
   const [flightSearch, setFlightSearch] = useState({
     from: "",
+    fromIataCode: "",
     to: "",
+    toIataCode: "",
     departure: "",
     return: "",
   });
@@ -34,17 +36,18 @@ function FormTravel() {
   const navigate = useNavigate();
 
   const identifierToKeyMap = {
-    from: "from",
-    to: "to",
+    from: ["from", "fromIataCode"],
+    to: ["to", "toIataCode"],
     departure: "departure",
     return: "return",
   };
 
   function handleOptionSelected(option, identifier) {
-    const key = identifierToKeyMap[identifier];
+    const [cityKey, iataKey] = identifierToKeyMap[identifier];
     setFlightSearch((prevState) => ({
       ...prevState,
-      [key]: option ? option.city : "",
+      [cityKey]: option ? option.city : "",
+      [iataKey]: option ? option.iata : "",
     }));
   }
 
@@ -102,17 +105,17 @@ function FormTravel() {
       <Box sx={{ display: "flex" }}>
         <AsyncComboBox
           label="Origem"
+          identifier="from"
           onOptionSelected={(option, identifier) =>
             handleOptionSelected(option, identifier)
           }
-          identifier="from"
         />
         <AsyncComboBox
           label="Destino"
+          identifier="to"
           onOptionSelected={(option, identifier) =>
             handleOptionSelected(option, identifier)
           }
-          identifier="to"
         />
         <DatePicker
           sx={{ marginRight: "1rem" }}

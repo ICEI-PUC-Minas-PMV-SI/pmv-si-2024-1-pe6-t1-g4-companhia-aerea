@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import PropTypes from "prop-types";
-import loginData from "../data/loginData.json";
 import api from "../axios/axiosConfig";
 
 const style = {

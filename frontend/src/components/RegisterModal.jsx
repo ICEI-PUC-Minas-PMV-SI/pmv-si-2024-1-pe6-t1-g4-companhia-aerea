@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import dayjs from "dayjs";
 import api from "../axios/axiosConfig";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "25%",
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  borderRadius: 2,
 };
 
-const RegisterModal = ({ open, onClose, onResponse }) => {
+const RegisterModal = ({ open, onClose }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,10 +27,19 @@ const RegisterModal = ({ open, onClose, onResponse }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [typeToast, setTypeToast] = useState('success');
 
-
+  useEffect(() => {
+    let timer;
+    if (showToast) {
+      timer = setTimeout(() => {
+        handleClose();
+      }, 2000);
+    }
+    return () => clearTimeout(timer);
+  }, [showToast]);
 
   useEffect(() => {
     if (open) {
@@ -43,22 +52,11 @@ const RegisterModal = ({ open, onClose, onResponse }) => {
       setPassword("");
       setConfirmPassword("");
       setError("");
-      setSuccessMessage(""); // Limpar a mensagem de sucesso ao abrir o modal
+      setTypeToast('success')
+      setShowToast(false);
     }
   }, [open]);
 
-  const addUserToLoginData = (newUser) => {
-    // Atualizar o JSON de loginData no localStorage
-    const existingData = JSON.parse(localStorage.getItem("loginData")) || [];
-    const updatedData = [...existingData, newUser];
-    localStorage.setItem("loginData", JSON.stringify(updatedData));
-
-    console.log("Novo usuário adicionado:", newUser);
-    setSuccessMessage("Usuário cadastrado com sucesso");
-
-    // Exibir um alerta quando os dados forem salvos com sucesso
-    alert("Dados cadastrados com sucesso!");
-  };
 
   const handleRegister = async () => {
     // Validar campos obrigatórios
@@ -71,7 +69,6 @@ const RegisterModal = ({ open, onClose, onResponse }) => {
       !confirmPassword ||
       !dateBirth
     ) {
-      console.log(dateBirth)
       setError("Todos os campos são obrigatórios");
       return;
     }
@@ -119,16 +116,12 @@ const RegisterModal = ({ open, onClose, onResponse }) => {
     try {
       // Fazer a solicitação POST com Axios
       const response = await api.post('/api/Users', newUser);
-      onResponse({ response: 'success' })
-
-      setTimeout(() => {
-        onClose();
-      }, 2000);
-      // Fechar o modal
+      setTypeToast('success')
+      setShowToast(true)
 
     } catch (error) {
-      onResponse({ response: 'error' })
-      //setError("Erro ao fazer Cadastrar");
+      setTypeToast('error')
+      setShowToast(true)
     } finally {
       setLoading(false)
     }
@@ -137,102 +130,109 @@ const RegisterModal = ({ open, onClose, onResponse }) => {
 
   const handleClose = () => {
     setError("");
+    setTypeToast('success')
+    setShowToast(false);
     onClose();
   };
-
-  function handleDate(value) {
-    //const formattedDate = value ? dayjs(value).format() : "";
-    //setDateBirth(formattedDate)
-  }
 
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={{ ...style }}>
-        <Typography variant="h6" gutterBottom>
-          Cadastro
-        </Typography>
-        <TextField
-          label="Nome"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Sobrenome"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
+        {showToast ? (
+          <Box sx={{ textAlign: "center" }}>
+            {typeToast == 'success' ?
+              <CheckCircleOutlineIcon color="success" sx={{ fontSize: 40 }} />
+              : <ErrorOutlineOutlinedIcon color="error" sx={{ fontSize: 40 }} />}
+            <Typography variant="h6">
+              {typeToast == 'success' ? 'Usuário Cadastrado com sucesso'
+                : 'Falha ao cadastrar Usuário'}
+            </Typography>
+          </Box>
+        ) : (
+          <Box>
+            <Typography variant="h6" gutterBottom>
+              Cadastro
+            </Typography>
+            <TextField
+              label="Nome"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Sobrenome"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
 
-        <DatePicker
-          label="Data de Nascimento"
-          value={dateBirth ? dayjs(dateBirth) : null}
-          fullWidth
-          sx={{ width: '100%', margin: "10px 0" }}
-          onChange={(newValue) => {
-            setDateBirth(newValue ? newValue.toISOString() : null);
-          }}
-          renderInput={(params) => <TextField {...params} />}
-          disableFuture
-          minDate={dayjs('1920-01-01')}
-        />
-        <TextField
-          label="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="CPF"
-          value={cpf}
-          onChange={(e) => setCpf(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Senha"
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setError(""); // Limpar o erro ao editar a senha
-          }}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Confirme a senha"
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => {
-            setConfirmPassword(e.target.value);
-            setError(""); // Limpar o erro ao editar a senha
-          }}
-          fullWidth
-          margin="normal"
-        />
-        {/* Exibir a mensagem de sucesso se estiver definida */}
-        {successMessage && (
-          <Typography color="success">
-            "Usuário cadastrado com sucesso"
-          </Typography>
+            <DatePicker
+              label="Data de Nascimento"
+              value={dateBirth ? dayjs(dateBirth) : null}
+              fullWidth
+              sx={{ width: '100%', margin: "10px 0" }}
+              onChange={(newValue) => {
+                setDateBirth(newValue ? newValue.toISOString() : null);
+              }}
+              renderInput={(params) => <TextField {...params} />}
+              disableFuture
+              minDate={dayjs('1920-01-01')}
+            />
+            <TextField
+              label="Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="CPF"
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Senha"
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError(""); // Limpar o erro ao editar a senha
+              }}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Confirme a senha"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                setError(""); // Limpar o erro ao editar a senha
+              }}
+              fullWidth
+              margin="normal"
+            />
+            {error && <Typography color="error">{error}</Typography>}
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleRegister}
+              fullWidth
+              sx={{ mt: 2 }}
+            >
+              {isLoading ? 'Carregando...' : 'Cadastrar'}
+            </Button>
+          </Box>
+
         )}
-        {error && <Typography color="error">{error}</Typography>}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleRegister}
-          fullWidth
-          sx={{ mt: 2 }}
-        >
-          {isLoading ? 'Carregando...' : 'Cadastrar'}
-        </Button>
-        <ToastContainer />
       </Box>
+
+
 
     </Modal>
   );

@@ -117,6 +117,8 @@ namespace application.Controllers
             }
             try
             {
+                model.DepeartureDate = model.DepeartureDate.Date;
+                model.ReturnDate = model.ReturnDate.HasValue ? model.ReturnDate.Value.Date : null;
                 return Ok(await _flightService.SearchFlights(model));
             }
             catch (ArgumentException e)

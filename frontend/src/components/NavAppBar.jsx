@@ -351,7 +351,6 @@ function NavAppBar({ mode, toggleColorMode }) {
       <RegisterModal
         open={registerOpen} // Passa o estado de abertura do modal de cadastro
         onClose={handleRegisterClose}
-        onResponse={handleResponse}
       // Passa o manipulador de eventos para fechar o modal de cadastro
       />
       <ToastContainer />
