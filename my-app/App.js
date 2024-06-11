@@ -7,7 +7,7 @@ export default function App() {
     <>
       <View style={styles.container}>
     </View>
-    <WebView source={{ uri: 'https://heartfelt-lamington-768674.netlify.app/' }}  />
+    <WebView source={{ uri: 'https://6668a212d350b42643460cd4--statuesque-biscuit-064fe0.netlify.app/' }}  />
     </>
   
   );
