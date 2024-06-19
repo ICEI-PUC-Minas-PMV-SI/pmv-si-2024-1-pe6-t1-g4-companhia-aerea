@@ -316,7 +316,7 @@ function SelectionFlightPage() {
     >
 
       <Box sx={{ pb: { xs: 6, sm: 8 } }}>
-        <Card sx={{ minWidth: 800, padding: 3 }}>
+        <Card sx={{ width:'100%', padding: 3 }}>
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}
