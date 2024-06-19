@@ -14,8 +14,21 @@ function HomePage() {
           theme.palette.mode === "light"
             ? "linear-gradient(180deg, #CEE5FD, #FFF)"
             : `linear-gradient(#02294F, ${alpha("#090E10", 0.0)})`,
-        backgroundSize: "100% 20%",
+        backgroundSize: { xs: "100% 40%", // Adjusted for extra small screens
+          sm: "100% 30%", // Adjusted for small screens
+          md: "100% 25%", // Adjusted for medium screens
+          lg: "100% 20%", // Adjusted for large screens
+          },
         backgroundRepeat: "no-repeat",
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 600,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+          },
+        }
       })}
     >
       <Container
@@ -23,8 +36,10 @@ function HomePage() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
+          pt: { xs: 14, sm: 20, md: 25, lg: 30 }, // Adjusted for different screen sizes
+          pb: { xs: 8, sm: 12, md: 16, lg: 20 }, // Adjusted for different screen sizes
+          pl: { xs: 2, sm: 4, md: 6, lg: 8 }, // Padding-left for different screen sizes
+          pr: { xs: 2, sm: 4, md: 6, lg: 8 },
         }}
       >
         <FormTravel />

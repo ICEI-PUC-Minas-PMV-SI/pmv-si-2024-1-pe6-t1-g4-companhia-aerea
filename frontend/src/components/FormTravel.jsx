@@ -100,117 +100,72 @@ function FormTravel() {
   }
 
   return (
-    <Card sx={{ minWidth: 800, padding: 3 }} variant="outlined">
+    <Card sx={{ padding: 2, gap: 2, width: { xs: '100%' }, mx: 'auto' }} variant="outlined">
       <CardHeader title="Olá, vamos voar?" />
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
         <AsyncComboBox
           label="Origem"
           identifier="from"
-          onOptionSelected={(option, identifier) =>
-            handleOptionSelected(option, identifier)
-          }
+          onOptionSelected={(option, identifier) => handleOptionSelected(option, identifier)}
         />
         <AsyncComboBox
           label="Destino"
           identifier="to"
-          onOptionSelected={(option, identifier) =>
-            handleOptionSelected(option, identifier)
-          }
+          onOptionSelected={(option, identifier) => handleOptionSelected(option, identifier)}
         />
         <DatePicker
-          sx={{ marginRight: "1rem" }}
+          sx={{ flexGrow: 1 }}
           label="Ida"
           inputFormat="dd/MM/yyyy"
           value={departureDate}
-          onChange={(value) => handleDate("departure", value)}
+          onChange={(value) => handleDate('departure', value)}
         />
         <DatePicker
-          sx={{ marginRight: "1rem" }}
+          sx={{ flexGrow: 1 }}
           label="Volta"
           value={returnDate}
-          onChange={(value) => handleDate("return", value)}
+          onChange={(value) => handleDate('return', value)}
         />
       </Box>
       <Box sx={{ padding: 3 }}>
         <Box>
           <Typography variant="subtitle1">Viajantes</Typography>
         </Box>
-        <Box sx={{ display: "flex" }}>
-          <Box>
-            <Box sx={{ display: "flex", alignItems: "center", pr: 1 }}>
-              <Typography>Adulto</Typography>
-              <IconButton
-                color="primary"
-                disabled={travelers.adult === 0}
-                onClick={() => handleTravelers("decrease", "adult")}
-              >
-                <RemoveCircleOutlineOutlinedIcon />
-              </IconButton>
-              {travelers.adult}
-              <IconButton
-                onClick={() => handleTravelers("increase", "adult")}
-                color="primary"
-              >
-                <AddCircleOutlineOutlinedIcon />
-              </IconButton>
-              <Divider orientation="vertical" variant="middle" flexItem />
-            </Box>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography>Adulto</Typography>
+            <IconButton color="primary" disabled={travelers.adult === 0} onClick={() => handleTravelers('decrease', 'adult')}>
+              <RemoveCircleOutlineOutlinedIcon />
+            </IconButton>
+            {travelers.adult}
+            <IconButton onClick={() => handleTravelers('increase', 'adult')} color="primary">
+              <AddCircleOutlineOutlinedIcon />
+            </IconButton>
           </Box>
-          <Box>
-            <Box sx={{ display: "flex", alignItems: "center", pr: 1 }}>
-              <Typography>Criança</Typography>
-              <IconButton
-                color="primary"
-                disabled={travelers.child === 0}
-                onClick={() => handleTravelers("decrease", "child")}
-              >
-                <RemoveCircleOutlineOutlinedIcon />
-              </IconButton>
-              {travelers.child}
-              <IconButton
-                onClick={() => handleTravelers("increase", "child")}
-                color="primary"
-              >
-                <AddCircleOutlineOutlinedIcon />
-              </IconButton>
-              <Divider orientation="vertical" variant="middle" flexItem />
-            </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography>Criança</Typography>
+            <IconButton color="primary" disabled={travelers.child === 0} onClick={() => handleTravelers('decrease', 'child')}>
+              <RemoveCircleOutlineOutlinedIcon />
+            </IconButton>
+            {travelers.child}
+            <IconButton onClick={() => handleTravelers('increase', 'child')} color="primary">
+              <AddCircleOutlineOutlinedIcon />
+            </IconButton>
           </Box>
-          <Box>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Typography>Bebê</Typography>
-              <IconButton
-                color="primary"
-                disabled={travelers.baby === 0}
-                onClick={() => handleTravelers("decrease", "baby")}
-              >
-                <RemoveCircleOutlineOutlinedIcon />
-              </IconButton>
-              {travelers.baby}
-              <IconButton
-                onClick={() => handleTravelers("increase", "baby")}
-                color="primary"
-              >
-                <AddCircleOutlineOutlinedIcon />
-              </IconButton>
-            </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography>Bebê</Typography>
+            <IconButton color="primary" disabled={travelers.baby === 0} onClick={() => handleTravelers('decrease', 'baby')}>
+              <RemoveCircleOutlineOutlinedIcon />
+            </IconButton>
+            {travelers.baby}
+            <IconButton onClick={() => handleTravelers('increase', 'baby')} color="primary">
+              <AddCircleOutlineOutlinedIcon />
+            </IconButton>
           </Box>
         </Box>
       </Box>
-      <Box
-        sx={{
-          mt: "1rem",
-          mr: "1rem",
-          display: "flex",
-          flexDirection: "row-reverse",
-        }}
-      >
-        <Button
-          variant="contained"
-          endIcon={<CheckIcon />}
-          disabled={isInvalid}
-          onClick={handleClick}
-        >
+      <Box sx={{ mt: '1rem', display: 'flex', justifyContent: 'center' }}>
+        <Button variant="contained" endIcon={<CheckIcon />} disabled={isInvalid} onClick={handleClick}>
           Confirmar
         </Button>
       </Box>
