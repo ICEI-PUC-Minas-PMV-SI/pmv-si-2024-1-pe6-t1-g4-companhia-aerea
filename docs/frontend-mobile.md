@@ -50,8 +50,24 @@ Os wireframes das páginas principais mostrarão a disposição dos elementos:
 - **Tela de Login**: Tela inicial onde o usuário faz login ou se registra.
 - **Tela de Voos disponíveis**: Lista de voos disponíveis.
 - **Tela de Detalhes do Voo**: Informações detalhadas sobre o voo selecionado.
-- **Tela de Reserva**: Formulário para inserção de dados de reserva.
-- **Tela de Busca de reservas**: Informaçoes de uma reserva buscada por seu código ou origem.
+- **Tela de Reservas**: Reservas ativas e concluídas.
+
+<img src="img/primeira-tela.png"><br>
+<strong>primeira tela</strong><br>
+<img src="img/tela-login.png"><br>
+<strong>tela de login</strong><br>
+<img src="img/tela-registro.png"><br>
+<strong>tela de registro</strong><br>
+<img src="img/tela-inicial.png"><br>
+<strong>tela inicial</strong><br>
+<img src="img/tela-pesquisa-voos.png"><br>
+<strong>tela de pesquisa de voos</strong><br>
+<img src="img/tela-voo-selecionado.png"><br>
+<strong>tela de detalhes do voo escolhido</strong><br>
+<img src="img/tela-reservas.png"><br>
+<strong>tela de reservas</strong><br>
+<img src="img/tela-detalhe-voo.png"><br>
+<strong>tela de detalhes do voo</strong><br>
 
 
 ### Design Visual
