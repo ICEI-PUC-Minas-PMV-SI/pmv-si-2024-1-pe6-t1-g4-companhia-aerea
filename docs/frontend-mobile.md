@@ -53,19 +53,19 @@ Os wireframes das páginas principais mostrarão a disposição dos elementos:
 - **Tela de Reservas**: Reservas ativas e concluídas.
 
 <img src="img/primeira-tela.png"><br>
-<strong>primeira tela</strong><br>
+<strong>primeira tela</strong><br><br>
 <img src="img/tela-login.png"><br>
-<strong>tela de login</strong><br>
+<strong>tela de login</strong><br><br>
 <img src="img/tela-registro.png"><br>
-<strong>tela de registro</strong><br>
+<strong>tela de registro</strong><br><br>
 <img src="img/tela-inicial.png"><br>
-<strong>tela inicial</strong><br>
+<strong>tela inicial</strong><br><br>
 <img src="img/tela-pesquisa-voos.png"><br>
-<strong>tela de pesquisa de voos</strong><br>
+<strong>tela de pesquisa de voos</strong><br><br>
 <img src="img/tela-voo-selecionado.png"><br>
-<strong>tela de detalhes do voo escolhido</strong><br>
+<strong>tela de detalhes do voo escolhido</strong><br><br>
 <img src="img/tela-reservas.png"><br>
-<strong>tela de reservas</strong><br>
+<strong>tela de reservas</strong><br><br>
 <img src="img/tela-detalhe-voo.png"><br>
 <strong>tela de detalhes do voo</strong><br>
 
