@@ -51,23 +51,26 @@ Os wireframes das páginas principais mostrarão a disposição dos elementos:
 - **Tela de Voos disponíveis**: Lista de voos disponíveis.
 - **Tela de Detalhes do Voo**: Informações detalhadas sobre o voo selecionado.
 - **Tela de Reservas**: Reservas ativas e concluídas.
+- **Tela de configurações**: Configurações do perfil do usuário
 
 <img src="img/primeira-tela.png"><br>
 <strong>primeira tela</strong><br><br>
-<img src="img/tela-login.png"><br>
+<img src="img/tela-login.jpeg"><br>
 <strong>tela de login</strong><br><br>
-<img src="img/tela-registro.png"><br>
+<img src="img/tela-registro.jpeg"><br>
 <strong>tela de registro</strong><br><br>
-<img src="img/tela-inicial.png"><br>
+<img src="img/tela-inicial.jpeg"><br>
 <strong>tela inicial</strong><br><br>
-<img src="img/tela-pesquisa-voos.png"><br>
+<img src="img/tela-pesquisa-voos.jpeg"><br>
 <strong>tela de pesquisa de voos</strong><br><br>
-<img src="img/tela-voo-selecionado.png"><br>
+<img src="img/tela-voo-selecionado.jpeg"><br>
 <strong>tela de detalhes do voo escolhido</strong><br><br>
-<img src="img/tela-reservas.png"><br>
+<img src="img/tela-reservas.jpeg"><br>
 <strong>tela de reservas</strong><br><br>
-<img src="img/tela-detalhe-voo.png"><br>
+<img src="img/tela-detalhe-voo.jpeg"><br>
 <strong>tela de detalhes do voo</strong><br>
+<img src="img/tela-configuracoes.jpeg"><br>
+<strong>tela de configuraçoes</strong><br>
 
 
 ### Design Visual
