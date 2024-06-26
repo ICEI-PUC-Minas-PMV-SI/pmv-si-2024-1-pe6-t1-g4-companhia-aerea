@@ -63,6 +63,8 @@ Os wireframes das páginas principais mostrarão a disposição dos elementos:
 <strong>tela inicial</strong><br><br>
 <img src="img/tela-pesquisa-voos.jpeg"><br>
 <strong>tela de pesquisa de voos</strong><br><br>
+<img src="img/tela-voos-disponiveis.jpeg"><br>
+<strong>tela de voos disponíveis</strong><br><br>
 <img src="img/tela-voo-selecionado.jpeg"><br>
 <strong>tela de detalhes do voo escolhido</strong><br><br>
 <img src="img/tela-reservas.jpeg"><br>
