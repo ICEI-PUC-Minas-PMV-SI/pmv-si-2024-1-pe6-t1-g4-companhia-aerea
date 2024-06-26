@@ -53,7 +53,7 @@ Os wireframes das páginas principais mostrarão a disposição dos elementos:
 - **Tela de Reservas**: Reservas ativas e concluídas.
 - **Tela de configurações**: Configurações do perfil do usuário
 
-<img src="img/primeira-tela.png"><br>
+<img src="img/primeira-tela.jpeg"><br>
 <strong>primeira tela</strong><br><br>
 <img src="img/tela-login.jpeg"><br>
 <strong>tela de login</strong><br><br>
